@@ -119,7 +119,7 @@ export default function Gallery() {
               </div>
 
               <div className="preview-features">
-                <h3>What's Coming</h3>
+                <h3>What&rsquo;s Coming</h3>
                 <div className="preview-grid">
                   <div className="preview-item">
                     <span className="preview-icon">🎭</span>

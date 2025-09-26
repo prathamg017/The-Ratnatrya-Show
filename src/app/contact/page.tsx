@@ -127,7 +127,7 @@ export default function Contact() {
             <span className="title-icon">📞</span>
             Connect With Us
           </h1>
-          <p className="page-subtitle">We're here to help with all your inquiries</p>
+          <p className="page-subtitle">We&rsquo;re here to help with all your inquiries</p>
         </div>
       </section>
 
@@ -140,7 +140,7 @@ export default function Contact() {
               <h3 className="section-title">Get in Touch</h3>
               <p className="contact-intro">
                 Have questions about our shows, need assistance with bookings, or want to know more about Ratnatray?
-                We're here to help you every step of the way.
+                We&rsquo;re here to help you every step of the way.
               </p>
 
               <div className="contact-methods">
@@ -201,7 +201,7 @@ export default function Contact() {
               <div className="form-container">
                 <h3 className="form-title">Send Us a Message</h3>
                 <p className="form-subtitle">
-                  Fill out the form below and we'll get back to you as soon as possible.
+                  Fill out the form below and we&rsquo;ll get back to you as soon as possible.
                 </p>
 
                 <form onSubmit={handleSubmit} className="contact-form">
@@ -312,7 +312,7 @@ export default function Contact() {
               <div className="info-card">
                 <div className="info-icon">🤝</div>
                 <h4>Partnerships</h4>
-                <p>Interested in partnering with Ratnatray? Let's discuss collaboration opportunities.</p>
+                <p>Interested in partnering with Ratnatray? Let&rsquo;s discuss collaboration opportunities.</p>
               </div>
             </div>
           </div>

@@ -12,7 +12,7 @@ export default function Home() {
     shows: false,
     contact: false
   });
-  const [scrollY, setScrollY] = useState(0);
+  const [, setScrollY] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [useVideoBackground, setUseVideoBackground] = useState(false);
 
@@ -381,7 +381,7 @@ export default function Home() {
                     <span className="highlight-tag">Compassionate Living</span>
                   </div>
                   <p className="visionary-quote">
-                    "Dedicated to timeless values, embodying a rare and inspiring personality"
+                    &ldquo;Dedicated to timeless values, embodying a rare and inspiring personality&rdquo;
                   </p>
                 </div>
               </div>

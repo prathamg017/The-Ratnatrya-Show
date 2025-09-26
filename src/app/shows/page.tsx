@@ -348,7 +348,7 @@ export default function Shows() {
 
           {/* Call to Action */}
           <div className="shows-cta">
-            <h3>Don't Miss This Spiritual Journey</h3>
+            <h3>Don&rsquo;t Miss This Spiritual Journey</h3>
             <p>Secure your seats for an unforgettable experience that will touch your heart and elevate your spirit</p>
             <div className="cta-buttons">
               <Link href="#book" className="cta-button primary">

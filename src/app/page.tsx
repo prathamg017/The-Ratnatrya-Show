@@ -288,7 +288,9 @@ export default function Home() {
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">
-              <span className="title-icon">🏛️</span>
+              <span className="title-icon diamond-cluster">
+                <span className="diamond diamond-red">∴</span>
+              </span>
               About Ratnatray
             </h2>
             <div className="title-underline"></div>
@@ -445,7 +447,7 @@ export default function Home() {
           {/* Mission Statement */}
           <div className="mission-statement">
             <div className="mission-content">
-              <div className="mission-icon">🕉️</div>
+              
               <h3>A Platform for Jinshasan Promotion</h3>
               <p>
                 At its heart, <strong>Ratnatray</strong> is a unique platform where speech, music, and dance
@@ -697,7 +699,6 @@ export default function Home() {
               <p>Experience the magic of Ratnatray – where culture meets spirituality</p>
               <div className="booking-buttons">
                 <Link href="#book" className="btn-primary">🎟️ Book Your Tickets</Link>
-                <Link href="/" className="btn-outline">📞 Contact Us</Link>
               </div>
             </div>
             <div className="contact-info">
@@ -766,7 +767,7 @@ export default function Home() {
                   </div>
                   <div className="partner-item-logo">
                     <Image
-                      src="/logo.png"
+                      src="/apnajainism.JPEG"
                       alt="Apna Jainism Logo"
                       width={40}
                       height={40}
@@ -787,10 +788,10 @@ export default function Home() {
           <div className="footer-credits">
             <div className="production-house">
               <Image
-                src="/nirgranth.png"
+                src="/nirgranth1.png"
                 alt="Nirgranth Creations Logo"
-                width={60}
-                height={60}
+                width={80}
+                height={80}
                 className="production-logo"
               />
               <div className="production-text">

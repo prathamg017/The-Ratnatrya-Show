@@ -142,21 +142,13 @@ export default function Home() {
               </div>
 
               <h1 className="hero-title-luxury">
-                <div className="hero-brand-logo">
-                  <Image
-                    src="/logo.png"
-                    alt="Ratnatray Logo"
-                    width={120}
-                    height={120}
-                    className="brand-logo-image"
-                  />
-                </div>
-                <span className="title-hindi-gold">रत्नत्रय</span>
-                <div className="title-ornament">
-                  <span className="ornament-left">◆</span>
-                  <span className="ornament-center">❋</span>
-                  <span className="ornament-right">◆</span>
-                </div>
+                <Image
+                  src="/logo.png"
+                  alt="Ratnatray Logo"
+                  width={220}
+                  height={220}
+                  className="hero-luxury-logo"
+                />
               </h1>
 
               <div className="luxury-subtitle">
@@ -209,16 +201,13 @@ export default function Home() {
               </div>
 
               <h1 className="hero-title">
-                <div className="hero-brand-logo">
-                  <Image
-                    src="/logo.png"
-                    alt="Ratnatray Logo"
-                    width={100}
-                    height={100}
-                    className="brand-logo-image"
-                  />
-                </div>
-                <span className="title-hindi">रत्नत्रय</span>
+                <Image
+                  src="/logo.png"
+                  alt="Ratnatray Logo"
+                  width={250}
+                  height={250}
+                  className="hero-main-logo"
+                />
               </h1>
 
               <div className="hero-subtitle">

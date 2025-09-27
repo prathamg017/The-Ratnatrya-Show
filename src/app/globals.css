@@ -1096,6 +1096,28 @@ p, .hero-description, .hero-description-gold {
 }
 
 /* ===== HERO BRAND LOGO ===== */
+.hero-main-logo {
+  display: block;
+  margin: 0 auto;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.4));
+  transition: var(--transition-smooth);
+  animation: logoFloatGlow 4s ease-in-out infinite;
+}
+
+.hero-luxury-logo {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  background: transparent;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 50px rgba(255, 215, 0, 0.6));
+  transition: var(--transition-smooth);
+  animation: luxuryLogoGlow 4s ease-in-out infinite alternate;
+}
+
 .hero-brand-logo {
   display: flex;
   align-items: center;
@@ -1126,6 +1148,38 @@ p, .hero-description, .hero-description-gold {
   }
   100% {
     box-shadow: var(--shadow-gold), 0 0 50px rgba(212, 175, 55, 0.4);
+  }
+}
+
+@keyframes luxuryLogoGlow {
+  0% {
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 50px rgba(255, 215, 0, 0.6));
+  }
+  100% {
+    filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 80px rgba(255, 215, 0, 0.8));
+  }
+}
+
+@keyframes logoFloatGlow {
+  0% {
+    transform: translateY(0px) scale(1);
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.4));
+  }
+  25% {
+    transform: translateY(-8px) scale(1.02);
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 40px rgba(212, 175, 55, 0.6));
+  }
+  50% {
+    transform: translateY(-12px) scale(1.05);
+    filter: drop-shadow(0 16px 24px rgba(0, 0, 0, 0.5)) drop-shadow(0 0 50px rgba(212, 175, 55, 0.8));
+  }
+  75% {
+    transform: translateY(-8px) scale(1.02);
+    filter: drop-shadow(0 12px 20px rgba(0, 0, 0, 0.4)) drop-shadow(0 0 40px rgba(212, 175, 55, 0.6));
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+    filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3)) drop-shadow(0 0 30px rgba(212, 175, 55, 0.4));
   }
 }
 

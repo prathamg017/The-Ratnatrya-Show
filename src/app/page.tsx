@@ -144,8 +144,8 @@ export default function Home() {
               <Image
                 src="/logo.png"
                 alt="Ratnatray Logo"
-                width={400}
-                height={350}
+                width={300}
+                height={260}
                 className="hero-luxury-logo"
               />
             </h1>

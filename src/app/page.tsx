@@ -14,7 +14,6 @@ export default function Home() {
   });
   const [, setScrollY] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [useVideoBackground, setUseVideoBackground] = useState(false);
 
   useEffect(() => {
     const countdown = () => {
@@ -23,12 +22,13 @@ export default function Home() {
       const distance = nextShow - now;
 
       if (distance > 0) {
-        setTimeLeft({
+        const newTimeLeft = {
           days: Math.floor(distance / (1000 * 60 * 60 * 24)),
           hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
           minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((distance % (1000 * 60)) / 1000)
-        });
+        };
+        setTimeLeft(newTimeLeft);
       } else {
         setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
       }
@@ -37,6 +37,27 @@ export default function Home() {
     countdown();
     const interval = setInterval(countdown, 1000);
     return () => clearInterval(interval);
+  }, []);
+
+  // Slideshow effect
+  useEffect(() => {
+    const slides = document.querySelectorAll('.slideshow-royal .slide');
+    let currentSlide = 0;
+
+    const showSlide = (index: number) => {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    };
+
+    const nextSlide = () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    };
+
+    const slideshowInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+
+    return () => clearInterval(slideshowInterval);
   }, []);
 
   useEffect(() => {
@@ -77,40 +98,19 @@ export default function Home() {
     <div className="landing-page">
 
       {/* Hero Section */}
-      <section id="home" className={`hero-section ${useVideoBackground ? 'video-mode' : 'image-mode'}`}>
+      <section id="home" className="hero-section video-mode">
         {/* Background Elements */}
         <div className="hero-bg">
-          {useVideoBackground ? (
-            <>
-              <video
-                className="hero-bg-video"
-                autoPlay
-                muted
-                loop
-                playsInline
-              >
-                <source src="/intro.mp4" type="video/mp4" />
-              </video>
-              <div className="hero-video-overlay"></div>
-              {/* Golden Sparkle Effects */}
-              <div className="sparkles-container">
-                {[...Array(15)].map((_, i) => (
-                  <div key={i} className={`sparkle sparkle-${i}`}>✨</div>
-                ))}
-              </div>
-            </>
-          ) : (
-            <>
-              <Image
-                src="/bg.png"
-                alt="Ratnatray Background"
-                fill
-                className="hero-bg-image"
-                priority
-              />
-              <div className="hero-overlay"></div>
-            </>
-          )}
+          <video
+            className="hero-bg-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/intro.mp4" type="video/mp4" />
+          </video>
+          <div className="hero-video-overlay"></div>
 
           {/* Floating Particles */}
           <div className="particles">
@@ -134,142 +134,128 @@ export default function Home() {
         </div>
 
         <div className="hero-content">
-          {useVideoBackground ? (
-            /* Video Mode - Golden Luxury Design */
-            <div className="hero-main video-hero">
-              <div className="luxury-badge">
-                <span className="badge-glow">🌟 Premium Spiritual Experience</span>
-              </div>
+          {/* Video Mode - Golden Luxury Design */}
+          <div className="hero-main video-hero">
+            <div className="luxury-badge">
+              <span className="badge-glow">✦ Premium Spiritual Experience</span>
+            </div>
 
-              <h1 className="hero-title-luxury">
-                <Image
-                  src="/logo.png"
-                  alt="Ratnatray Logo"
-                  width={220}
-                  height={220}
-                  className="hero-luxury-logo"
-                />
-              </h1>
+            <h1 className="hero-title-luxury">
+              <Image
+                src="/logo.png"
+                alt="Ratnatray Logo"
+                width={400}
+                height={350}
+                className="hero-luxury-logo"
+              />
+            </h1>
 
-              <div className="luxury-subtitle">
-                <div className="golden-line"></div>
-                <p className="subtitle-gold">The Cultural Reflection of Jinshasan</p>
-                <div className="golden-line"></div>
-              </div>
+            <div className="luxury-subtitle">
+              <div className="golden-line"></div>
+              <p className="subtitle-gold">The Cultural Reflection of Jinshasan</p>
+              <div className="golden-line"></div>
+            </div>
 
-              <p className="hero-description-gold">
-                Witness the magnificence of ancient wisdom through
-                <span className="highlight-gold">spectacular performances</span> that illuminate the soul
-              </p>
+            <p className="hero-description-gold">
+              Witness the magnificence of ancient wisdom through <span className="highlight-gold">spectacular performances</span> that illuminate the soul
+            </p>
 
-              <div className="luxury-features">
-                <div className="feature-item-gold">
-                  <span className="feature-icon">🎭</span>
-                  <span className="feature-text">Live Performances</span>
+            {/* Event Countdown */}
+            <div className="countdown-container hero-countdown">
+              <h3 className="countdown-title">Next Show: AARON M.P.</h3>
+              <div className="countdown-timer">
+                <div className="time-unit">
+                  <span className="time-value">{timeLeft.days}</span>
+                  <span className="time-label">Days</span>
                 </div>
-                <div className="feature-item-gold">
-                  <span className="feature-icon">🎵</span>
-                  <span className="feature-text">Sacred Music</span>
+                <div className="time-unit">
+                  <span className="time-value">{timeLeft.hours}</span>
+                  <span className="time-label">Hours</span>
                 </div>
-                <div className="feature-item-gold">
-                  <span className="feature-icon">💃</span>
-                  <span className="feature-text">Cultural Dance</span>
+                <div className="time-unit">
+                  <span className="time-value">{timeLeft.minutes}</span>
+                  <span className="time-label">Minutes</span>
                 </div>
-                <div className="feature-item-gold">
-                  <span className="feature-icon">🙏</span>
-                  <span className="feature-text">Spiritual Discourse</span>
+                <div className="time-unit">
+                  <span className="time-value">{timeLeft.seconds}</span>
+                  <span className="time-label">Seconds</span>
                 </div>
-              </div>
-
-              <div className="luxury-cta-group">
-                <Link href="#book" className="luxury-cta primary">
-                  <span className="luxury-icon">👑</span>
-                  <span className="luxury-text">Reserve Premium Seats</span>
-                  <span className="luxury-arrow">→</span>
-                </Link>
-                <Link href="/about" className="luxury-cta secondary">
-                  <span className="luxury-icon">✨</span>
-                  <span className="luxury-text">Discover the Experience</span>
-                </Link>
               </div>
             </div>
-          ) : (
-            /* Image Mode - Original Design */
-            <div className="hero-main image-hero">
-              <div className="hero-badge">
-                <span>✨ Live Cultural Experience</span>
-              </div>
 
-              <h1 className="hero-title">
-                <Image
-                  src="/logo.png"
-                  alt="Ratnatray Logo"
-                  width={250}
-                  height={250}
-                  className="hero-main-logo"
-                />
-              </h1>
+            <div className="luxury-cta-group">
+              <Link href="#book" className="luxury-cta primary">
+                <span className="luxury-icon">◆</span>
+                <span className="luxury-text">Reserve Premium Seats</span>
+                <span className="luxury-arrow">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
 
-              <div className="hero-subtitle">
-                <span className="subtitle-line"></span>
-                <p>The Cultural Reflection of Jinshasan</p>
-                <span className="subtitle-line"></span>
-              </div>
 
-              <p className="hero-description">
-                Where ancient wisdom illuminates modern souls through the power of
-                music, movement, and spiritual discourse
-              </p>
+      </section>
 
-              <div className="hero-stats">
-                <div className="stat-item">
-                  <span className="stat-number">Oct 7</span>
-                  <span className="stat-label">Inaugural Show</span>
-                </div>
-                <div className="stat-divider"></div>
-                <div className="stat-item">
-                  <span className="stat-number">First</span>
-                  <span className="stat-label">Grand Launch</span>
-                </div>
-                <div className="stat-divider"></div>
-                <div className="stat-item">
-                  <span className="stat-number">AARON M.P.</span>
-                  <span className="stat-label">Premiere Venue</span>
-                </div>
-              </div>
+      
 
-              <div className="hero-cta-group">
-                <Link href="#book" className="cta-button primary">
-                  <span className="button-text">Book Your Tickets</span>
-                  <span className="button-icon">🎟️</span>
-                </Link>
-                <Link href="/" className="cta-button secondary">
-                  <span className="button-text">Learn More About Us</span>
-                  <span className="button-icon">→</span>
-                </Link>
-              </div>
+      {/* Official Invites Section */}
+      <section className="invites-section">
+        <div className="container">
+          <div className="section-header">
+            <h2 className="section-title">
+              <span className="title-icon">✨</span>
+              Official Invitations
+            </h2>
+            <div className="title-underline"></div>
+          </div>
 
+          <div className="royal-invite-showcase">
+            
+            <div className="invite-display">
               
+              <div className="invitation-frame">
+                <div className="slideshow-royal">
+                  <div className="slide active">
+                    
+                    <Image
+                      src="/invitemain.jpg"
+                      alt="Main Invitation"
+                      width={220}
+                      height={300}
+                      className="royal-image"
+                    />
+                  </div>
+                  <div className="slide">
+                    <Image
+                      src="/creatorpage.jpg"
+                      alt="Creator Page"
+                      width={220}
+                      height={300}
+                      className="royal-image"
+                    />
+                  </div>
+                  <div className="slide">
+                    <Image
+                      src="/invitecontent.jpeg"
+                      alt="Event Details"
+                      width={220}
+                      height={300}
+                      className="royal-image"
+                    />
+                  </div>
+                </div>
+              </div>
+
             </div>
-          )}
 
+            {/* Invitation CTA Button */}
+            <div className="invitation-cta">
+              <button className="invitation-button">
+                ✦ Get Your Personalized Invitation Now ✦
+              </button>
+            </div>
+          </div>
         </div>
-
-        {/* View Toggle Button - Repositioned */}
-        <div className="view-toggle-bottom">
-          <button
-            className={`view-toggle-btn ${useVideoBackground ? 'video-active' : 'image-active'}`}
-            onClick={() => setUseVideoBackground(!useVideoBackground)}
-          >
-            <span className="toggle-icon">
-              {useVideoBackground ? '🖼️' : '🎥'}
-            </span>
-            <span className="toggle-text">
-              {useVideoBackground ? 'Classic View' : 'Luxury View'}
-            </span>
-          </button>
-        </div>
-
       </section>
 
       {/* About Section - Redesigned */}
@@ -350,7 +336,7 @@ export default function Home() {
               <div className="visionary-card featured">
                 <div className="visionary-image">
                   <Image
-                    src="/ak.JPG"
+                    src="/ak1.JPG"
                     alt="Sky King Akash Jain"
                     width={300}
                     height={300}
@@ -474,75 +460,91 @@ export default function Home() {
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">
-              <span className="title-icon">🎭</span>
+              <span className="title-icon">◈</span>
               The Ratnatray Experience
             </h2>
             <div className="title-underline"></div>
           </div>
 
-          <div className="experience-grid">
-            <div className="experience-card music">
-              <div className="card-header">
-                <div className="card-icon">🎵</div>
-                <h3>Sacred Music</h3>
+          <div className="experience-container">
+            <div className="experience-diagram">
+              {/* Center Logo */}
+              <div className="experience-center-hub">
+                <div className="hub-circle">
+                  <video
+                    className="hub-video"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  >
+                    <source src="/bgflag.mp4" type="video/mp4" />
+                  </video>
+                  <div className="hub-overlay">
+                    <div className="hub-label">RATNATRAY</div>
+                    <div className="hub-subtitle">Experience</div>
+                  </div>
+                </div>
               </div>
-              <div className="card-content">
-                <p>Soulful live compositions featuring traditional ragas, devotional bhajans, and contemporary spiritual music that touches the heart.</p>
-                <ul>
-                  <li>Live orchestral arrangements</li>
-                  <li>Classical Jain bhajans</li>
-                  <li>Modern spiritual fusion</li>
-                </ul>
+
+              {/* Three Experience Circles */}
+              <div className="experience-orbit top">
+                <div className="orbit-circle music">
+                  <Image src="/music.png" alt="Music" width={110} height={110} className="orbit-icon-img" />
+                  <svg className="curved-text-svg" viewBox="0 0 200 200">
+                    <path id="curve-music" d="M 30,100 A 70,70 0 0,1 170,100" fill="transparent" />
+                    <text className="curved-text">
+                      <textPath href="#curve-music" startOffset="50%" textAnchor="middle">
+                        संगीत
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+                <div className="orbit-arrow">↓</div>
               </div>
+
+              <div className="experience-orbit bottom-left">
+                <div className="orbit-circle speeches">
+                  <Image src="/mic.png" alt="Wisdom" width={110} height={110} className="orbit-icon-img" />
+                  <svg className="curved-text-svg" viewBox="0 0 200 200">
+                    <path id="curve-wisdom" d="M 30,100 A 70,70 0 0,1 170,100" fill="transparent" />
+                    <text className="curved-text">
+                      <textPath href="#curve-wisdom" startOffset="50%" textAnchor="middle">
+                        ज्ञान
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+                <div className="orbit-arrow">↗</div>
+              </div>
+
+              <div className="experience-orbit bottom-right">
+                <div className="orbit-circle dance">
+                  <Image src="/Dance.png" alt="Dance" width={110} height={110} className="orbit-icon-img" />
+                  <svg className="curved-text-svg" viewBox="0 0 200 200">
+                    <path id="curve-dance" d="M 30,100 A 70,70 0 0,1 170,100" fill="transparent" />
+                    <text className="curved-text">
+                      <textPath href="#curve-dance" startOffset="50%" textAnchor="middle">
+                        नृत्य
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+                <div className="orbit-arrow">↖</div>
+              </div>
+
+              {/* Connecting Lines */}
+              <svg className="connection-svg" viewBox="0 0 400 400">
+                <circle cx="200" cy="200" r="150" fill="none" stroke="rgba(212, 175, 55, 0.2)" strokeWidth="2" strokeDasharray="5,5"/>
+                <line x1="200" y1="50" x2="200" y2="140" stroke="rgba(212, 175, 55, 0.4)" strokeWidth="3"/>
+                <line x1="80" y1="320" x2="145" y2="245" stroke="rgba(212, 175, 55, 0.4)" strokeWidth="3"/>
+                <line x1="320" y1="320" x2="255" y2="245" stroke="rgba(212, 175, 55, 0.4)" strokeWidth="3"/>
+              </svg>
             </div>
 
-            <div className="experience-card speeches">
-              <div className="card-header">
-                <div className="card-icon">🎙️</div>
-                <h3>Inspiring Discourses</h3>
-              </div>
-              <div className="card-content">
-                <p>Profound speeches that seamlessly blend ancient spiritual wisdom with practical life guidance for modern audiences.</p>
-                <ul>
-                  <li>Philosophical insights</li>
-                  <li>Practical spirituality</li>
-                  <li>Interactive dialogues</li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="experience-card dance">
-              <div className="card-header">
-                <div className="card-icon">💃</div>
-                <h3>Cultural Dance-Drama</h3>
-              </div>
-              <div className="card-content">
-                <p>Mesmerizing fusion of classical Indian dance forms with contemporary choreography, bringing stories to life.</p>
-                <ul>
-                  <li>Classical Bharatanatyam</li>
-                  <li>Contemporary expressions</li>
-                  <li>Theatrical storytelling</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="experience-highlights">
-            <div className="highlight-item">
-              <span className="highlight-icon">🎨</span>
-              <span>Vibrant Stage Visuals</span>
-            </div>
-            <div className="highlight-item">
-              <span className="highlight-icon">💡</span>
-              <span>Dynamic Lighting Design</span>
-            </div>
-            <div className="highlight-item">
-              <span className="highlight-icon">📱</span>
-              <span>Multimedia Integration</span>
-            </div>
-            <div className="highlight-item">
-              <span className="highlight-icon">🎆</span>
-              <span>Immersive Atmosphere</span>
+            {/* Bottom Label */}
+            <div className="experience-bottom-label">
+              <p>Where Music, Wisdom & Dance Unite</p>
             </div>
           </div>
         </div>
@@ -553,13 +555,13 @@ export default function Home() {
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">
-              <span className="title-icon">📅</span>
+              <span className="title-icon">◉</span>
               Upcoming Shows
             </h2>
             <div className="title-underline"></div>
           </div>
 
-          <div className="countdown-container">
+          <div className="countdown-container shows-countdown">
             <h3 className="countdown-title">Next Show: AARON M.P.</h3>
             <div className="countdown-timer">
               <div className="time-unit">
@@ -589,15 +591,15 @@ export default function Home() {
               </div>
               <div className="show-details">
                 <div className="show-date">
-                  <span className="date-icon">📅</span>
+                  <span className="detail-label">Date:</span>
                   <span>October 7, 2025</span>
                 </div>
                 <div className="show-venue">
-                  <span className="venue-icon">🏛️</span>
+                  <span className="detail-label">Venue:</span>
                   <span>AARON M.P. Auditorium</span>
                 </div>
                 <div className="show-time">
-                  <span className="time-icon">🕰️</span>
+                  <span className="detail-label">Time:</span>
                   <span>7:00 PM IST</span>
                 </div>
               </div>
@@ -613,15 +615,15 @@ export default function Home() {
               </div>
               <div className="show-details">
                 <div className="show-date">
-                  <span className="date-icon">📅</span>
+                  <span className="detail-label">Date:</span>
                   <span>November 15, 2025</span>
                 </div>
                 <div className="show-venue">
-                  <span className="venue-icon">🌆</span>
+                  <span className="detail-label">Venue:</span>
                   <span>Mumbai Cultural Center</span>
                 </div>
                 <div className="show-time">
-                  <span className="time-icon">🕰️</span>
+                  <span className="detail-label">Time:</span>
                   <span>7:00 PM IST</span>
                 </div>
               </div>
@@ -637,15 +639,15 @@ export default function Home() {
               </div>
               <div className="show-details">
                 <div className="show-date">
-                  <span className="date-icon">📅</span>
+                  <span className="detail-label">Date:</span>
                   <span>November 22, 2025</span>
                 </div>
                 <div className="show-venue">
-                  <span className="venue-icon">🌿</span>
+                  <span className="detail-label">Venue:</span>
                   <span>Bengaluru Arts Theatre</span>
                 </div>
                 <div className="show-time">
-                  <span className="time-icon">🕰️</span>
+                  <span className="detail-label">Time:</span>
                   <span>7:00 PM IST</span>
                 </div>
               </div>
@@ -708,29 +710,7 @@ export default function Home() {
           {/* Main Footer Content */}
           <div className="footer-main">
             {/* Brand & Heritage */}
-            <div className="footer-brand-section">
-              <div className="footer-brand">
-                <Image
-                  src="/logo.png"
-                  alt="Ratnatray Logo"
-                  width={80}
-                  height={80}
-                  className="footer-logo"
-                />
-                <div className="footer-brand-text">
-                  <h3 className="footer-title">
-                    <span className="footer-hindi">रत्नत्रय</span>
-                    <span className="footer-english">RATNATRAY</span>
-                  </h3>
-                  <p className="footer-subtitle">The Cultural Reflection of Jinshasan</p>
-                </div>
-              </div>
-              <div className="cultural-heritage">
-                <div className="heritage-item">📿 Rooted in Jain Philosophy</div>
-                <div className="heritage-item">🎭 Celebrating Indian Culture</div>
-                <div className="heritage-item">✨ Promoting Spiritual Values</div>
-              </div>
-            </div>
+            
 
             {/* Information Grid */}
             <div className="footer-grid">

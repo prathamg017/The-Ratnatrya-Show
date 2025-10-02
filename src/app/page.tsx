@@ -700,11 +700,11 @@ export default function Home() {
               <div className="contact-details-grid">
                 <div className="contact-item">
                   <span className="contact-icon">📧</span>
-                  <div><strong>Email:</strong> <a href="mailto:info@ratnatrayshow.com">info@ratnatrayshow.com</a></div>
+                  <div><strong>Email:</strong> <a href="mailto:info@theratnatrayashow.com">info@theratnatrayashow.com</a></div>
                 </div>
                 <div className="contact-item">
                   <span className="contact-icon">📱</span>
-                  <div><strong>Phone:</strong> +91-XXXXXXXXXX</div>
+                  <div><strong>Phone:</strong> +91-9575219696</div>
                 </div>
               </div>
             </div>

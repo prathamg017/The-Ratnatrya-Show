@@ -44,18 +44,20 @@ export default function Home() {
     const slides = document.querySelectorAll('.slideshow-royal .slide');
     let currentSlide = 0;
 
-    const showSlide = (index: number) => {
-      slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-      });
-    };
-
     const nextSlide = () => {
-      currentSlide = (currentSlide + 1) % slides.length;
-      showSlide(currentSlide);
+      const next = (currentSlide + 1) % slides.length;
+
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === next) {
+          slide.classList.add('active');
+        }
+      });
+
+      currentSlide = next;
     };
 
-    const slideshowInterval = setInterval(nextSlide, 3000); // Change slide every 3 seconds
+    const slideshowInterval = setInterval(nextSlide, 2500);
 
     return () => clearInterval(slideshowInterval);
   }, []);
@@ -210,13 +212,13 @@ export default function Home() {
           </div>
 
           <div className="royal-invite-showcase">
-            
+
             <div className="invite-display">
-              
+
               <div className="invitation-frame">
                 <div className="slideshow-royal">
                   <div className="slide active">
-                    
+
                     <Image
                       src="/invitemain.jpg"
                       alt="Main Invitation"
@@ -255,6 +257,7 @@ export default function Home() {
               </button>
             </div>
           </div>
+
         </div>
       </section>
 

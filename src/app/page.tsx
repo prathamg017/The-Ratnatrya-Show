@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import './globals.css';
 
+
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isVisible, setIsVisible] = useState({
@@ -61,6 +62,20 @@ export default function Home() {
 
     return () => clearInterval(slideshowInterval);
   }, []);
+
+  useEffect(() => {
+  const slides = document.querySelectorAll('.slideshow-sponsor .sponsor-slide');
+  let current = 0;
+
+  const interval = setInterval(() => {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, []);
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -201,65 +216,116 @@ export default function Home() {
       
 
       {/* Official Invites Section */}
-      <section className="invites-section">
-        <div className="container">
-          <div className="section-header">
-            <h2 className="section-title">
-              <span className="title-icon">✨</span>
-              Official Invitations
-            </h2>
-            <div className="title-underline"></div>
-          </div>
+<section className="invites-section">
+  <div className="container">
+    <div className="section-header">
+      <h2 className="section-title">
+        <span className="title-icon">✨</span>
+        Official Invitations
+      </h2>
+      <div className="title-underline"></div>
+    </div>
 
-          <div className="royal-invite-showcase">
-
-            <div className="invite-display">
-
-              <div className="invitation-frame">
-                <div className="slideshow-royal">
-                  <div className="slide active">
-
-                    <Image
-                      src="/invitemain.jpg"
-                      alt="Main Invitation"
-                      width={220}
-                      height={300}
-                      className="royal-image"
-                    />
-                  </div>
-                  <div className="slide">
-                    <Image
-                      src="/creatorpage.jpg"
-                      alt="Creator Page"
-                      width={220}
-                      height={300}
-                      className="royal-image"
-                    />
-                  </div>
-                  <div className="slide">
-                    <Image
-                      src="/invitecontent.jpeg"
-                      alt="Event Details"
-                      width={220}
-                      height={300}
-                      className="royal-image"
-                    />
-                  </div>
-                </div>
-              </div>
-
+    {/* Responsive Flexbox Wrapper */}
+    <div className="royal-invite-showcase responsive-row">
+      {/* Invitation Block */}
+      <div className="invite-display">
+        <div className="invitation-frame">
+          <div className="slideshow-royal">
+            <div className="slide active">
+              <Image
+                src="/invitemain.jpg"
+                alt="Main Invitation"
+                width={220}
+                height={300}
+                className="royal-image"
+              />
             </div>
-
-            {/* Invitation CTA Button */}
-            <div className="invitation-cta">
-              <button className="invitation-button">
-                ✦ Get Your Personalized Invitation Now ✦
-              </button>
+            <div className="slide">
+              <Image
+                src="/creatorpage.jpg"
+                alt="Creator Page"
+                width={220}
+                height={300}
+                className="royal-image"
+              />
+            </div>
+            <div className="slide">
+              <Image
+                src="/invitecontent.jpeg"
+                alt="Event Details"
+                width={220}
+                height={300}
+                className="royal-image"
+              />
             </div>
           </div>
-
         </div>
-      </section>
+      </div>
+
+<div className="invite-display">
+  <div className="invitation-frame">
+    <div className="slideshow-sponsor">
+      
+      <div className="sponsor-slide active">
+        <Image
+          src="/sponsor1.jpg"
+          alt="Santosh Jain Souabh Jain Jehru Chacha Family"
+          className="royal-image"
+          fill
+        />
+        <div className="slide-text">
+          <h4>Santosh Jain Souabh Jain Jehru Chacha Family</h4>
+        </div>
+      </div>
+
+      <div className="sponsor-slide">
+        <Image
+          src="/sponsor2.jpg"
+          alt="Santosh Aajad Mukesh Devendra Kaleshiya Parivar"
+          className="royal-image"
+          fill
+        />
+        <div className="slide-text">
+          <h4>Shikhar Kaleshiya Family</h4>
+        </div>
+      </div>
+
+      <div className="sponsor-slide">
+        <Image
+          src="/sponsor3.jpeg"
+          alt="Shikhar Kaleshiya Family"
+          className="royal-image"
+          fill
+        />
+        <div className="slide-text">
+          <h4>Santosh Aajad Mukesh Devendra Kaleshiya Parivar</h4>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+    </div>
+
+    {/* Invitation CTA Button */}
+    <div className="invitation-cta">
+      <button className="invitation-button">
+        ✦ Get Your Personalized Invitation Now ✦
+      </button>
+    </div>
+    <div className="invitation-cta">
+      <button className="invitation-button">
+        ✦ Become A Sponsor ✦
+      </button>
+    </div>
+  </div>
+</section>
+
+      
+
 
       {/* About Section - Redesigned */}
       <section id="about" className={`about-section ${isVisible.about ? 'animate-in' : ''}`}>

@@ -203,8 +203,8 @@ export default function Home() {
             <div className="luxury-cta-group">
               <Link href="#book" className="luxury-cta primary">
                 <span className="luxury-icon">◆</span>
-                <span className="luxury-text">Reserve Premium Seats</span>
-                <span className="luxury-arrow">→</span>
+                <span className="luxury-text">Join Our Cultural Event</span>
+                <span className="luxury-arrow">◆</span>
               </Link>
             </div>
           </div>
@@ -215,19 +215,20 @@ export default function Home() {
 
       
 
-      {/* Official Invites Section */}
+{/* Official Invites & Sponsors Section */}
 <section className="invites-section">
   <div className="container">
     <div className="section-header">
       <h2 className="section-title">
         <span className="title-icon">✨</span>
-        Official Invitations
+        Official Invitations & Sponsors
       </h2>
       <div className="title-underline"></div>
     </div>
 
     {/* Responsive Flexbox Wrapper */}
     <div className="royal-invite-showcase responsive-row">
+
       {/* Invitation Block */}
       <div className="invite-display">
         <div className="invitation-frame">
@@ -259,73 +260,67 @@ export default function Home() {
                 className="royal-image"
               />
             </div>
+            <div className="slide">
+              <Image
+                src="/flyer.jpg"
+                alt="Event Details"
+                width={220}
+                height={300}
+                className="royal-image"
+              />
+            </div>
           </div>
         </div>
       </div>
 
-<div className="invite-display">
-  <div className="invitation-frame">
-    <div className="slideshow-sponsor">
-      
-      <div className="sponsor-slide active">
-        <Image
-          src="/sponsor1.jpg"
-          alt="Santosh Jain Souabh Jain Jehru Chacha Family"
-          className="royal-image"
-          fill
-        />
-        <div className="slide-text">
-          <h4>Santosh Jain Souabh Jain Jehru Chacha Family</h4>
-        </div>
-      </div>
-
-      <div className="sponsor-slide">
-        <Image
-          src="/sponsor2.jpg"
-          alt="Santosh Aajad Mukesh Devendra Kaleshiya Parivar"
-          className="royal-image"
-          fill
-        />
-        <div className="slide-text">
-          <h4>Shikhar Kaleshiya Family</h4>
-        </div>
-      </div>
-
-      <div className="sponsor-slide">
-        <Image
-          src="/sponsor3.jpeg"
-          alt="Shikhar Kaleshiya Family"
-          className="royal-image"
-          fill
-        />
-        <div className="slide-text">
-          <h4>Santosh Aajad Mukesh Devendra Kaleshiya Parivar</h4>
+      {/* Sponsor Block */}
+      <div className="invite-display sponsor-display">
+        <div className="invitation-frame">
+          <div className="slideshow-sponsor">
+            <div className="sponsor-slide active">
+              <Image
+                src="/sponsor1.jpeg"
+                alt="Santosh Jain Souabh Jain Jehru Chacha Family"
+                width={220}
+                height={300}
+                className="royal-image"
+              />
+            </div>
+            <div className="sponsor-slide">
+              <Image
+                src="/sponsor2.jpeg"
+                alt="Santosh Aajad Mukesh Devendra Kaleshiya Parivar"
+                width={220}
+                height={300}
+                className="royal-image"
+              />
+            </div>
+            <div className="sponsor-slide">
+              <Image
+                src="/sponsor3.jpeg"
+                alt="Shikhar Kaleshiya Family"
+                width={220}
+                height={300}
+                className="royal-image"
+              />
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
-  </div>
-</div>
 
-
-    </div>
-
-    {/* Invitation CTA Button */}
+    {/* Invitation CTA Buttons */}
     <div className="invitation-cta">
       <button className="invitation-button">
         ✦ Get Your Personalized Invitation Now ✦
       </button>
-    </div>
-    <div className="invitation-cta">
       <button className="invitation-button">
         ✦ Become A Sponsor ✦
       </button>
     </div>
   </div>
 </section>
-
-      
-
 
       {/* About Section - Redesigned */}
       <section id="about" className={`about-section ${isVisible.about ? 'animate-in' : ''}`}>
@@ -498,27 +493,26 @@ export default function Home() {
                 converge to celebrate and reflect the golden purpose of <em>Jain dharma</em> in a modern,
                 captivating format that resonates with contemporary audiences while preserving ancient wisdom.
               </p>
-              <div className="mission-elements">
-                <div className="element">
-                  <span className="element-icon">🎙️</span>
-                  <span>Inspiring Speeches</span>
-                </div>
-                <div className="element-separator">+</div>
-                <div className="element">
-                  <span className="element-icon">🎵</span>
-                  <span>Sacred Music</span>
-                </div>
-                <div className="element-separator">+</div>
-                <div className="element">
-                  <span className="element-icon">💃</span>
-                  <span>Dance Drama</span>
-                </div>
-                <div className="element-separator">=</div>
-                <div className="element special">
-                  <span className="element-icon">✨</span>
-                  <span>Spiritual Experience</span>
-                </div>
-              </div>
+             <div className="mission-elements">
+  <div className="element">
+    <span>Speeches</span>
+  </div>
+  <div className="element-separator">+</div>
+  <div className="element">
+    <span>Sacred Music</span>
+  </div>
+  <div className="element-separator">+</div>
+  <div className="element">
+    <span>Dance</span>
+  </div>
+  <div className="element-separator">=</div>
+  <div className="element special">
+    <span>Spiritual Experience</span>
+  </div>
+</div>
+
+
+
             </div>
           </div>
         </div>
@@ -758,7 +752,7 @@ export default function Home() {
               <h3>Ready for a Spiritual Journey?</h3>
               <p>Experience the magic of Ratnatray – where culture meets spirituality</p>
               <div className="booking-buttons">
-                <Link href="#book" className="btn-primary">🎟️ Book Your Tickets</Link>
+                <Link href="#book" className="btn-primary">Join Us</Link>
               </div>
             </div>
             <div className="contact-info">
@@ -786,23 +780,14 @@ export default function Home() {
               <div className="footer-column">
                 <h4>Social Media</h4>
                 <div className="social-links-footer">
-                  <a href="https://facebook.com" className="social-link">📘 Facebook</a>
                   <a href="https://instagram.com" className="social-link">📸 Instagram</a>
-                  <a href="https://youtube.com" className="social-link">📺 YouTube</a>
-                  <a href="https://twitter.com" className="social-link">🐦 Twitter</a>
                 </div>
               </div>
 
               <div className="footer-column">
                 <h4>Media Partners</h4>
                 <div className="media-partners">
-                  <div className="partner-item-logo">
-                    <span className="partner-icon">📻</span>
-                    <div>
-                      <strong>AIR (Akashvani)</strong>
-                      <p>Radio Broadcasting Partner</p>
-                    </div>
-                  </div>
+                 
                   <div className="partner-item-logo">
                     <Image
                       src="/apnajainism.JPEG"

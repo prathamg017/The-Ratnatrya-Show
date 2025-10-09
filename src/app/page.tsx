@@ -760,7 +760,9 @@ export default function Home() {
               <div className="contact-details-grid">
                 <div className="contact-item">
                   <span className="contact-icon">📧</span>
-                  <div><strong>Email:</strong> <a href="mailto:info@theratnatrayashow.com">info@theratnatrayashow.com</a></div>
+                  <div><strong>Email:</strong> <a href="mailto:info.therantnatrayshow@gmail.com
+">info.therantnatrayshow@gmail.com
+</a></div>
                 </div>
                 <div className="contact-item">
                   <span className="contact-icon">📱</span>

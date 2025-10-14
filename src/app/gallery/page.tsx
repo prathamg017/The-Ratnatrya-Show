@@ -1,226 +1,243 @@
 'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import '../globals.css';
 
-export default function Gallery() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+import { useRouter } from 'next/navigation'; // For Next.js 13+ App Router
+import { useEffect, useRef, useState } from 'react';
+import VideoSection from './vdo';
 
+
+
+
+export default function ModernGallery() {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentItem, setCurrentItem] = useState({ type: '', src: '', index: 0 });
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const [videoMuted, setVideoMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+const videoList = [
+  {
+    src: '/gallery/v1.mp4', // Video 1 source
+    thumbnail: '/flyer.jpg', // Video 1 thumbnail
+  },
+  {
+    src: '/gallery/v2.mp4', // Video 2 source
+    thumbnail: '/flyer.JPG', // Video 2 thumbnail
+  },
+];
+
+
+  // Gallery data
+  const images = Array.from({ length: 18 }, (_, i) => `/gallery/${i + 1}.jpg`);
+
+  // Open lightbox
+  const openLightbox = (type: string, src: string, index: number) => {
+    setCurrentItem({ type, src, index });
+    setLightboxOpen(true);
+    if (type === 'video') setVideoPlaying(true);
+  };
+
+  // Close lightbox
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    setVideoPlaying(false);
+  };
+
+  // Navigate images
+  const navigateImage = (direction: string) => {
+    const newIndex = direction === 'next' 
+      ? (currentItem.index + 1) % images.length 
+      : (currentItem.index - 1 + images.length) % images.length;
+    setCurrentItem({ type: 'image', src: images[newIndex], index: newIndex });
+  };
+
+
+const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+// Prevent body scroll while lightbox is open
+useEffect(() => {
+  document.body.style.overflow = selectedImage ? 'hidden' : '';
+  return () => { document.body.style.overflow = ''; };
+}, [selectedImage]);
+
+// Close on Escape
+useEffect(() => {
+  const onKey = (e: KeyboardEvent) => {
+    if (e.key === 'Escape') setSelectedImage(null);
+  };
+  window.addEventListener('keydown', onKey);
+  return () => window.removeEventListener('keydown', onKey);
+}, []);
+
+  
+
+  // Keyboard navigation
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (currentItem.type === 'image') {
+        if (e.key === 'ArrowLeft') navigateImage('prev');
+        if (e.key === 'ArrowRight') navigateImage('next');
+      }
     };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, []);
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [lightboxOpen, currentItem]);
+    const router = useRouter();
 
   return (
-    <div className="landing-page">
-      {/* Home Navigation */}
-      <div className="home-nav">
-        <Link href="/" className="home-link">
-          <Image
-            src="/logo.png"
-            alt="Ratnatray Home"
-            width={40}
-            height={40}
-            className="home-logo"
-          />
-          <span className="home-text">Home</span>
-        </Link>
+
+    
+  <div className="gallery-container">
+
+
+
+
+
+      {/* Hero Section */}
+     <div className="hero-collage">
+  <div className="hero-overlay">
+    <button
+    className="hero-back-button"
+    onClick={() => router.push('/')}
+  >
+    ← Back to Home
+  </button>
+    <div className="hero-title">
+      <h1 className="hero-main-title">Explore Our Luxury Gallery</h1>
+      <p className="hero-subtitle">Experience timeless elegance, captured in moments.</p>
+    </div>
+  </div>
+
+  <div className="collage-grid">
+    <div className="collage-item">
+      <img src="/gallery/1.JPG" alt="Image 1" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/2.JPG" alt="Image 2" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/3.JPG" alt="Image 3" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/4.JPG" alt="Image 4" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/5.JPG" alt="Image 5" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/6.JPG" alt="Image 6" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/7.JPG" alt="Image 7" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/8.JPG" alt="Image 8" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/9.JPG" alt="Image 9" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/10.JPG" alt="Image 10" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/11.JPG" alt="Image 11" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/12.JPG" alt="Image 12" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/13.JPG" alt="Image 13" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/14.JPG" alt="Image 14" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/15.JPG" alt="Image 15" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/16.JPG" alt="Image 16" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/17.JPG" alt="Image 17" />
+    </div>
+    <div className="collage-item">
+      <img src="/gallery/18.JPG" alt="Image 18" />
+    </div>
+  </div>
+</div>
+
+
+
+
+
+      {/* video section */}
+
+ <div>
+      {/* You can insert the VideoSection component directly here */}
+      <VideoSection videos={videoList} /> 
+    </div>
+
+      {/* Photos Section */}
+      <section className="photos-section">
+  <div className="section-header">
+    <h2 className="section-title">Photo Gallery</h2>
+    <p className="section-subtitle">Moments captured from the celebration</p>
+  </div>
+
+  <div className="photos-grid">
+    {images.map((image, index) => (
+      <div
+        key={index}
+        className="photo-card"
+        onClick={() => { openLightbox('image', image, index); setSelectedImage(image); }}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => { if (e.key === 'Enter') { openLightbox('image', image, index); setSelectedImage(image);} }}
+      >
+        <img src={image} alt={`Photo ${index + 1}`} />
+        <div className="photo-overlay">
+          <span>View Full Size</span>
+        </div>
       </div>
+    ))}
+  </div>
 
-      {/* Floating Orb Navigation */}
-      <div className={`nav-orb ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
-        <div className="orb-icon">
-          <Image
-            src="/logo.png"
-            alt="Ratnatray"
-            width={40}
-            height={40}
-            className="orb-logo"
-          />
-        </div>
-        <div className="orb-pulse"></div>
-        <div className="orb-pulse delay"></div>
-      </div>
+  {/* Lightbox Modal (full-screen) */}
+  {selectedImage && (
+    <div className="lightbox" onClick={() => setSelectedImage(null)} role="dialog" aria-modal="true">
+      <div className="lightbox-inner" onClick={(e) => e.stopPropagation()}>
+        <button className="lightbox-close" onClick={() => setSelectedImage(null)} aria-label="Close">×</button>
 
-      {/* Radial Navigation Menu */}
-      <div className={`radial-menu ${menuOpen ? 'show' : ''}`}>
-        <div className="menu-backdrop" onClick={() => setMenuOpen(false)}></div>
-        <div className="menu-items">
-          <Link href="/" className="menu-item" data-text="Home" onClick={() => setMenuOpen(false)}>
-            <span className="item-icon">🏠</span>
-            <span className="item-label">Home</span>
-          </Link>
-          <Link href="/about" className="menu-item" data-text="About" onClick={() => setMenuOpen(false)}>
-            <span className="item-icon">🙏</span>
-            <span className="item-label">About</span>
-          </Link>
-          <Link href="/experience" className="menu-item" data-text="Experience" onClick={() => setMenuOpen(false)}>
-            <span className="item-icon">🎭</span>
-            <span className="item-label">Experience</span>
-          </Link>
-          <Link href="/shows" className="menu-item" data-text="Shows" onClick={() => setMenuOpen(false)}>
-            <span className="item-icon">📅</span>
-            <span className="item-label">Shows</span>
-          </Link>
-          <Link href="/gallery" className="menu-item active" data-text="Gallery" onClick={() => setMenuOpen(false)}>
-            <span className="item-icon">📸</span>
-            <span className="item-label">Gallery</span>
-          </Link>
-          <Link href="/contact" className="menu-item" data-text="Contact" onClick={() => setMenuOpen(false)}>
-            <span className="item-icon">📞</span>
-            <span className="item-label">Contact</span>
-          </Link>
+        <div className="lightbox-media-wrap">
+          <img src={selectedImage} alt="Full size" className="lightbox-image" draggable={false} />
         </div>
       </div>
+    </div>
+  )}
+</section>
 
-      {/* Coming Soon Gallery */}
-      <section className="coming-soon-page">
-        <div className="page-bg">
-          <Image
-            src="/bg.png"
-            alt="Gallery Coming Soon"
-            fill
-            className="page-bg-image"
-            priority
-          />
-          <div className="page-overlay"></div>
 
-          {/* Animated Gradient Orbs */}
-          <div className="gradient-orbs">
-            <div className="orb orb-1" style={{
-              transform: `translate(${mousePos.x * 0.01}px, ${mousePos.y * 0.01}px)`
-            }}></div>
-            <div className="orb orb-2" style={{
-              transform: `translate(${mousePos.x * -0.01}px, ${mousePos.y * -0.005}px)`
-            }}></div>
-          </div>
-        </div>
+{/* Thank You Section */}
+<section className="thankyou-section relative overflow-hidden">
+  {/* Animated Gradient Background */}
+  <div className="thankyou-bg absolute inset-0 -z-10"></div>
 
-        <div className="coming-soon-content">
-          <div className="container">
-            <div className="coming-soon-main">
-              <div className="coming-soon-icon-large">📸</div>
-              <h1 className="coming-soon-title">Gallery Coming Soon</h1>
-              <p className="coming-soon-subtitle">Capturing Moments of Spiritual Magic</p>
+  {/* Center Content */}
+  <div className="thankyou-content relative z-10 text-center px-6 py-32">
+    <div className="thankyou-icon animate-bounce-glow mb-4">🙏</div>
+    <h2 className="thankyou-title">
+      Thank You
+    </h2>
+    <p className="thankyou-text">
+      This inaugural celebration marks the beginning of a blessed journey.<br />
+      More sacred moments await.
+    </p>
+  </div>
+</section>
 
-              <div className="coming-soon-description">
-                <p>
-                  Our inaugural performance at <strong>AARON M.P. on October 7, 2025</strong> will mark the beginning of an incredible journey.
-                  This gallery will soon showcase the beauty, devotion, and cultural richness of Ratnatray.
-                </p>
-              </div>
 
-              <div className="preview-features">
-                <h3>What&rsquo;s Coming</h3>
-                <div className="preview-grid">
-                  <div className="preview-item">
-                    <span className="preview-icon">🎭</span>
-                    <h4>Rehearsal Highlights</h4>
-                    <p>Behind-the-scenes moments of our dedicated team preparing for perfection</p>
-                  </div>
-                  <div className="preview-item">
-                    <span className="preview-icon">📷</span>
-                    <h4>Performance Glimpses</h4>
-                    <p>Captivating moments from our live shows and cultural presentations</p>
-                  </div>
-                  <div className="preview-item">
-                    <span className="preview-icon">🌟</span>
-                    <h4>Artist Portraits</h4>
-                    <p>Meet the talented individuals who bring Ratnatray to life</p>
-                  </div>
-                  <div className="preview-item">
-                    <span className="preview-icon">👥</span>
-                    <h4>Audience Reactions</h4>
-                    <p>Heartfelt moments of spiritual connection with our audience</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="timeline-info">
-                <div className="timeline-item">
-                  <span className="timeline-date">October 7, 2025</span>
-                  <span className="timeline-event">First Performance at AARON M.P.</span>
-                </div>
-                <div className="timeline-item">
-                  <span className="timeline-date">October 10, 2025</span>
-                  <span className="timeline-event">Gallery Goes Live</span>
-                </div>
-              </div>
-
-              <div className="coming-soon-actions">
-                <Link href="/shows" className="cta-button primary">
-                  <span className="button-text">Book Your Tickets</span>
-                  <span className="button-icon">🎟️</span>
-                </Link>
-                <Link href="/contact" className="cta-button secondary">
-                  <span className="button-text">Get Notified</span>
-                  <span className="button-icon">🔔</span>
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-brand">
-              <Image
-                src="/bg.png"
-                alt="Ratnatray"
-                width={80}
-                height={80}
-                className="footer-logo"
-              />
-              <div className="footer-brand-text">
-                <h3>रत्नत्रय</h3>
-                <p>The Cultural Reflection of Jinshasan</p>
-              </div>
-            </div>
-
-            <div className="footer-links">
-              <div className="footer-column">
-                <h4>Navigation</h4>
-                <Link href="/" className="footer-link">Home</Link>
-                <Link href="/about" className="footer-link">About</Link>
-                <Link href="/experience" className="footer-link">Experience</Link>
-                <Link href="/shows" className="footer-link">Shows</Link>
-              </div>
-
-              <div className="footer-column">
-                <h4>Connect</h4>
-                <Link href="/contact" className="footer-link">Contact</Link>
-                <Link href="https://facebook.com" className="footer-link">Facebook</Link>
-                <Link href="https://instagram.com" className="footer-link">Instagram</Link>
-                <Link href="https://youtube.com" className="footer-link">YouTube</Link>
-              </div>
-
-              <div className="footer-column">
-                <h4>Shows</h4>
-                <span className="footer-text">AARON M.P. - Oct 7, 2025</span>
-                <span className="footer-text">Mumbai - Nov 15, 2025</span>
-                <span className="footer-text">Bengaluru - Nov 22, 2025</span>
-                <span className="footer-text">Delhi - Nov 29, 2025</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="footer-bottom">
-            <p>© 2025 Ratnatray. All Rights Reserved.</p>
-            <p className="footer-tagline">🌟 A Grand Confluence of Culture & Spirituality</p>
-          </div>
-        </div>
-      </footer>
+      
     </div>
   );
 }

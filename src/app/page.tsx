@@ -63,18 +63,18 @@ export default function Home() {
     return () => clearInterval(slideshowInterval);
   }, []);
 
-  useEffect(() => {
-  const slides = document.querySelectorAll('.slideshow-sponsor .sponsor-slide');
-  let current = 0;
+//   useEffect(() => {
+//   const slides = document.querySelectorAll('.slideshow-sponsor .sponsor-slide');
+//   let current = 0;
 
-  const interval = setInterval(() => {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, 3000);
+//   const interval = setInterval(() => {
+//     slides[current].classList.remove('active');
+//     current = (current + 1) % slides.length;
+//     slides[current].classList.add('active');
+//   }, 3000);
 
-  return () => clearInterval(interval);
-}, []);
+//   return () => clearInterval(interval);
+// }, []);
 
 
   useEffect(() => {
@@ -177,7 +177,7 @@ export default function Home() {
               Witness the magnificence of ancient wisdom through <span className="highlight-gold">spectacular performances</span> that illuminate the soul
             </p>
 
-            {/* Event Countdown */}
+            {/* Event Countdown
             <div className="countdown-container hero-countdown">
               <h3 className="countdown-title">Next Show: AARON M.P.</h3>
               <div className="countdown-timer">
@@ -198,24 +198,46 @@ export default function Home() {
                   <span className="time-label">Seconds</span>
                 </div>
               </div>
-            </div>
+            </div> */}
 
-            <div className="luxury-cta-group">
-              <Link href="#book" className="luxury-cta primary">
-                <span className="luxury-icon">◆</span>
-                <span className="luxury-text">Join Our Cultural Event</span>
-                <span className="luxury-arrow">◆</span>
-              </Link>
-            </div>
+
+            {/* Recent Event Recap */}
+<div className="event-recap-container hero-recap">
+  
+  <h3 className="recap-title">Recent Event: AARON M.P.</h3>
+  <div className="recap-stats">
+    <div className="stat-item">
+      <span className="stat-value">5000+</span>
+      <span className="stat-label">Attendees</span>
+    </div>
+    <div className="stat-item">
+      <span className="stat-value">30+</span>
+      <span className="stat-label">Artists</span>
+    </div>
+    <div className="stat-item">
+      <span className="stat-value">60+</span>
+      <span className="stat-label">Passionate Event Makers</span>
+    </div>
+  </div>
+</div>
+
+       <div className="luxury-cta-group">
+      <Link href="/gallery" className="luxury-cta primary">
+        <span className="luxury-icon">◆</span>
+        <span className="luxury-text">DIVE INTO HIGHLIGHTS</span>
+        <span className="luxury-arrow">◆</span>
+      </Link>
+    </div>
           </div>
         </div>
 
 
       </section>
 
-      
+     
 
 {/* Official Invites & Sponsors Section */}
+{/*
 <section className="invites-section">
   <div className="container">
     <div className="section-header">
@@ -226,10 +248,8 @@ export default function Home() {
       <div className="title-underline"></div>
     </div>
 
-    {/* Responsive Flexbox Wrapper */}
     <div className="royal-invite-showcase responsive-row">
 
-      {/* Invitation Block */}
       <div className="invite-display">
         <div className="invitation-frame">
           <div className="slideshow-royal">
@@ -273,7 +293,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Sponsor Block */}
       <div className="invite-display sponsor-display">
         <div className="invitation-frame">
           <div className="slideshow-sponsor">
@@ -310,7 +329,6 @@ export default function Home() {
 
     </div>
 
-    {/* Invitation CTA Buttons */}
     <div className="invitation-cta">
       <button className="invitation-button">
         ✦ Get Your Personalized Invitation Now ✦
@@ -321,6 +339,7 @@ export default function Home() {
     </div>
   </div>
 </section>
+*/}
 
       {/* About Section - Redesigned */}
       <section id="about" className={`about-section ${isVisible.about ? 'animate-in' : ''}`}>
@@ -400,7 +419,7 @@ export default function Home() {
               <div className="visionary-card featured">
                 <div className="visionary-image">
                   <Image
-                    src="/ak1.JPG"
+                    src="/ak_new.JPG"
                     alt="Sky King Akash Jain"
                     width={300}
                     height={300}
@@ -624,7 +643,7 @@ export default function Home() {
             <div className="title-underline"></div>
           </div>
 
-          <div className="countdown-container shows-countdown">
+          {/* <div className="countdown-container shows-countdown">
             <h3 className="countdown-title">Next Show: AARON M.P.</h3>
             <div className="countdown-timer">
               <div className="time-unit">
@@ -644,80 +663,85 @@ export default function Home() {
                 <span className="time-label">Seconds</span>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="shows-grid">
-            <div className="show-card featured">
-              <div className="show-header">
-                <h4>AARON M.P. Show</h4>
-                <span className="show-status">Next</span>
-              </div>
-              <div className="show-details">
-                <div className="show-date">
-                  <span className="detail-label">Date:</span>
-                  <span>October 7, 2025</span>
-                </div>
-                <div className="show-venue">
-                  <span className="detail-label">Venue:</span>
-                  <span>AARON M.P. Auditorium</span>
-                </div>
-                <div className="show-time">
-                  <span className="detail-label">Time:</span>
-                  <span>7:00 PM IST</span>
-                </div>
-              </div>
-              <Link href="#book" className="show-book-btn">
-                Book Now
-              </Link>
-            </div>
 
-            <div className="show-card">
-              <div className="show-header">
-                <h4>Mumbai Show</h4>
-                <span className="show-status">Coming</span>
-              </div>
-              <div className="show-details">
-                <div className="show-date">
-                  <span className="detail-label">Date:</span>
-                  <span>November 15, 2025</span>
-                </div>
-                <div className="show-venue">
-                  <span className="detail-label">Venue:</span>
-                  <span>Mumbai Cultural Center</span>
-                </div>
-                <div className="show-time">
-                  <span className="detail-label">Time:</span>
-                  <span>7:00 PM IST</span>
-                </div>
-              </div>
-              <Link href="#book" className="show-book-btn">
-                Pre-Book
-              </Link>
-            </div>
 
-            <div className="show-card">
-              <div className="show-header">
-                <h4>Bengaluru Show</h4>
-                <span className="show-status">Coming</span>
-              </div>
-              <div className="show-details">
-                <div className="show-date">
-                  <span className="detail-label">Date:</span>
-                  <span>November 22, 2025</span>
-                </div>
-                <div className="show-venue">
-                  <span className="detail-label">Venue:</span>
-                  <span>Bengaluru Arts Theatre</span>
-                </div>
-                <div className="show-time">
-                  <span className="detail-label">Time:</span>
-                  <span>7:00 PM IST</span>
-                </div>
-              </div>
-              <Link href="#book" className="show-book-btn">
-                Pre-Book
-              </Link>
-            </div>
+
+
+         <div className="shows-grid">
+  <div className="show-card featured">
+    <div className="show-header">
+      <h4>Mumbai</h4>
+      <span className="show-status">Next</span>
+    </div>
+    <div className="show-details">
+      <div className="show-date">
+        <span className="detail-label">Date:</span>
+        <span> to be decided</span>
+      </div>
+      <div className="show-venue">
+        <span className="detail-label">Venue:</span>
+        <span> to be decided</span>
+      </div>
+      <div className="show-time">
+        <span className="detail-label">Time:</span>
+        <span> to be decided</span>
+      </div>
+    </div>
+    <Link href="#book" className="show-book-btn">
+      Book Now
+    </Link>
+  </div>
+
+  <div className="show-card">
+    <div className="show-header">
+      <h4>Rajasthan</h4>
+      <span className="show-status">Coming</span>
+    </div>
+    <div className="show-details">
+      <div className="show-date">
+        <span className="detail-label">Date:</span>
+        <span> to be decided</span>
+      </div>
+      <div className="show-venue">
+        <span className="detail-label">Venue:</span>
+        <span> to be decided</span>
+      </div>
+      <div className="show-time">
+        <span className="detail-label">Time:</span>
+        <span> to be decided</span>
+      </div>
+    </div>
+    <Link href="#book" className="show-book-btn">
+      Pre-Book
+    </Link>
+  </div>
+
+  <div className="show-card">
+    <div className="show-header">
+      <h4>Pune</h4>
+      <span className="show-status">Coming</span>
+    </div>
+    <div className="show-details">
+      <div className="show-date">
+        <span className="detail-label">Date:</span>
+        <span> to be decided</span>
+      </div>
+      <div className="show-venue">
+        <span className="detail-label">Venue:</span>
+        <span> to be decided</span>
+      </div>
+      <div className="show-time">
+        <span className="detail-label">Time:</span>
+        <span> to be decided</span>
+      </div>
+    </div>
+    <Link href="#book" className="show-book-btn">
+      Pre-Book
+    </Link>
+  </div>
+
 
             
           </div>
@@ -738,7 +762,7 @@ export default function Home() {
               <div className="feature-item"><span className="feature-icon">🌟</span><span>Artist Portraits</span></div>
               <div className="feature-item"><span className="feature-icon">👥</span><span>Audience</span></div>
             </div>
-            <Link href="#shows" className="btn-secondary compact">View Shows →</Link>
+            <Link href="/gallery" className="btn-secondary compact">View Gallery →</Link>
           </div>
         </div>
       </section>

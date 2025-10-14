@@ -21,13 +21,13 @@ const videoList = [
   },
   {
     src: '/gallery/v2.mp4', // Video 2 source
-    thumbnail: '/flyer.JPG', // Video 2 thumbnail
+    thumbnail: '/flyer2.JPG', // Video 2 thumbnail
   },
 ];
 
 
   // Gallery data
-  const images = Array.from({ length: 18 }, (_, i) => `/gallery/${i + 1}.jpg`);
+  const images = Array.from({ length: 18 }, (_, i) => `/gallery/${i + 1}.JPG`);
 
   // Open lightbox
   const openLightbox = (type: string, src: string, index: number) => {
@@ -175,7 +175,7 @@ useEffect(() => {
 
  <div>
       {/* You can insert the VideoSection component directly here */}
-      <VideoSection videos={videoList} /> 
+      <VideoSection videos={videoList} />     
     </div>
 
       {/* Photos Section */}

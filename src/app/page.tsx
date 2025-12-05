@@ -790,7 +790,7 @@ export default function Home() {
                 </div>
                 <div className="contact-item">
                   <span className="contact-icon">📱</span>
-                  <div><strong>Phone:</strong> +91-9575219696</div>
+                  <div><strong>Phone:</strong> +91-8839481571</div>
                 </div>
               </div>
             </div>

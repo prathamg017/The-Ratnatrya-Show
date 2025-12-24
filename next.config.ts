@@ -16,10 +16,7 @@ const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
 
-  // ✅ This tells Next.js to skip ESLint/type errors during builds
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // TypeScript configuration
   typescript: {
     ignoreBuildErrors: true,
   },

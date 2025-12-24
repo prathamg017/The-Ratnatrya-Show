@@ -1,7 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './globals.css';
 
 
@@ -13,8 +13,20 @@ export default function Home() {
     shows: false,
     contact: false
   });
-  const [, setScrollY] = useState(0);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const rafRef = useRef<number | undefined>(undefined);
+
+  // Throttle function for performance
+  const throttle = (func: Function, delay: number) => {
+    let lastCall = 0;
+    return (...args: any[]) => {
+      const now = Date.now();
+      if (now - lastCall >= delay) {
+        lastCall = now;
+        func(...args);
+      }
+    };
+  };
 
   useEffect(() => {
     const countdown = () => {
@@ -40,74 +52,68 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // Slideshow effect
+  // Optimized slideshow effect
   useEffect(() => {
     const slides = document.querySelectorAll('.slideshow-royal .slide');
+    if (slides.length === 0) return;
+    
     let currentSlide = 0;
 
     const nextSlide = () => {
       const next = (currentSlide + 1) % slides.length;
-
-      slides.forEach((slide, i) => {
-        slide.classList.remove('active');
-        if (i === next) {
-          slide.classList.add('active');
-        }
-      });
-
+      slides[currentSlide]?.classList.remove('active');
+      slides[next]?.classList.add('active');
       currentSlide = next;
     };
 
     const slideshowInterval = setInterval(nextSlide, 2500);
-
     return () => clearInterval(slideshowInterval);
   }, []);
 
-//   useEffect(() => {
-//   const slides = document.querySelectorAll('.slideshow-sponsor .sponsor-slide');
-//   let current = 0;
-
-//   const interval = setInterval(() => {
-//     slides[current].classList.remove('active');
-//     current = (current + 1) % slides.length;
-//     slides[current].classList.add('active');
-//   }, 3000);
-
-//   return () => clearInterval(interval);
-// }, []);
-
-
+  // Optimized IntersectionObserver - only observe specific sections
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(prev => ({ ...prev, [entry.target.id]: true }));
+            // Unobserve after animation to improve performance
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '50px' }
     );
 
-    document.querySelectorAll('[id]').forEach((el) => {
-      observer.observe(el);
+    // Only observe specific sections, not all elements with IDs
+    const sections = ['about', 'experience', 'shows', 'contact'];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
     });
 
     return () => observer.disconnect();
   }, []);
 
+  // Optimized mouse move with RAF and throttling
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
+    const handleMouseMove = throttle((e: MouseEvent) => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+      
+      rafRef.current = requestAnimationFrame(() => {
+        setMousePos({ x: e.clientX, y: e.clientY });
+      });
+    }, 16); // ~60fps
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
     };
   }, []);
 
@@ -131,7 +137,7 @@ export default function Home() {
 
           {/* Floating Particles */}
           <div className="particles">
-            {[...Array(20)].map((_, i) => (
+            {[...Array(8)].map((_, i) => (
               <div key={i} className={`particle particle-${i}`}></div>
             ))}
           </div>
@@ -139,13 +145,16 @@ export default function Home() {
           {/* Animated Gradient Orbs */}
           <div className="gradient-orbs">
             <div className="orb orb-1" style={{
-              transform: `translate(${mousePos.x * 0.02}px, ${mousePos.y * 0.02}px)`
+              transform: `translate3d(${mousePos.x * 0.01}px, ${mousePos.y * 0.01}px, 0)`,
+              willChange: 'transform'
             }}></div>
             <div className="orb orb-2" style={{
-              transform: `translate(${mousePos.x * -0.02}px, ${mousePos.y * -0.01}px)`
+              transform: `translate3d(${mousePos.x * -0.01}px, ${mousePos.y * -0.005}px, 0)`,
+              willChange: 'transform'
             }}></div>
             <div className="orb orb-3" style={{
-              transform: `translate(${mousePos.x * 0.01}px, ${mousePos.y * -0.02}px)`
+              transform: `translate3d(${mousePos.x * 0.005}px, ${mousePos.y * -0.01}px, 0)`,
+              willChange: 'transform'
             }}></div>
           </div>
         </div>
@@ -806,7 +815,7 @@ export default function Home() {
               <div className="footer-column">
                 <h4>Social Media</h4>
                 <div className="social-links-footer">
-                  <a href="https://instagram.com" className="social-link">📸 Instagram</a>
+                  <a href="https://www.instagram.com/the_ratnatrya_show/" className="social-link">📸 Instagram</a>
                 </div>
               </div>
 

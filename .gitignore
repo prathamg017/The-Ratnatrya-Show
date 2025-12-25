@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large video files (>100MB - use external hosting)
+public/whatis.MP4
+public/whatis.mp4

@@ -365,17 +365,32 @@ export default function Home() {
 
           {/* Main Introduction */}
           <div className="about-intro">
-            <div className="intro-content">
-              <h3 className="intro-headline">More Than Just a Stage Show</h3>
-              <p className="intro-text">
-                <strong>Ratnatray</strong> is a grand confluence where <span className="highlight">culture</span>,
-                <span className="highlight"> spirituality</span>, and <span className="highlight">performing arts</span> unite
-                to create an extraordinary experience.
-              </p>
-              <p className="intro-subtext">
-                A powerful blend of inspiring speeches, sacred music, and mesmerizing dance-drama that offers audiences
-                an immersive journey into spiritual and cultural enlightenment.
-              </p>
+            <div className="intro-content-wrapper">
+              <div className="intro-content">
+                <h3 className="intro-headline">More Than Just a Stage Show</h3>
+                <p className="intro-text">
+                  <strong>Ratnatray</strong> is a grand confluence where <span className="highlight">culture</span>,
+                  <span className="highlight"> spirituality</span>, and <span className="highlight">performing arts</span> unite
+                  to create an extraordinary experience.
+                </p>
+                <p className="intro-subtext">
+                  A powerful blend of inspiring speeches, sacred music, and mesmerizing dance-drama that offers audiences
+                  an immersive journey into spiritual and cultural enlightenment.
+                </p>
+              </div>
+              <div className="intro-video">
+                <video
+                  className="about-intro-video"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  controls
+                >
+                  <source src="/whatis.MP4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
           </div>
 
@@ -779,119 +794,88 @@ export default function Home() {
       {/* Contact & Footer Section */}
       <footer id="contact" className={`footer-section ${isVisible.contact ? 'animate-in' : ''}`}>
         <div className="container">
-          {/* Contact & Booking Section */}
-          <div className="contact-booking-section">
-            <div className="booking-cta">
-              <h3>Ready for a Spiritual Journey?</h3>
-              <p>Experience the magic of Ratnatray – where culture meets spirituality</p>
-              <div className="booking-buttons">
-                <Link href="#book" className="btn-primary">Join Us</Link>
+          
+          {/* CTA Section */}
+          <div className="footer-cta">
+            <h2>Ready for a Spiritual Journey?</h2>
+            <p>Experience the magic of Ratnatray – where culture meets spirituality</p>
+            <a href="https://www.instagram.com/the_ratnatrya_show/" target="_blank" rel="noopener noreferrer" className="btn-primary">
+              <span>📸</span>
+              <span>Join Us on Instagram</span>
+            </a>
+          </div>
+
+          {/* Main Footer Grid */}
+          <div className="footer-grid">
+            
+            {/* Partners */}
+            <div className="footer-column">
+              <h4>Our Partners</h4>
+              <div className="partners-compact">
+                <div className="partner-item">
+                  <Image
+                    src="/apnajainism.JPEG"
+                    alt="Apna Jainism"
+                    width={32}
+                    height={32}
+                    className="partner-logo-small"
+                  />
+                  <span>Apna Jainism</span>
+                </div>
+                <div className="partner-item">
+                  <span>🎙️ AIR (Akashvani)</span>
+                </div>
               </div>
             </div>
-            <div className="contact-info">
-              <h3>📞 Connect With Us</h3>
-              <div className="contact-details-grid">
+
+            {/* Contact Information */}
+            <div className="footer-column">
+              <h4>Contact Us</h4>
+              <div className="contact-details">
                 <div className="contact-item">
                   <span className="contact-icon">📧</span>
-                  <div><strong>Email:</strong> <a href="mailto:info.therantnatrayshow@gmail.com
-">info.therantnatrayshow@gmail.com
-</a></div>
+                  <a href="mailto:info.therantnatrayshow@gmail.com">info.therantnatrayshow@gmail.com</a>
                 </div>
                 <div className="contact-item">
                   <span className="contact-icon">📱</span>
-                  <div><strong>Phone:</strong> +91-8839481571</div>
+                  <span>+91-8839481571</span>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Main Footer Content */}
-          <div className="footer-main">
-            {/* Brand & Heritage */}
-            
-
-            {/* Information Grid */}
-            <div className="footer-grid">
-              <div className="footer-column">
-                <h4>Social Media</h4>
-                <div className="social-links-footer">
-                  <a href="https://www.instagram.com/the_ratnatrya_show/" className="social-link">📸 Instagram</a>
-                </div>
-              </div>
-
-              <div className="footer-column">
-                <h4>Media Partners</h4>
-                <div className="media-partners">
-                 
-                  <div className="partner-item-logo">
-                    <Image
-                      src="/apnajainism.JPEG"
-                      alt="Apna Jainism Logo"
-                      width={40}
-                      height={40}
-                      className="partner-logo"
-                    />
-                    <div>
-                      <strong>Apna Jainism</strong>
-                      <p>Cultural Media Partner</p>
-                    </div>
-                  </div>
-                  <div className="partner-item">🎬 Cultural Media Network</div>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Production Credits */}
-          <div className="footer-credits">
-            <div className="production-house">
-              <Image
-                src="/nirgranth1.png"
-                alt="Nirgranth Creations Logo"
-                width={80}
-                height={80}
-                className="production-logo"
-              />
-              <div className="production-text">
-                <h4>Introduced & Presented by</h4>
-                <strong>Nirgranth Creations</strong>
-                <p>Dedicated to preserving and promoting Jain culture through innovative artistic expressions</p>
-              </div>
+          <div className="footer-production">
+            <Image
+              src="/nirgranth1.png"
+              alt="Nirgranth Creations"
+              width={60}
+              height={60}
+              className="production-logo"
+            />
+            <div className="production-info">
+              <strong>Introduced & Presented by Nirgranth Creations</strong>
+              <p>Dedicated to preserving and promoting Jain culture through innovative artistic expressions</p>
             </div>
           </div>
 
-          {/* Legal & Copyright */}
-          <div className="footer-legal">
-            <div className="legal-content">
-              <div className="legal-left">
-                <div className="copyright">
-                  <span>© 2025 Ratnatray - The Cultural Reflection of Jinshasan | All Rights Reserved</span>
-                  <span className="powered-by">Introduced & Powered by Nirgranth Creations</span>
-                </div>
-                <div className="cultural-statement">
-                  <span className="statement-icon">🕉️</span>
-                  <span>Dedicated to the promotion of Jinshasan through cultural excellence and spiritual enlightenment</span>
-                </div>
-                <div className="media-credits">
-                  <span>Media Partner: Apna Jainism | Broadcasting Partner: AIR (Akashvani)</span>
-                </div>
-              </div>
-              <div className="legal-links">
-                <Link href="/terms" className="legal-link">Terms & Conditions</Link>
-                <span className="separator">|</span>
-                <Link href="/privacy" className="legal-link">Privacy Policy</Link>
-                <span className="separator">|</span>
-                <Link href="/cookies" className="legal-link">Cookie Policy</Link>
-                <span className="separator">|</span>
-                <Link href="/disclaimer" className="legal-link">Disclaimer</Link>
-              </div>
+          {/* Legal Footer */}
+          <div className="footer-bottom">
+            <div className="footer-copyright">
+              <p>© 2025 Ratnatray - The Cultural Reflection of Jinshasan. All Rights Reserved.</p>
+            </div>
+            <div className="footer-legal-links">
+              <Link href="/terms">Terms</Link>
+              <span>•</span>
+              <Link href="/privacy">Privacy</Link>
+              <span>•</span>
+              <Link href="/cookies">Cookies</Link>
+              <span>•</span>
+              <Link href="/disclaimer">Disclaimer</Link>
             </div>
           </div>
 
-          {/* Final Tagline */}
-          <div className="footer-tagline">
-            <span>🌟 A Grand Confluence of Culture, Spirituality & Artistic Excellence 🌟</span>
-          </div>
         </div>
       </footer>
 

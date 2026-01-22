@@ -3679,6 +3679,144 @@ p,
     height: 1px;
   }
 
+  /* Hero countdown mobile optimization */
+  .hero-countdown {
+    width: 95%;
+    max-width: 100%;
+    padding: 1rem 0.75rem;
+  }
+
+  .hero-countdown .countdown-title {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-countdown .countdown-timer {
+    gap: 0.5rem;
+  }
+
+  .hero-countdown .time-unit {
+    flex: 1 1 60px;
+    min-width: 55px;
+    max-width: 80px;
+    padding: 0.4rem 0.5rem;
+  }
+
+  .hero-countdown .time-value {
+    font-size: 1rem;
+  }
+
+  .hero-countdown .time-label {
+    font-size: 0.55rem;
+  }
+
+  /* Invites section mobile */
+  .invites-section {
+    padding: 3rem 0 !important;
+  }
+
+  /* Hide decorative background images on mobile for performance */
+  .invites-bg-decoration {
+    display: none;
+  }
+
+  .invites-showcase-premium {
+    margin: 2.5rem auto 0;
+    padding: 0 0.75rem;
+  }
+
+  .premium-invite-card {
+    padding: 2rem 1.5rem;
+    border-radius: 24px;
+  }
+
+  .invitation-frame-premium {
+    padding: 15px;
+  }
+
+  .invitation-frame-premium::before {
+    top: -25px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .invitation-frame-premium .slideshow-royal {
+    max-width: 280px;
+    height: 380px;
+  }
+
+  .slideshow-indicators {
+    margin-top: 1.25rem;
+    gap: 8px;
+  }
+
+  .slideshow-indicators .indicator {
+    width: 10px;
+    height: 10px;
+  }
+
+  .premium-invite-caption {
+    margin-top: 1.5rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .invite-tagline {
+    font-size: 0.95rem;
+  }
+
+  /* Old grid styles */
+  .invites-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 0.5rem;
+    margin: 2rem auto 0;
+  }
+
+  .invite-card {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .invite-card-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .invite-card-title {
+    font-size: 1.25rem;
+  }
+
+  .invite-card-divider {
+    width: 50px;
+    height: 2px;
+  }
+
+  .invitation-frame {
+    padding: 12px;
+  }
+
+  .invitation-frame::before {
+    top: -20px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .slideshow-royal,
+  .slideshow-sponsor {
+    width: 100%;
+    max-width: 240px;
+    height: 320px;
+    margin: 0 auto;
+  }
+
+  .sponsor-info {
+    margin-top: 1.25rem;
+    padding: 0.85rem;
+  }
+
+  .sponsor-name {
+    font-size: 0.95rem;
+  }
+
   .countdown-timer {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
@@ -3806,6 +3944,103 @@ p,
 
   .experience-grid {
     grid-template-columns: 1fr;
+  }
+
+  .shows-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Extra small screens (iPhone SE, etc.) */
+@media (max-width: 480px) {
+  .hero-countdown {
+    width: 98%;
+    padding: 0.85rem 0.5rem;
+  }
+
+  .hero-countdown .countdown-title {
+    font-size: 0.75rem;
+  }
+
+  .hero-countdown .time-unit {
+    min-width: 50px;
+    max-width: 70px;
+    padding: 0.35rem 0.4rem;
+  }
+
+  .hero-countdown .time-value {
+    font-size: 0.9rem;
+  }
+
+  .hero-countdown .time-label {
+    font-size: 0.5rem;
+  }
+
+  .invites-grid {
+    gap: 1.5rem;
+  }
+
+  .invite-card {
+    padding: 1.25rem;
+  }
+
+  .invite-card-title {
+    font-size: 1.15rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .slideshow-royal,
+  .slideshow-sponsor {
+    max-width: 220px;
+    height: 300px;
+  }
+
+  /* Premium invitation showcase for small screens */
+  .invites-showcase-premium {
+    margin: 2rem auto 0;
+    padding: 0 0.5rem;
+  }
+
+  .premium-invite-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 20px;
+  }
+
+  .invitation-frame-premium {
+    padding: 12px;
+  }
+
+  .invitation-frame-premium::before {
+    top: -22px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .invitation-frame-premium .slideshow-royal {
+    max-width: 240px;
+    height: 320px;
+  }
+
+  .slideshow-indicators {
+    margin-top: 1rem;
+    gap: 6px;
+  }
+
+  .slideshow-indicators .indicator {
+    width: 8px;
+    height: 8px;
+  }
+
+  .premium-invite-caption {
+    margin-top: 1.25rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .invite-tagline {
+    font-size: 0.9rem;
   }
 
   .shows-grid {
@@ -4903,12 +5138,12 @@ p,
 
 /* ===== ROYAL INVITES SECTION ===== */
 .invites-section {
-  padding: 4rem 0;
+  padding: 5rem 0;
   background: linear-gradient(135deg,
-      rgba(212, 175, 55, 0.08) 0%,
-      rgba(255, 215, 0, 0.06) 30%,
-      rgba(184, 134, 11, 0.08) 70%,
-      rgba(139, 69, 19, 0.05) 100%);
+      rgba(212, 175, 55, 0.05) 0%,
+      rgba(255, 215, 0, 0.03) 30%,
+      rgba(184, 134, 11, 0.05) 70%,
+      rgba(139, 69, 19, 0.03) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -4926,6 +5161,115 @@ p,
   pointer-events: none;
 }
 
+/* Section subtitle */
+.section-subtitle {
+  text-align: center;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  color: var(--text-secondary);
+  margin-top: 0.75rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Grid layout for invite cards */
+.invites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  max-width: 900px;
+  margin: 3rem auto 0;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Individual invite card */
+.invite-card {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow:
+    0 10px 40px rgba(139, 69, 19, 0.15),
+    0 0 0 1px rgba(212, 175, 55, 0.2);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: visible;
+}
+
+.invite-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg,
+      var(--gold-pure),
+      var(--gold-light),
+      var(--gold-pure));
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.invite-card:hover {
+  transform: translateY(-8px);
+  box-shadow:
+    0 20px 60px rgba(139, 69, 19, 0.25),
+    0 0 0 1px rgba(212, 175, 55, 0.4);
+}
+
+.invite-card:hover::before {
+  opacity: 1;
+}
+
+/* Card header */
+.invite-card-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.invite-card-title {
+  font-family: var(--font-cultural);
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  font-weight: 600;
+  color: var(--maroon-deep);
+  margin: 0 0 0.75rem 0;
+  letter-spacing: 0.5px;
+}
+
+.invite-card-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold-pure), transparent);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Sponsor info below image */
+.sponsor-info {
+  margin-top: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(135deg,
+      rgba(212, 175, 55, 0.1),
+      rgba(255, 215, 0, 0.08));
+  border-radius: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.sponsor-name {
+  font-family: var(--font-primary);
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  font-weight: 600;
+  color: var(--maroon-deep);
+  margin: 0;
+  line-height: 1.4;
+  letter-spacing: 0.3px;
+}
+
+/* Old showcase styles - keep for backwards compatibility */
 .royal-invite-showcase {
   position: relative;
   max-width: 350px;
@@ -4955,6 +5299,333 @@ p,
   border-radius: 25px;
   z-index: 0;
   animation: diamondGlow 5s ease-in-out infinite alternate;
+}
+
+/* ===== PREMIUM INVITATION SHOWCASE ===== */
+
+/* Decorative background invite images */
+.invites-bg-decoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-invite {
+  position: absolute;
+  opacity: 0.08;
+  filter: blur(2px);
+  transform: rotate(-5deg);
+  transition: all 0.6s ease;
+}
+
+.bg-invite-1 {
+  top: 10%;
+  left: 5%;
+  animation: floatInvite1 20s ease-in-out infinite;
+}
+
+.bg-invite-2 {
+  bottom: 15%;
+  right: 8%;
+  animation: floatInvite2 25s ease-in-out infinite;
+}
+
+.bg-invite-img {
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(139, 69, 19, 0.2);
+}
+
+@keyframes floatInvite1 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-5deg) scale(1);
+  }
+
+  50% {
+    transform: translate(20px, -15px) rotate(-3deg) scale(1.05);
+  }
+}
+
+@keyframes floatInvite2 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(5deg) scale(1);
+  }
+
+  50% {
+    transform: translate(-15px, 20px) rotate(3deg) scale(1.05);
+  }
+}
+
+/* Premium showcase container */
+.invites-showcase-premium {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem auto 0;
+  padding: 0 1rem;
+}
+
+/* Premium invite card */
+.premium-invite-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 30px;
+  padding: 3rem;
+  box-shadow:
+    0 20px 80px rgba(139, 69, 19, 0.2),
+    0 0 0 1px rgba(212, 175, 55, 0.15);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  max-width: 500px;
+  width: 100%;
+}
+
+.premium-invite-card:hover {
+  transform: translateY(-12px);
+  box-shadow:
+    0 30px 100px rgba(139, 69, 19, 0.3),
+    0 0 0 1px rgba(212, 175, 55, 0.3);
+}
+
+/* Animated glow effect */
+.premium-card-glow {
+  position: absolute;
+  inset: -3px;
+  background: linear-gradient(135deg,
+      var(--gold-pure),
+      var(--gold-light),
+      rgba(255, 215, 0, 0.5),
+      var(--gold-pure));
+  border-radius: 30px;
+  opacity: 0;
+  filter: blur(20px);
+  transition: opacity 0.5s ease;
+  z-index: -1;
+  animation: rotateGlow 8s linear infinite;
+}
+
+.premium-invite-card:hover .premium-card-glow {
+  opacity: 0.6;
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Premium invitation frame */
+.invitation-frame-premium {
+  position: relative;
+  background:
+    radial-gradient(ellipse at top left, rgba(255, 215, 0, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(255, 140, 0, 0.04) 0%, transparent 50%),
+    linear-gradient(145deg, #fefcf7 0%, #f8f6f3 100%);
+  padding: 20px;
+  border-radius: 20px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  box-shadow:
+    0 0 0 2px var(--gold-pure),
+    0 0 0 5px rgba(255, 215, 0, 0.15),
+    0 20px 50px rgba(255, 140, 0, 0.12),
+    inset 0 2px 5px rgba(255, 255, 255, 0.4);
+  overflow: visible;
+  margin: 0 auto;
+}
+
+.invitation-frame-premium::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 35px;
+  height: 35px;
+  background:
+    url('/nirgranthlogo1.PNG') center/contain no-repeat,
+    radial-gradient(circle, #fdf6e3 30%, #f4f1eb 100%);
+  border-radius: 50%;
+  border: 3px solid #d4af37;
+  box-shadow:
+    0 0 20px rgba(255, 140, 0, 0.4),
+    inset 0 1px 3px rgba(255, 255, 255, 0.6);
+  animation: sacredGlowPremium 3s ease-in-out infinite alternate;
+  z-index: 3;
+}
+
+@keyframes sacredGlowPremium {
+  0% {
+    box-shadow:
+      0 0 20px rgba(255, 140, 0, 0.4),
+      inset 0 1px 3px rgba(255, 255, 255, 0.6);
+  }
+
+  100% {
+    box-shadow:
+      0 0 35px rgba(255, 140, 0, 0.6),
+      0 0 50px rgba(255, 140, 0, 0.4),
+      inset 0 1px 3px rgba(255, 255, 255, 0.7);
+  }
+}
+
+.invitation-frame-premium::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  background:
+    repeating-linear-gradient(45deg,
+      transparent,
+      transparent 10px,
+      rgba(212, 175, 55, 0.05) 10px,
+      rgba(212, 175, 55, 0.05) 12px);
+  border-radius: 12px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Slideshow for invitations */
+.invitation-frame-premium .slideshow-royal {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow:
+    0 15px 40px rgba(139, 69, 19, 0.25),
+    inset 0 0 0 1px rgba(212, 175, 55, 0.2);
+}
+
+.invitation-frame-premium .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  z-index: 1;
+}
+
+.invitation-frame-premium .slide.active {
+  opacity: 1;
+  z-index: 2;
+}
+
+.invitation-frame-premium .royal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: linear-gradient(145deg, #fefefe 0%, #f8f6f3 100%);
+  border-radius: 8px;
+}
+
+/* Slideshow indicators */
+.slideshow-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.slideshow-indicators .indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.3);
+  border: 2px solid var(--gold-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.slideshow-indicators .indicator:hover {
+  background: var(--gold-light);
+  transform: scale(1.15);
+}
+
+.slideshow-indicators .indicator.active {
+  background: var(--gold-pure);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+  transform: scale(1.25);
+}
+
+.slideshow-indicators .indicator.active::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-pure);
+  opacity: 0.5;
+}
+
+/* Premium caption */
+.premium-invite-caption {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(135deg,
+      rgba(212, 175, 55, 0.08),
+      rgba(255, 215, 0, 0.06));
+  border-radius: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-invite-caption::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 215, 0, 0.15),
+      transparent);
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+.invite-tagline {
+  font-family: var(--font-cultural);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-weight: 500;
+  color: var(--maroon-deep);
+  margin: 0;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
 }
 
 /* Invitation CTA Button Wrapper */
@@ -5128,66 +5799,67 @@ p,
 .invitation-frame {
   position: relative;
   background:
-    radial-gradient(ellipse at top left, rgba(255, 215, 0, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse at bottom right, rgba(255, 140, 0, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at top left, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(255, 140, 0, 0.06) 0%, transparent 50%),
     linear-gradient(145deg, #fefcf7 0%, #f8f6f3 100%);
-  padding: 20px;
-  border-radius: 18px;
-  border: 4px solid transparent;
+  padding: 15px;
+  border-radius: 16px;
+  border: 3px solid transparent;
   background-clip: padding-box;
   box-shadow:
-    0 0 0 3px var(--gold-pure),
-    0 0 0 6px rgba(255, 215, 0, 0.3),
-    0 25px 50px rgba(255, 140, 0, 0.2),
-    inset 0 3px 6px rgba(255, 255, 255, 0.4);
+    0 0 0 2px var(--gold-pure),
+    0 0 0 4px rgba(255, 215, 0, 0.2),
+    0 15px 35px rgba(255, 140, 0, 0.15),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
   overflow: visible;
   transform: translateY(0);
-  transition: all 0.5s ease;
-  z-index: 2;
+  transition: all 0.4s ease;
+  margin: 0 auto;
+  width: fit-content;
 }
 
 .invitation-frame::before {
   content: '';
   position: absolute;
-  top: -35px;
+  top: -25px;
   left: 50%;
   transform: translateX(-50%);
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   background:
     url('/nirgranthlogo1.PNG') center/contain no-repeat,
     radial-gradient(circle, #fdf6e3 30%, #f4f1eb 100%);
   border-radius: 50%;
-  border: 3px solid #d4af37;
+  border: 2px solid #d4af37;
   box-shadow:
-    0 0 15px rgba(255, 140, 0, 0.3),
-    inset 0 1px 3px rgba(255, 255, 255, 0.5);
+    0 0 12px rgba(255, 140, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
   animation: sacredGlow 3s ease-in-out infinite alternate;
   z-index: 3;
 }
 
 .invitation-frame:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-5px);
   box-shadow:
-    0 0 0 3px var(--gold-pure),
-    0 0 0 6px rgba(255, 215, 0, 0.5),
-    0 30px 60px rgba(255, 140, 0, 0.3),
-    inset 0 3px 8px rgba(255, 255, 255, 0.5);
+    0 0 0 2px var(--gold-pure),
+    0 0 0 4px rgba(255, 215, 0, 0.4),
+    0 20px 45px rgba(255, 140, 0, 0.2),
+    inset 0 2px 5px rgba(255, 255, 255, 0.4);
 }
 
 .invitation-frame::after {
   content: '';
   position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
-  bottom: 12px;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
   background:
     repeating-linear-gradient(45deg,
       transparent,
       transparent 8px,
-      rgba(212, 175, 55, 0.1) 8px,
-      rgba(212, 175, 55, 0.1) 10px);
+      rgba(212, 175, 55, 0.08) 8px,
+      rgba(212, 175, 55, 0.08) 10px);
   border-radius: 8px;
   opacity: 0.4;
   pointer-events: none;
@@ -6651,5 +7323,1640 @@ p,
   .footer-legal-links {
     flex-wrap: wrap;
     justify-content: center;
+  }
+}
+
+/* ===== MAGICAL MOBILE-FIRST INVITATION STYLES ===== */
+
+/* Enhanced invites section with magical effects */
+.invites-section {
+  padding: 4rem 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg,
+      rgba(212, 175, 55, 0.04) 0%,
+      rgba(255, 215, 0, 0.02) 30%,
+      rgba(184, 134, 11, 0.04) 70%,
+      rgba(139, 69, 19, 0.02) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Magical floating particles */
+.invites-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, rgba(255, 215, 0, 0.3), transparent),
+    radial-gradient(2px 2px at 60% 70%, rgba(212, 175, 55, 0.3), transparent),
+    radial-gradient(1px 1px at 50% 50%, rgba(255, 215, 0, 0.2), transparent),
+    radial-gradient(1px 1px at 80% 10%, rgba(212, 175, 55, 0.2), transparent);
+  background-size: 200px 200px, 300px 300px, 150px 150px, 250px 250px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  animation: magicalSparkle 20s linear infinite;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes magicalSparkle {
+  0% {
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  }
+
+  100% {
+    background-position: 200px 200px, 240px 260px, 330px 470px, 270px 300px;
+  }
+}
+
+/* Premium showcase - mobile first */
+.invites-showcase-premium {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem auto 0;
+  padding: 0 1rem;
+}
+
+/* Premium card with magical glow */
+.premium-invite-card {
+  position: relative;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 252, 245, 0.98) 100%);
+  border-radius: 28px;
+  padding: 2.5rem 2rem;
+  box-shadow:
+    0 25px 90px rgba(139, 69, 19, 0.25),
+    0 0 0 1px rgba(212, 175, 55, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  max-width: 420px;
+  width: 100%;
+  animation: cardEntrance 1s ease-out;
+}
+
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.premium-invite-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow:
+    0 35px 120px rgba(139, 69, 19, 0.35),
+    0 0 0 1px rgba(212, 175, 55, 0.4),
+    0 0 60px rgba(255, 215, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+
+/* Magical rotating glow */
+.premium-card-glow {
+  position: absolute;
+  inset: -4px;
+  background: conic-gradient(from 0deg,
+      var(--gold-pure),
+      rgba(255, 215, 0, 0.6),
+      var(--gold-light),
+      rgba(255, 215, 0, 0.4),
+      var(--gold-pure));
+  border-radius: 28px;
+  opacity: 0;
+  filter: blur(25px);
+  transition: opacity 0.6s ease;
+  z-index: -1;
+  animation: magicalRotate 10s linear infinite;
+}
+
+.premium-invite-card:hover .premium-card-glow {
+  opacity: 0.7;
+}
+
+@keyframes magicalRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Premium frame with enhanced magical effects */
+.invitation-frame-premium {
+  position: relative;
+  background:
+    radial-gradient(ellipse at top left, rgba(255, 215, 0, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(255, 140, 0, 0.06) 0%, transparent 50%),
+    linear-gradient(145deg, #fefcf7 0%, #f8f6f3 100%);
+  padding: 18px;
+  border-radius: 22px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  box-shadow:
+    0 0 0 2.5px var(--gold-pure),
+    0 0 0 6px rgba(255, 215, 0, 0.2),
+    0 25px 60px rgba(255, 140, 0, 0.15),
+    inset 0 2px 6px rgba(255, 255, 255, 0.5),
+    inset 0 -2px 4px rgba(212, 175, 55, 0.1);
+  overflow: visible;
+  margin: 0 auto;
+  animation: frameGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes frameGlow {
+  0% {
+    box-shadow:
+      0 0 0 2.5px var(--gold-pure),
+      0 0 0 6px rgba(255, 215, 0, 0.2),
+      0 25px 60px rgba(255, 140, 0, 0.15),
+      inset 0 2px 6px rgba(255, 255, 255, 0.5);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 2.5px var(--gold-light),
+      0 0 0 6px rgba(255, 215, 0, 0.4),
+      0 30px 70px rgba(255, 140, 0, 0.25),
+      inset 0 2px 8px rgba(255, 255, 255, 0.6),
+      0 0 40px rgba(255, 215, 0, 0.3);
+  }
+}
+
+/* Sacred logo with pulsing effect */
+.invitation-frame-premium::before {
+  content: '';
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 38px;
+  height: 38px;
+  background:
+    url('/nirgranthlogo1.PNG') center/contain no-repeat,
+    radial-gradient(circle, #fdf6e3 30%, #f4f1eb 100%);
+  border-radius: 50%;
+  border: 3px solid #d4af37;
+  box-shadow:
+    0 0 25px rgba(255, 140, 0, 0.5),
+    0 0 40px rgba(255, 215, 0, 0.3),
+    inset 0 1px 4px rgba(255, 255, 255, 0.7);
+  animation: sacredPulse 3s ease-in-out infinite;
+  z-index: 3;
+}
+
+@keyframes sacredPulse {
+
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+    box-shadow:
+      0 0 25px rgba(255, 140, 0, 0.5),
+      0 0 40px rgba(255, 215, 0, 0.3),
+      inset 0 1px 4px rgba(255, 255, 255, 0.7);
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.1);
+    box-shadow:
+      0 0 35px rgba(255, 140, 0, 0.7),
+      0 0 60px rgba(255, 215, 0, 0.5),
+      0 0 80px rgba(255, 140, 0, 0.3),
+      inset 0 1px 4px rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Slideshow with magical transitions */
+.invitation-frame-premium .slideshow-royal {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  height: 400px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow:
+    0 18px 50px rgba(139, 69, 19, 0.3),
+    inset 0 0 0 1px rgba(212, 175, 55, 0.25),
+    0 0 30px rgba(255, 215, 0, 0.1);
+}
+
+.invitation-frame-premium .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.invitation-frame-premium .slide.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.invitation-frame-premium .royal-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  background: linear-gradient(145deg, #fefefe 0%, #f8f6f3 100%);
+  border-radius: 10px;
+}
+
+/* Magical indicators */
+.slideshow-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1.75rem;
+}
+
+.slideshow-indicators .indicator {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.25);
+  border: 2.5px solid var(--gold-light);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+}
+
+.slideshow-indicators .indicator::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.slideshow-indicators .indicator:hover {
+  background: var(--gold-light);
+  transform: scale(1.2);
+}
+
+.slideshow-indicators .indicator:hover::after {
+  opacity: 1;
+}
+
+.slideshow-indicators .indicator.active {
+  background: var(--gold-pure);
+  box-shadow:
+    0 0 20px rgba(212, 175, 55, 0.8),
+    0 0 35px rgba(255, 215, 0, 0.4);
+  transform: scale(1.35);
+  border-color: var(--gold-pure);
+}
+
+.slideshow-indicators .indicator.active::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold-pure);
+  opacity: 0.6;
+  animation: indicatorPulse 2s ease-in-out infinite;
+}
+
+@keyframes indicatorPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.3);
+    opacity: 0.3;
+  }
+}
+
+/* Magical caption with shimmer */
+.premium-invite-caption {
+  margin-top: 2.25rem;
+  text-align: center;
+  padding: 1.4rem 1.75rem;
+  background:
+    linear-gradient(135deg,
+      rgba(212, 175, 55, 0.12),
+      rgba(255, 215, 0, 0.08),
+      rgba(212, 175, 55, 0.12));
+  border-radius: 18px;
+  border: 1.5px solid rgba(212, 175, 55, 0.2);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 8px 25px rgba(139, 69, 19, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.premium-invite-caption::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(255, 215, 0, 0.25) 50%,
+      transparent 60%,
+      transparent 100%);
+  animation: magicalShimmer 4s linear infinite;
+}
+
+@keyframes magicalShimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.invite-tagline {
+  font-family: var(--font-cultural);
+  font-size: clamp(1.05rem, 3vw, 1.3rem);
+  font-weight: 600;
+  color: var(--maroon-deep);
+  margin: 0;
+  letter-spacing: 0.5px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* ===== MAGICAL COMPACT COUNTDOWN ===== */
+
+/* Hero countdown - compact and magical */
+.hero-countdown {
+  margin: 1.5rem auto;
+  padding: 1.25rem 1rem;
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 215, 0, 0.1),
+      rgba(255, 255, 255, 0.15));
+  border-radius: 18px;
+  color: var(--ivory);
+  border: 2px solid rgba(212, 175, 55, 0.4);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 215, 0, 0.2);
+  width: 92%;
+  max-width: 480px;
+  backdrop-filter: blur(15px);
+  position: relative;
+  overflow: hidden;
+  animation: countdownEntrance 0.8s ease-out;
+}
+
+@keyframes countdownEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Magical background effect */
+.hero-countdown::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle,
+      rgba(255, 215, 0, 0.15) 0%,
+      transparent 70%);
+  animation: countdownGlow 6s ease-in-out infinite;
+}
+
+@keyframes countdownGlow {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translate(10%, 10%) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+.hero-countdown .countdown-title {
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.hero-countdown .countdown-timer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-countdown .time-unit {
+  background:
+    linear-gradient(145deg,
+      rgba(255, 255, 255, 0.2),
+      rgba(255, 215, 0, 0.15));
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  border-radius: 12px;
+  padding: 0.65rem 0.5rem;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.hero-countdown .time-unit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 215, 0, 0.3),
+      transparent);
+  transition: left 0.5s ease;
+}
+
+.hero-countdown .time-unit:hover {
+  transform: translateY(-4px) scale(1.05);
+  border-color: var(--gold-pure);
+  box-shadow:
+    0 8px 25px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+.hero-countdown .time-unit:hover::before {
+  left: 100%;
+}
+
+.hero-countdown .time-value {
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+  font-weight: 800;
+  color: var(--ivory);
+  display: block;
+  line-height: 1;
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    0 0 15px rgba(255, 215, 0, 0.5);
+  font-family: 'Arial Black', sans-serif;
+  letter-spacing: -1px;
+}
+
+.hero-countdown .time-label {
+  font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 0.35rem;
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .hero-countdown {
+    width: 95%;
+    padding: 1rem 0.85rem;
+    margin: 1.25rem auto;
+  }
+
+  .hero-countdown .countdown-title {
+    font-size: 0.85rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .hero-countdown .countdown-timer {
+    gap: 0.6rem;
+  }
+
+  .hero-countdown .time-unit {
+    padding: 0.55rem 0.4rem;
+    border-radius: 10px;
+  }
+
+  .hero-countdown .time-value {
+    font-size: 1.2rem;
+  }
+
+  .hero-countdown .time-label {
+    font-size: 0.6rem;
+    margin-top: 0.3rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .hero-countdown {
+    width: 96%;
+    padding: 0.9rem 0.7rem;
+  }
+
+  .hero-countdown .countdown-title {
+    font-size: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-countdown .countdown-timer {
+    gap: 0.5rem;
+  }
+
+  .hero-countdown .time-unit {
+    padding: 0.5rem 0.35rem;
+    border-radius: 8px;
+  }
+
+  .hero-countdown .time-value {
+    font-size: 1.1rem;
+  }
+
+  .hero-countdown .time-label {
+    font-size: 0.55rem;
+    letter-spacing: 1px;
+  }
+}
+
+/* ===== ULTRA MAGICAL ENHANCEMENTS ===== */
+
+/* Magical cursor trail effect */
+@keyframes cursorTrail {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Parallax scrolling effect for background */
+.invites-bg-decoration {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+/* 3D Card flip effect on invitation */
+.premium-invite-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.invitation-frame-premium {
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.premium-invite-card:hover .invitation-frame-premium {
+  transform: rotateY(5deg) rotateX(-5deg) translateZ(20px);
+}
+
+/* Magical particle system */
+@keyframes particleFloat {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.8;
+  }
+
+  25% {
+    transform: translate(10px, -20px) scale(1.2);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translate(-5px, -40px) scale(0.9);
+    opacity: 0.6;
+  }
+
+  75% {
+    transform: translate(15px, -60px) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Enhanced glow pulses */
+@keyframes megaGlow {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.3)) drop-shadow(0 0 20px rgba(255, 215, 0, 0.2));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 30px rgba(255, 215, 0, 0.6)) drop-shadow(0 0 50px rgba(255, 215, 0, 0.4)) drop-shadow(0 0 70px rgba(255, 140, 0, 0.3));
+  }
+}
+
+.premium-invite-card {
+  animation: cardEntrance 1s ease-out, megaGlow 4s ease-in-out infinite;
+}
+
+/* Holographic effect on images */
+.invitation-frame-premium .royal-image {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.invitation-frame-premium .royal-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 25%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.1) 75%,
+      transparent 100%);
+  transform: skewX(-25deg);
+  animation: holographicSweep 3s ease-in-out infinite;
+}
+
+@keyframes holographicSweep {
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 200%;
+  }
+}
+
+/* Rainbow border effect */
+@keyframes rainbowBorder {
+  0% {
+    border-color: rgba(255, 215, 0, 0.8);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+
+  25% {
+    border-color: rgba(255, 140, 0, 0.8);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+  }
+
+  50% {
+    border-color: rgba(212, 175, 55, 0.8);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+  }
+
+  75% {
+    border-color: rgba(255, 200, 100, 0.8);
+    box-shadow: 0 0 20px rgba(255, 200, 100, 0.5);
+  }
+
+  100% {
+    border-color: rgba(255, 215, 0, 0.8);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  }
+}
+
+.invitation-frame-premium {
+  animation: frameGlow 4s ease-in-out infinite alternate, rainbowBorder 6s linear infinite;
+}
+
+/* Floating animation for indicators */
+@keyframes indicatorFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-5px) scale(1.1);
+  }
+}
+
+.slideshow-indicators .indicator {
+  animation: indicatorFloat 2s ease-in-out infinite;
+}
+
+.slideshow-indicators .indicator:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.slideshow-indicators .indicator:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.slideshow-indicators .indicator:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.slideshow-indicators .indicator:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.slideshow-indicators .indicator:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+/* Magical text reveal animation */
+.invite-tagline {
+  background: linear-gradient(90deg,
+      var(--maroon-deep) 0%,
+      var(--gold-pure) 25%,
+      var(--maroon-deep) 50%,
+      var(--gold-pure) 75%,
+      var(--maroon-deep) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShine 4s linear infinite;
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Countdown magical enhancements */
+.hero-countdown .time-unit {
+  animation: timeUnitPulse 2s ease-in-out infinite;
+}
+
+.hero-countdown .time-unit:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.hero-countdown .time-unit:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.hero-countdown .time-unit:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.hero-countdown .time-unit:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+@keyframes timeUnitPulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* Magical number flip animation */
+.hero-countdown .time-value {
+  display: inline-block;
+  animation: numberGlow 3s ease-in-out infinite;
+}
+
+@keyframes numberGlow {
+
+  0%,
+  100% {
+    text-shadow:
+      0 2px 6px rgba(0, 0, 0, 0.4),
+      0 0 15px rgba(255, 215, 0, 0.5);
+  }
+
+  50% {
+    text-shadow:
+      0 2px 10px rgba(0, 0, 0, 0.5),
+      0 0 30px rgba(255, 215, 0, 0.8),
+      0 0 50px rgba(255, 140, 0, 0.6);
+  }
+}
+
+/* Starburst effect on hover */
+.premium-invite-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.4), transparent 70%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: all 0.6s ease-out;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.premium-invite-card:hover::after {
+  width: 400px;
+  height: 400px;
+  opacity: 1;
+}
+
+/* Magical section entrance */
+.invites-section {
+  animation: sectionFadeIn 1.2s ease-out;
+}
+
+@keyframes sectionFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced sparkle effect */
+.invites-section::after {
+  background-size: 200px 200px, 300px 300px, 150px 150px, 250px 250px;
+  opacity: 0.8;
+  mix-blend-mode: screen;
+}
+
+/* Magical border animation */
+.invitation-frame-premium::after {
+  animation: borderPulse 3s ease-in-out infinite;
+}
+
+@keyframes borderPulse {
+
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Sacred logo mega enhancement */
+.invitation-frame-premium::before {
+  animation: sacredPulse 3s ease-in-out infinite, logoRotate 20s linear infinite;
+}
+
+@keyframes logoRotate {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}
+
+/* Slide transition with scale and blur */
+.invitation-frame-premium .slide {
+  filter: blur(5px);
+  transform: scale(1.2);
+}
+
+.invitation-frame-premium .slide.active {
+  filter: blur(0);
+  transform: scale(1);
+  animation: slideReveal 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotateY(90deg);
+    filter: blur(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    filter: blur(0);
+  }
+}
+
+/* Caption mega shimmer */
+.premium-invite-caption::before {
+  background: linear-gradient(90deg,
+      transparent 0%,
+      transparent 30%,
+      rgba(255, 215, 0, 0.4) 50%,
+      rgba(255, 255, 255, 0.6) 55%,
+      rgba(255, 215, 0, 0.4) 60%,
+      transparent 70%,
+      transparent 100%);
+  animation: megaShimmer 3s linear infinite;
+}
+
+@keyframes megaShimmer {
+  0% {
+    transform: translateX(-150%) translateY(-150%) rotate(45deg);
+  }
+
+  100% {
+    transform: translateX(150%) translateY(150%) rotate(45deg);
+  }
+}
+
+/* Mobile touch ripple effect */
+@media (hover: none) and (pointer: coarse) {
+  .premium-invite-card:active {
+    animation: touchRipple 0.6s ease-out;
+  }
+
+  @keyframes touchRipple {
+    0% {
+      box-shadow:
+        0 25px 90px rgba(139, 69, 19, 0.25),
+        0 0 0 0 rgba(255, 215, 0, 0.7);
+    }
+
+    100% {
+      box-shadow:
+        0 25px 90px rgba(139, 69, 19, 0.25),
+        0 0 0 40px rgba(255, 215, 0, 0);
+    }
+  }
+}
+
+/* Countdown entrance stagger */
+.hero-countdown .time-unit {
+  animation: timeUnitEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+}
+
+.hero-countdown .time-unit:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.hero-countdown .time-unit:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.hero-countdown .time-unit:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.hero-countdown .time-unit:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes timeUnitEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) rotateX(90deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+  }
+}
+
+/* Performance optimization */
+.premium-invite-card,
+.invitation-frame-premium,
+.hero-countdown .time-unit,
+.slideshow-indicators .indicator {
+  will-change: transform;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== PROFESSIONAL LAVISH COUNTDOWN ===== */
+
+.hero-countdown-lavish {
+  margin: 1.5rem auto;
+  padding: 1.75rem 1.5rem;
+  background:
+    linear-gradient(135deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 215, 0, 0.08) 50%,
+      rgba(255, 255, 255, 0.12) 100%);
+  border-radius: 20px;
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  box-shadow:
+    0 15px 60px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 80px rgba(255, 215, 0, 0.15);
+  width: 90%;
+  max-width: 520px;
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-countdown-lavish::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle,
+      rgba(255, 215, 0, 0.1) 0%,
+      transparent 70%);
+  animation: lavishGlow 8s ease-in-out infinite;
+}
+
+@keyframes lavishGlow {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translate(5%, 5%) scale(1.1);
+    opacity: 0.6;
+  }
+}
+
+/* Header Section */
+.countdown-header {
+  text-align: center;
+  margin-bottom: 1.25rem;
+  position: relative;
+  z-index: 1;
+}
+
+.countdown-main-title {
+  font-family: var(--font-cultural);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800;
+  letter-spacing: 6px;
+  background: linear-gradient(135deg,
+      #FFD700 0%,
+      #FFF4E0 25%,
+      #D4AF37 50%,
+      #FFF4E0 75%,
+      #FFD700 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  text-shadow:
+    0 0 30px rgba(255, 215, 0, 0.5),
+    0 0 60px rgba(255, 215, 0, 0.3);
+  animation: titleShine 4s linear infinite;
+  position: relative;
+}
+
+@keyframes titleShine {
+  0% {
+    background-position: 0% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.countdown-main-title::after {
+  content: 'SAGAR';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg,
+      rgba(255, 215, 0, 0.4),
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 215, 0, 0.4));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: blur(8px);
+  opacity: 0.6;
+  z-index: -1;
+}
+
+.countdown-date-subtitle {
+  font-size: clamp(0.85rem, 1.8vw, 1rem);
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  margin: 0.6rem 0 0 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  font-family: var(--font-primary);
+}
+
+/* Elegant Divider */
+.countdown-divider-elegant {
+  width: 70%;
+  max-width: 320px;
+  height: 2px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 215, 0, 0.3) 20%,
+      rgba(255, 215, 0, 0.8) 50%,
+      rgba(255, 215, 0, 0.3) 80%,
+      transparent 100%);
+  position: relative;
+  z-index: 1;
+}
+
+.countdown-divider-elegant::before,
+.countdown-divider-elegant::after {
+  content: '◆';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold-pure);
+  font-size: 0.7rem;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+.countdown-divider-elegant::before {
+  left: 0;
+}
+
+.countdown-divider-elegant::after {
+  right: 0;
+}
+
+/* Timer Layout */
+.countdown-timer-lavish {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Time Units */
+.time-unit-lavish {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 70px;
+}
+
+.time-value-lavish {
+  font-family: 'Georgia', serif;
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 215, 0, 0.6),
+    0 0 40px rgba(255, 215, 0, 0.4);
+  background: linear-gradient(180deg,
+      #FFFFFF 0%,
+      #FFD700 50%,
+      #FFF4E0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+
+.time-value-lavish::before {
+  content: attr(data-value);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg,
+      rgba(255, 215, 0, 0.6),
+      rgba(255, 255, 255, 0.8));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: blur(4px);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.time-label-lavish {
+  font-size: clamp(0.65rem, 1.3vw, 0.8rem);
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  font-family: var(--font-primary);
+}
+
+/* Separators */
+.time-separator-lavish {
+  font-size: clamp(1.5rem, 3vw, 1.8rem);
+  font-weight: 300;
+  color: rgba(255, 215, 0, 0.6);
+  line-height: 1;
+  margin-top: -1.2rem;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+  animation: separatorPulse 2s ease-in-out infinite;
+}
+
+@keyframes separatorPulse {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .hero-countdown-lavish {
+    padding: 2rem 1.5rem;
+    width: 95%;
+    margin: 1.5rem auto;
+  }
+
+  .countdown-main-title {
+    font-size: 2rem;
+    letter-spacing: 4px;
+  }
+
+  .countdown-date-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+
+  .countdown-divider-elegant {
+    margin: 0 auto 1.5rem;
+  }
+
+  .countdown-timer-lavish {
+    gap: 1rem;
+  }
+
+  .time-unit-lavish {
+    min-width: 70px;
+    gap: 0.3rem;
+  }
+
+  .time-value-lavish {
+    font-size: 2rem;
+  }
+
+  .time-label-lavish {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+  }
+
+  .time-separator-lavish {
+    font-size: 1.5rem;
+    margin-top: -1rem;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .hero-countdown-lavish {
+    padding: 1.5rem 1rem;
+  }
+
+  .countdown-main-title {
+    font-size: 1.75rem;
+    letter-spacing: 3px;
+  }
+
+  .countdown-date-subtitle {
+    font-size: 0.75rem;
+  }
+
+  .countdown-timer-lavish {
+    gap: 0.75rem;
+  }
+
+  .time-unit-lavish {
+    min-width: 60px;
+  }
+
+  .time-value-lavish {
+    font-size: 1.75rem;
+  }
+
+  .time-label-lavish {
+    font-size: 0.6rem;
+    letter-spacing: 1.5px;
+  }
+
+  .time-separator-lavish {
+    font-size: 1.25rem;
+  }
+}
+
+/* Tablet landscape - perfect balance */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-countdown-lavish {
+    max-width: 650px;
+  }
+
+  .countdown-main-title {
+    font-size: 3rem;
+  }
+
+  .time-unit-lavish {
+    min-width: 90px;
+  }
+
+  .time-value-lavish {
+    font-size: 3rem;
+  }
+}
+
+/* Large desktop - maximum lavishness */
+@media (min-width: 1400px) {
+  .hero-countdown-lavish {
+    max-width: 800px;
+    padding: 3rem 2.5rem;
+  }
+
+  .countdown-main-title {
+    font-size: 4.5rem;
+    letter-spacing: 12px;
+  }
+
+  .countdown-date-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .time-unit-lavish {
+    min-width: 120px;
+  }
+
+  .time-value-lavish {
+    font-size: 4rem;
+  }
+
+  .time-label-lavish {
+    font-size: 1rem;
+  }
+
+  .time-separator-lavish {
+    font-size: 3rem;
+  }
+}
+
+/* ===== ENHANCED BACKGROUND DECORATIONS ===== */
+
+/* Spread invite images across entire space with varying positions and opacity */
+.bg-invite-1 {
+  top: 8%;
+  left: 3%;
+  opacity: 0.06;
+  animation: floatInvite1 22s ease-in-out infinite;
+}
+
+.bg-invite-2 {
+  top: 15%;
+  right: 5%;
+  opacity: 0.08;
+  animation: floatInvite2 26s ease-in-out infinite;
+}
+
+.bg-invite-3 {
+  bottom: 25%;
+  left: 8%;
+  opacity: 0.07;
+  animation: floatInvite3 24s ease-in-out infinite;
+}
+
+.bg-invite-4 {
+  bottom: 12%;
+  right: 10%;
+  opacity: 0.09;
+  animation: floatInvite4 28s ease-in-out infinite;
+}
+
+.bg-invite-5 {
+  top: 45%;
+  left: 2%;
+  opacity: 0.05;
+  animation: floatInvite5 25s ease-in-out infinite;
+}
+
+.bg-invite-6 {
+  top: 60%;
+  right: 4%;
+  opacity: 0.06;
+  animation: floatInvite6 23s ease-in-out infinite;
+}
+
+/* Individual floating animations for each image */
+@keyframes floatInvite3 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(3deg) scale(1);
+  }
+
+  33% {
+    transform: translate(-15px, 20px) rotate(8deg) scale(1.05);
+  }
+
+  66% {
+    transform: translate(10px, -10px) rotate(-2deg) scale(0.98);
+  }
+}
+
+@keyframes floatInvite4 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-4deg) scale(1);
+  }
+
+  33% {
+    transform: translate(18px, -18px) rotate(2deg) scale(1.03);
+  }
+
+  66% {
+    transform: translate(-12px, 15px) rotate(-7deg) scale(1.02);
+  }
+}
+
+@keyframes floatInvite5 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(6deg) scale(1);
+  }
+
+  33% {
+    transform: translate(-20px, -12px) rotate(-3deg) scale(1.04);
+  }
+
+  66% {
+    transform: translate(15px, 18px) rotate(9deg) scale(0.97);
+  }
+}
+
+@keyframes floatInvite6 {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(-7deg) scale(1);
+  }
+
+  33% {
+    transform: translate(22px, 15px) rotate(4deg) scale(1.06);
+  }
+
+  66% {
+    transform: translate(-18px, -20px) rotate(-2deg) scale(0.99);
+  }
+}
+
+/* ===== SOLID COLOR HUB BACKGROUND ===== */
+
+.hub-solid-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+      #D4AF37 0%,
+      #FFD700 25%,
+      #F4E4C1 50%,
+      #FFD700 75%,
+      #D4AF37 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease-in-out infinite;
+  border-radius: 50%;
+}
+
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Add subtle pattern overlay */
+.hub-solid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+  border-radius: 50%;
+  animation: patternPulse 6s ease-in-out infinite;
+}
+
+@keyframes patternPulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Enhance hub overlay for better contrast */
+.hub-overlay {
+  position: relative;
+  z-index: 2;
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Mobile - reduce number of background images */
+@media (max-width: 768px) {
+
+  .bg-invite-3,
+  .bg-invite-5,
+  .bg-invite-6 {
+    display: none;
+  }
+
+  .bg-invite-1,
+  .bg-invite-2,
+  .bg-invite-4 {
+    opacity: 0.05;
   }
 }

@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     const countdown = () => {
-      const nextShow = new Date('2025-10-07T19:00:00').getTime();
+      const nextShow = new Date('2026-01-27T19:00:00').getTime();
       const now = new Date().getTime();
       const distance = nextShow - now;
 
@@ -52,8 +52,8 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
-  // Optimized slideshow effect
-  useEffect(() => {
+  // Optimized slideshow effect - replaced with magical version below
+  /* useEffect(() => {
     const slides = document.querySelectorAll('.slideshow-royal .slide');
     if (slides.length === 0) return;
     
@@ -68,7 +68,7 @@ export default function Home() {
 
     const slideshowInterval = setInterval(nextSlide, 2500);
     return () => clearInterval(slideshowInterval);
-  }, []);
+  }, []); */
 
   // Optimized IntersectionObserver - only observe specific sections
   useEffect(() => {
@@ -104,6 +104,14 @@ export default function Home() {
       
       rafRef.current = requestAnimationFrame(() => {
         setMousePos({ x: e.clientX, y: e.clientY });
+        
+        // Magical parallax effect for background decorations
+        const bgDecorations = document.querySelector('.invites-bg-decoration') as HTMLElement;
+        if (bgDecorations) {
+          const moveX = (e.clientX / window.innerWidth - 0.5) * 20;
+          const moveY = (e.clientY / window.innerHeight - 0.5) * 20;
+          bgDecorations.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        }
       });
     }, 16); // ~60fps
 
@@ -113,6 +121,74 @@ export default function Home() {
       window.removeEventListener('mousemove', handleMouseMove);
       if (rafRef.current) {
         cancelAnimationFrame(rafRef.current);
+      }
+    };
+  }, []);
+
+  // Magical slideshow indicator interaction
+  useEffect(() => {
+    const handleIndicatorClick = (index: number) => {
+      const slides = document.querySelectorAll('.slideshow-royal .slide');
+      const indicators = document.querySelectorAll('.slideshow-indicators .indicator');
+      
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      
+      indicators.forEach((indicator, i) => {
+        indicator.classList.toggle('active', i === index);
+      });
+    };
+
+    const indicators = document.querySelectorAll('.slideshow-indicators .indicator');
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => handleIndicatorClick(index));
+    });
+
+    return () => {
+      indicators.forEach((indicator, index) => {
+        indicator.removeEventListener('click', () => handleIndicatorClick(index));
+      });
+    };
+  }, []);
+
+  // Pause slideshow on hover
+  useEffect(() => {
+    let slideshowInterval: NodeJS.Timeout;
+    const inviteCard = document.querySelector('.premium-invite-card');
+    
+    const startSlideshow = () => {
+      const slides = document.querySelectorAll('.slideshow-royal .slide');
+      const indicators = document.querySelectorAll('.slideshow-indicators .indicator');
+      if (slides.length === 0) return;
+      
+      let currentSlide = 0;
+      
+      slideshowInterval = setInterval(() => {
+        const next = (currentSlide + 1) % slides.length;
+        slides[currentSlide]?.classList.remove('active');
+        slides[next]?.classList.add('active');
+        indicators[currentSlide]?.classList.remove('active');
+        indicators[next]?.classList.add('active');
+        currentSlide = next;
+      }, 3500);
+    };
+
+    const stopSlideshow = () => {
+      if (slideshowInterval) clearInterval(slideshowInterval);
+    };
+
+    if (inviteCard) {
+      inviteCard.addEventListener('mouseenter', stopSlideshow);
+      inviteCard.addEventListener('mouseleave', startSlideshow);
+      startSlideshow();
+    }
+
+    return () => {
+      stopSlideshow();
+      if (inviteCard) {
+        inviteCard.removeEventListener('mouseenter', stopSlideshow);
+        inviteCard.removeEventListener('mouseleave', startSlideshow);
       }
     };
   }, []);
@@ -186,32 +262,39 @@ export default function Home() {
               Witness the magnificence of ancient wisdom through <span className="highlight-gold">spectacular performances</span> that illuminate the soul
             </p>
 
-            {/* Event Countdown
-            <div className="countdown-container hero-countdown">
-              <h3 className="countdown-title">Next Show: AARON M.P.</h3>
-              <div className="countdown-timer">
-                <div className="time-unit">
-                  <span className="time-value">{timeLeft.days}</span>
-                  <span className="time-label">Days</span>
+            {/* Event Countdown - Professional & Lavish */}
+            <div className="countdown-container hero-countdown-lavish">
+              <div className="countdown-header">
+                <h2 className="countdown-main-title">SAGAR</h2>
+                <p className="countdown-date-subtitle">January 27, 2026 • 7:00 PM</p>
+              </div>
+              <div className="countdown-divider-elegant"></div>
+              <div className="countdown-timer-lavish">
+                <div className="time-unit-lavish">
+                  <div className="time-value-lavish">{timeLeft.days}</div>
+                  <div className="time-label-lavish">Days</div>
                 </div>
-                <div className="time-unit">
-                  <span className="time-value">{timeLeft.hours}</span>
-                  <span className="time-label">Hours</span>
+                <div className="time-separator-lavish">:</div>
+                <div className="time-unit-lavish">
+                  <div className="time-value-lavish">{timeLeft.hours}</div>
+                  <div className="time-label-lavish">Hours</div>
                 </div>
-                <div className="time-unit">
-                  <span className="time-value">{timeLeft.minutes}</span>
-                  <span className="time-label">Minutes</span>
+                <div className="time-separator-lavish">:</div>
+                <div className="time-unit-lavish">
+                  <div className="time-value-lavish">{timeLeft.minutes}</div>
+                  <div className="time-label-lavish">Minutes</div>
                 </div>
-                <div className="time-unit">
-                  <span className="time-value">{timeLeft.seconds}</span>
-                  <span className="time-label">Seconds</span>
+                <div className="time-separator-lavish">:</div>
+                <div className="time-unit-lavish">
+                  <div className="time-value-lavish">{timeLeft.seconds}</div>
+                  <div className="time-label-lavish">Seconds</div>
                 </div>
               </div>
-            </div> */}
+            </div>
 
 
             {/* Recent Event Recap */}
-<div className="event-recap-container hero-recap">
+{/* <div className="event-recap-container hero-recap">
   
   <h3 className="recap-title">Recent Event: AARON M.P.</h3>
   <div className="recap-stats">
@@ -228,7 +311,7 @@ export default function Home() {
       <span className="stat-label">Passionate Event Makers</span>
     </div>
   </div>
-</div>
+</div> */}
 
        <div className="luxury-cta-group">
       <Link href="/gallery" className="luxury-cta primary">
@@ -245,110 +328,164 @@ export default function Home() {
 
      
 
-{/* Official Invites & Sponsors Section */}
-{/*
+{/* Official Invitations Section */} 
+
 <section className="invites-section">
+  {/* Decorative background invite images - spread across entire space */}
+  <div className="invites-bg-decoration">
+    <div className="bg-invite bg-invite-1">
+      <Image
+        src="/invite.jpeg"
+        alt="Background decoration"
+        width={160}
+        height={220}
+        className="bg-invite-img"
+      />
+    </div>
+    <div className="bg-invite bg-invite-2">
+      <Image
+        src="/invite1.jpeg"
+        alt="Background decoration"
+        width={180}
+        height={240}
+        className="bg-invite-img"
+      />
+    </div>
+    <div className="bg-invite bg-invite-3">
+      <Image
+        src="/invite2.jpeg"
+        alt="Background decoration"
+        width={150}
+        height={200}
+        className="bg-invite-img"
+      />
+    </div>
+    <div className="bg-invite bg-invite-4">
+      <Image
+        src="/invite3.jpeg"
+        alt="Background decoration"
+        width={170}
+        height={230}
+        className="bg-invite-img"
+      />
+    </div>
+    <div className="bg-invite bg-invite-5">
+      <Image
+        src="/invite4.jpeg"
+        alt="Background decoration"
+        width={160}
+        height={220}
+        className="bg-invite-img"
+      />
+    </div>
+    <div className="bg-invite bg-invite-6">
+      <Image
+        src="/invite.jpeg"
+        alt="Background decoration"
+        width={140}
+        height={190}
+        className="bg-invite-img"
+      />
+    </div>
+  </div>
+
   <div className="container">
     <div className="section-header">
       <h2 className="section-title">
         <span className="title-icon">✨</span>
-        Official Invitations & Sponsors
+        Official Invitations
       </h2>
       <div className="title-underline"></div>
+      <p className="section-subtitle">Beautifully crafted invitations for our prestigious event</p>
     </div>
 
-    <div className="royal-invite-showcase responsive-row">
-
-      <div className="invite-display">
-        <div className="invitation-frame">
+    {/* Single centered invitation showcase */}
+    <div className="invites-showcase-premium">
+      <div className="premium-invite-card">
+        <div className="premium-card-glow"></div>
+        <div className="invitation-frame-premium">
           <div className="slideshow-royal">
             <div className="slide active">
               <Image
-                src="/invitemain.jpg"
+                src="/invite.jpeg"
                 alt="Main Invitation"
-                width={220}
-                height={300}
+                width={280}
+                height={380}
                 className="royal-image"
               />
             </div>
             <div className="slide">
               <Image
-                src="/creatorpage.jpg"
+                src="/invite1.jpeg"
                 alt="Creator Page"
-                width={220}
-                height={300}
+                width={280}
+                height={380}
                 className="royal-image"
               />
             </div>
             <div className="slide">
               <Image
-                src="/invitecontent.jpeg"
-                alt="Event Details"
-                width={220}
-                height={300}
+                src="/invite2.jpeg"
+                alt="Creator Page"
+                width={280}
+                height={380}
                 className="royal-image"
               />
             </div>
             <div className="slide">
               <Image
-                src="/flyer.jpg"
+                src="/invite3.jpeg"
                 alt="Event Details"
-                width={220}
-                height={300}
+                width={280}
+                height={380}
+                className="royal-image"
+              />
+            </div>
+            <div className="slide">
+              <Image
+                src="/invite4.jpeg"
+                alt="Event Details"
+                width={280}
+                height={380}
                 className="royal-image"
               />
             </div>
           </div>
-        </div>
-      </div>
-
-      <div className="invite-display sponsor-display">
-        <div className="invitation-frame">
-          <div className="slideshow-sponsor">
-            <div className="sponsor-slide active">
-              <Image
-                src="/sponsor1.jpeg"
-                alt="Santosh Jain Souabh Jain Jehru Chacha Family"
-                width={220}
-                height={300}
-                className="royal-image"
-              />
-            </div>
-            <div className="sponsor-slide">
-              <Image
-                src="/sponsor2.jpeg"
-                alt="Santosh Aajad Mukesh Devendra Kaleshiya Parivar"
-                width={220}
-                height={300}
-                className="royal-image"
-              />
-            </div>
-            <div className="sponsor-slide">
-              <Image
-                src="/sponsor3.jpeg"
-                alt="Shikhar Kaleshiya Family"
-                width={220}
-                height={300}
-                className="royal-image"
-              />
-            </div>
+          <div className="slideshow-indicators">
+            <span className="indicator active"></span>
+            <span className="indicator"></span>
+            <span className="indicator"></span>
+            <span className="indicator"></span>
           </div>
         </div>
+        <div className="premium-invite-caption">
+          <p className="invite-tagline">Join us for an unforgettable spiritual journey</p>
+        </div>
       </div>
-
     </div>
+  </div>
+</section>
 
-    <div className="invitation-cta">
-      <button className="invitation-button">
-        ✦ Get Your Personalized Invitation Now ✦
-      </button>
-      <button className="invitation-button">
-        ✦ Become A Sponsor ✦
-      </button>
+{/* Sponsors Section - Commented out for future use
+<section className="sponsors-section">
+  <div className="container">
+    <div className="section-header">
+      <h2 className="section-title">Our Sponsors</h2>
+    </div>
+    <div className="sponsor-card">
+      <Image
+        src="/invite.jpeg"
+        alt="Santosh Jain Souabh Jain Jehru Chacha Family"
+        width={220}
+        height={300}
+        className="royal-image"
+      />
+      <p className="sponsor-name">Santosh Jain, Souabh Jain & Jehru Chacha Family</p>
     </div>
   </div>
 </section>
 */}
+
 
       {/* About Section - Redesigned */}
       <section id="about" className={`about-section ${isVisible.about ? 'animate-in' : ''}`}>
@@ -577,15 +714,8 @@ export default function Home() {
               {/* Center Logo */}
               <div className="experience-center-hub">
                 <div className="hub-circle">
-                  <video
-                    className="hub-video"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  >
-                    <source src="/bgflag.mp4" type="video/mp4" />
-                  </video>
+                  {/* Solid color background instead of video */}
+                  <div className="hub-solid-bg"></div>
                   <div className="hub-overlay">
                     <div className="hub-label">RATNATRAY</div>
                     <div className="hub-subtitle">Experience</div>
@@ -656,7 +786,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Shows Section */}
+      {/* Shows Section - Commented out for now
       <section id="shows" className={`shows-section ${isVisible.shows ? 'animate-in' : ''}`}>
         <div className="container">
           <div className="section-header">
@@ -667,110 +797,82 @@ export default function Home() {
             <div className="title-underline"></div>
           </div>
 
-          {/* <div className="countdown-container shows-countdown">
-            <h3 className="countdown-title">Next Show: AARON M.P.</h3>
-            <div className="countdown-timer">
-              <div className="time-unit">
-                <span className="time-value">{timeLeft.days}</span>
-                <span className="time-label">Days</span>
+          <div className="shows-grid">
+            <div className="show-card featured">
+              <div className="show-header">
+                <h4>Mumbai</h4>
+                <span className="show-status">Next</span>
               </div>
-              <div className="time-unit">
-                <span className="time-value">{timeLeft.hours}</span>
-                <span className="time-label">Hours</span>
+              <div className="show-details">
+                <div className="show-date">
+                  <span className="detail-label">Date:</span>
+                  <span>to be decided</span>
+                </div>
+                <div className="show-venue">
+                  <span className="detail-label">Venue:</span>
+                  <span>to be decided</span>
+                </div>
+                <div className="show-time">
+                  <span className="detail-label">Time:</span>
+                  <span>to be decided</span>
+                </div>
               </div>
-              <div className="time-unit">
-                <span className="time-value">{timeLeft.minutes}</span>
-                <span className="time-label">Minutes</span>
-              </div>
-              <div className="time-unit">
-                <span className="time-value">{timeLeft.seconds}</span>
-                <span className="time-label">Seconds</span>
-              </div>
+              <Link href="#book" className="show-book-btn">
+                Book Now
+              </Link>
             </div>
-          </div> */}
 
+            <div className="show-card">
+              <div className="show-header">
+                <h4>Rajasthan</h4>
+                <span className="show-status">Coming</span>
+              </div>
+              <div className="show-details">
+                <div className="show-date">
+                  <span className="detail-label">Date:</span>
+                  <span>to be decided</span>
+                </div>
+                <div className="show-venue">
+                  <span className="detail-label">Venue:</span>
+                  <span>to be decided</span>
+                </div>
+                <div className="show-time">
+                  <span className="detail-label">Time:</span>
+                  <span>to be decided</span>
+                </div>
+              </div>
+              <Link href="#book" className="show-book-btn">
+                Pre-Book
+              </Link>
+            </div>
 
-
-
-
-         <div className="shows-grid">
-  <div className="show-card featured">
-    <div className="show-header">
-      <h4>Mumbai</h4>
-      <span className="show-status">Next</span>
-    </div>
-    <div className="show-details">
-      <div className="show-date">
-        <span className="detail-label">Date:</span>
-        <span> to be decided</span>
-      </div>
-      <div className="show-venue">
-        <span className="detail-label">Venue:</span>
-        <span> to be decided</span>
-      </div>
-      <div className="show-time">
-        <span className="detail-label">Time:</span>
-        <span> to be decided</span>
-      </div>
-    </div>
-    <Link href="#book" className="show-book-btn">
-      Book Now
-    </Link>
-  </div>
-
-  <div className="show-card">
-    <div className="show-header">
-      <h4>Rajasthan</h4>
-      <span className="show-status">Coming</span>
-    </div>
-    <div className="show-details">
-      <div className="show-date">
-        <span className="detail-label">Date:</span>
-        <span> to be decided</span>
-      </div>
-      <div className="show-venue">
-        <span className="detail-label">Venue:</span>
-        <span> to be decided</span>
-      </div>
-      <div className="show-time">
-        <span className="detail-label">Time:</span>
-        <span> to be decided</span>
-      </div>
-    </div>
-    <Link href="#book" className="show-book-btn">
-      Pre-Book
-    </Link>
-  </div>
-
-  <div className="show-card">
-    <div className="show-header">
-      <h4>Pune</h4>
-      <span className="show-status">Coming</span>
-    </div>
-    <div className="show-details">
-      <div className="show-date">
-        <span className="detail-label">Date:</span>
-        <span> to be decided</span>
-      </div>
-      <div className="show-venue">
-        <span className="detail-label">Venue:</span>
-        <span> to be decided</span>
-      </div>
-      <div className="show-time">
-        <span className="detail-label">Time:</span>
-        <span> to be decided</span>
-      </div>
-    </div>
-    <Link href="#book" className="show-book-btn">
-      Pre-Book
-    </Link>
-  </div>
-
-
-            
+            <div className="show-card">
+              <div className="show-header">
+                <h4>Pune</h4>
+                <span className="show-status">Coming</span>
+              </div>
+              <div className="show-details">
+                <div className="show-date">
+                  <span className="detail-label">Date:</span>
+                  <span>to be decided</span>
+                </div>
+                <div className="show-venue">
+                  <span className="detail-label">Venue:</span>
+                  <span>to be decided</span>
+                </div>
+                <div className="show-time">
+                  <span className="detail-label">Time:</span>
+                  <span>to be decided</span>
+                </div>
+              </div>
+              <Link href="#book" className="show-book-btn">
+                Pre-Book
+              </Link>
+            </div>
           </div>
         </div>
       </section>
+      */}
 
       {/* Gallery Section - Compact */}
       <section className="gallery-section compact">

@@ -30,7 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     const countdown = () => {
-      const nextShow = new Date('2026-01-27T19:00:00').getTime();
+      const nextShow = new Date('2026-03-31T19:00:00').getTime();
       const now = new Date().getTime();
       const distance = nextShow - now;
 
@@ -207,7 +207,7 @@ export default function Home() {
             loop
             playsInline
           >
-            <source src="/intro.mp4" type="video/mp4" />
+            <source src="/bgvideo.MP4" type="video/mp4" />
           </video>
           <div className="hero-video-overlay"></div>
 
@@ -242,7 +242,7 @@ export default function Home() {
               <span className="badge-glow">✦ Premium Spiritual Experience</span>
             </div>
 
-            <h1 className="hero-title-luxury">
+            {/* <h1 className="hero-title-luxury">
               <Image
                 src="/logo.png"
                 alt="Ratnatray Logo"
@@ -250,9 +250,9 @@ export default function Home() {
                 height={260}
                 className="hero-luxury-logo"
               />
-            </h1>
+            </h1> */}
 
-            <div className="luxury-subtitle">
+            {/* <div className="luxury-subtitle">
               <div className="golden-line"></div>
               <p className="subtitle-gold">The Cultural Reflection of Jinshasan</p>
               <div className="golden-line"></div>
@@ -260,10 +260,10 @@ export default function Home() {
 
             <p className="hero-description-gold">
               Witness the magnificence of ancient wisdom through <span className="highlight-gold">spectacular performances</span> that illuminate the soul
-            </p>
+            </p> */}
 
             {/* Event Countdown - Professional & Lavish */}
-            <div className="countdown-container hero-countdown-lavish">
+            {/* <div className="countdown-container hero-countdown-lavish">
               <div className="countdown-header">
                 <h2 className="countdown-main-title">SAGAR</h2>
                 <p className="countdown-date-subtitle">January 27, 2026 • 7:00 PM</p>
@@ -290,28 +290,23 @@ export default function Home() {
                   <div className="time-label-lavish">Seconds</div>
                 </div>
               </div>
-            </div>
+            </div> */}
 
 
-            {/* Recent Event Recap */}
-{/* <div className="event-recap-container hero-recap">
-  
-  <h3 className="recap-title">Recent Event: AARON M.P.</h3>
-  <div className="recap-stats">
-    <div className="stat-item">
-      <span className="stat-value">5000+</span>
-      <span className="stat-label">Attendees</span>
+            {/* Next Event - Coming Soon Teaser */}
+<div className="next-show-teaser hero-recap">
+  <div className="teaser-glow"></div>
+  <div className="teaser-content">
+    <span className="teaser-badge">🎭</span>
+    <div className="teaser-text">
+      <span className="teaser-title">Next Show Coming Soon</span>
+      <span className="teaser-subtitle">Something Spectacular Awaits</span>
     </div>
-    <div className="stat-item">
-      <span className="stat-value">30+</span>
-      <span className="stat-label">Artists</span>
-    </div>
-    <div className="stat-item">
-      <span className="stat-value">60+</span>
-      <span className="stat-label">Passionate Event Makers</span>
-    </div>
+    <button className="teaser-notify-btn">
+      <span>🔔 Get Notified</span>
+    </button>
   </div>
-</div> */}
+</div>
 
        <div className="luxury-cta-group">
       <Link href="/gallery" className="luxury-cta primary">
@@ -328,10 +323,8 @@ export default function Home() {
 
      
 
-{/* Official Invitations Section */} 
-
+{/* Official Invitations Section - Commented out
 <section className="invites-section">
-  {/* Decorative background invite images - spread across entire space */}
   <div className="invites-bg-decoration">
     <div className="bg-invite bg-invite-1">
       <Image
@@ -339,6 +332,15 @@ export default function Home() {
         alt="Background decoration"
         width={160}
         height={220}
+        className="bg-invite-img"
+      />
+    </div>
+    <div className="bg-invite bg-invite-2">
+      <Image
+        src="/maininvite.jpeg"
+        alt="Background decoration"
+        width={180}
+        height={240}
         className="bg-invite-img"
       />
     </div>
@@ -399,7 +401,7 @@ export default function Home() {
       <p className="section-subtitle">Beautifully crafted invitations for our prestigious event</p>
     </div>
 
-    {/* Single centered invitation showcase */}
+    Single centered invitation showcase
     <div className="invites-showcase-premium">
       <div className="premium-invite-card">
         <div className="premium-card-glow"></div>
@@ -465,6 +467,7 @@ export default function Home() {
     </div>
   </div>
 </section>
+*/}
 
 {/* Sponsors Section - Commented out for future use
 <section className="sponsors-section">

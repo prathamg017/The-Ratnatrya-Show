@@ -243,12 +243,14 @@ export default function Home() {
             </div>
 
             {/* <h1 className="hero-title-luxury">
+              <span className="sr-only">Ratnatray – Premium Spiritual Experience & Cultural Performances</span>
               <Image
                 src="/logo.png"
-                alt="Ratnatray Logo"
+                alt="Ratnatray – The Cultural Reflection of Jinshasan"
                 width={300}
                 height={260}
                 className="hero-luxury-logo"
+                priority
               />
             </h1> */}
 
@@ -517,6 +519,11 @@ export default function Home() {
                   A powerful blend of inspiring speeches, sacred music, and mesmerizing dance-drama that offers audiences
                   an immersive journey into spiritual and cultural enlightenment.
                 </p>
+                <div className="mt-8">
+                  <Link href="/philosophy" className="text-[#D4AF37] border border-[#D4AF37] px-6 py-2 rounded-full hover:bg-[#D4AF37] hover:text-[#1A1A1A] transition-all inline-block font-medium">
+                    Read Our Full Philosophy →
+                  </Link>
+                </div>
               </div>
               <div className="intro-video">
                 <video
@@ -939,7 +946,7 @@ export default function Home() {
               <div className="contact-details">
                 <div className="contact-item">
                   <span className="contact-icon">📧</span>
-                  <a href="mailto:info.therantnatrayshow@gmail.com">info.therantnatrayshow@gmail.com</a>
+                  <a href="mailto:info.theratnatrayashow@gmail.com">info.theratnatrayashow@gmail.com</a>
                 </div>
                 <div className="contact-item">
                   <span className="contact-icon">📱</span>

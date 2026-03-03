@@ -6,6 +6,10 @@ export const metadata = {
   alternates: {
     canonical: 'https://theratnatrayashow.com/philosophy',
   },
+  robots: {
+    index: false,
+    follow: true,
+  },
 };
 
 export default function PhilosophyPage() {

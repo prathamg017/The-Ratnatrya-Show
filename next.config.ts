@@ -64,6 +64,44 @@ const nextConfig = {
       ],
     },
   ],
+
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.theratnatrayashow.com',
+          },
+        ],
+        destination: 'https://theratnatrayashow.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'ratnatrayshow.com',
+          },
+        ],
+        destination: 'https://theratnatrayashow.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.ratnatrayshow.com',
+          },
+        ],
+        destination: 'https://theratnatrayashow.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

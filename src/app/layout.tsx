@@ -2,25 +2,29 @@ import { ReactNode } from "react";
 import './globals.css';
 
 export const metadata = {
-  title: "Ratnatray – Premium Spiritual Experience | Cultural Performances",
+  title: "The Ratnatraya Show – Premium Spiritual Experience | Cultural Performances",
   description:
     "Experience the magnificence of ancient wisdom through spectacular live performances. A grand confluence of culture, spirituality, sacred music & dance-drama.",
-  keywords: "spiritual performances, cultural events, Jain dharma, live shows, music, dance, spirituality, ratnatray, cultural confluence, premium experience",
-  authors: [{ name: "Ratnatray Team" }],
-  creator: "Ratnatray",
-  publisher: "Ratnatray",
-  metadataBase: new URL('https://ratnatrayshow.com'),
+  keywords: "spiritual performances, cultural events, Jain dharma, live shows, music, dance, spirituality, ratnatraya, jinshasan, cultural confluence, premium experience",
+  authors: [{ name: "Ratnatraya Team" }],
+  creator: "Ratnatraya",
+  publisher: "Ratnatraya",
+  metadataBase: new URL('https://theratnatrayashow.com'),
+  alternates: {
+    canonical: '/',
+  },
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
   openGraph: {
-    title: "Ratnatray – Premium Spiritual Experience",
+    title: "The Ratnatraya Show – Premium Spiritual Experience",
     description: "Experience the magnificence of ancient wisdom through spectacular live performances",
-    type: "website",
+    url: 'https://theratnatrayashow.com',
+    siteName: "The Ratnatraya Show",
     locale: "en_IN",
-    siteName: "Ratnatray",
+    type: "website",
     images: [
       {
         url: "/banner.jpeg",
@@ -62,11 +66,12 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png" },
       { url: "/logo.png", type: "image/png", sizes: "32x32" },
     ],
+    shortcut: "/favicon.png",
     apple: [
-      { url: "/logo.png", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
     other: [
       {
@@ -98,6 +103,43 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preload" href="/bg.png" as="image" />
         <link rel="preload" href="/logo.png" as="image" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Ratnatray",
+              "url": "https://theratnatrayashow.com",
+              "logo": "https://theratnatrayashow.com/logo.png",
+              "sameAs": [
+                "https://www.instagram.com/the_ratnatrya_show/"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-8839481571",
+                "contactType": "customer service",
+                "email": "info.theratnatrayashow@gmail.com"
+              }
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Ratnatray",
+              "url": "https://theratnatrayashow.com",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://theratnatrayashow.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-touch-fullscreen" content="yes" />
         <meta name="format-detection" content="telephone=no" />

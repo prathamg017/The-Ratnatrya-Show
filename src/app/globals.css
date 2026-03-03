@@ -59,6 +59,19 @@
   --transition-cultural: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* Accessibility & SEO - Visually Hidden */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* ===== RESET & BASE ===== */
 * {
   margin: 0;
@@ -193,14 +206,15 @@ p,
   height: clamp(450px, 80vw, 550px) !important;
 }
 
-/* Fix mission elements (Jinshasan Platform) to stay in row */
+/* Fix mission elements (Jinshasan Platform) to stay in row, but allow wrap on very small screens */
 .mission-elements {
   display: flex !important;
   flex-direction: row !important;
   align-items: center !important;
   justify-content: center !important;
   gap: clamp(0.3rem, 1.5vw, 0.8rem) !important;
-  flex-wrap: nowrap !important;
+  flex-wrap: wrap !important;
+  /* Changed from nowrap to wrap */
   max-width: 100% !important;
 }
 
@@ -1009,7 +1023,7 @@ p,
   line-height: 1.2;
   max-width: 95%;
   margin: 0 auto;
-  white-space: nowrap;
+  /* white-space: nowrap; Removed to allow wrap on small screens */
 }
 
 .hero-description-gold {
@@ -4329,6 +4343,33 @@ p,
 
   .footer-grid {
     grid-template-columns: 1fr !important;
+  }
+
+  /* Reduce golden lines in hero to prevent overflow */
+  .golden-line {
+    width: 30px !important;
+  }
+
+  /* Shrink experience diagram further */
+  .experience-diagram {
+    height: 400px !important;
+    transform: scale(0.9);
+    transform-origin: center;
+  }
+
+  .hub-circle {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  .orbit-circle {
+    width: 80px !important;
+    height: 80px !important;
+  }
+
+  .orbit-icon-img {
+    width: 70px !important;
+    height: 70px !important;
   }
 }
 

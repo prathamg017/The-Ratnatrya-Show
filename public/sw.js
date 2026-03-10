@@ -3,8 +3,8 @@ const STATIC_ASSETS = [
   '/',
   '/manifest.json',
   '/bg.png',
-  '/logo.png',
-  '/favicon.ico',
+  '/mainlogo.jpeg',
+  '/mainlogo.jpeg',
   'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700;800;900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap'
 ];
 
@@ -83,8 +83,8 @@ self.addEventListener('sync', (event) => {
 self.addEventListener('push', (event) => {
   const options = {
     body: event.data ? event.data.text() : 'New update from Ratnatray!',
-    icon: '/logo.png',
-    badge: '/logo.png',
+    icon: '/mainlogo.jpeg',
+    badge: '/mainlogo.jpeg',
     tag: 'ratnatray-notification',
     data: {
       url: '/'
@@ -93,7 +93,7 @@ self.addEventListener('push', (event) => {
       {
         action: 'view',
         title: 'View',
-        icon: '/logo.png'
+        icon: '/mainlogo.jpeg'
       },
       {
         action: 'dismiss',

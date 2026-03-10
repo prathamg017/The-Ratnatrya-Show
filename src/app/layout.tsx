@@ -66,17 +66,17 @@ export const metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/png" },
-      { url: "/logo.png", type: "image/png", sizes: "32x32" },
+      { url: "/mainlogo.jpeg", type: "image/jpeg" },
+      { url: "/mainlogo.jpeg", type: "image/jpeg", sizes: "32x32" },
     ],
-    shortcut: "/favicon.png",
+    shortcut: "/mainlogo.jpeg",
     apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      { url: "/mainlogo.jpeg", sizes: "180x180", type: "image/jpeg" },
     ],
     other: [
       {
         rel: "mask-icon",
-        url: "/logo.png",
+        url: "/mainlogo.jpeg",
       },
     ],
   },
@@ -102,7 +102,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preload" href="/bg.png" as="image" />
-        <link rel="preload" href="/logo.png" as="image" />
+        <link rel="preload" href="/mainlogo.jpeg" as="image" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -111,7 +111,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               "@type": "Organization",
               "name": "Ratnatray",
               "url": "https://theratnatrayashow.com",
-              "logo": "https://theratnatrayashow.com/logo.png",
+              "logo": "https://theratnatrayashow.com/mainlogo.jpeg",
               "sameAs": [
                 "https://www.instagram.com/the_ratnatrya_show/"
               ],

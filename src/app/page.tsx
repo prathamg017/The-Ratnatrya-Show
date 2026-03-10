@@ -245,7 +245,7 @@ export default function Home() {
             {/* <h1 className="hero-title-luxury">
               <span className="sr-only">Ratnatray – Premium Spiritual Experience & Cultural Performances</span>
               <Image
-                src="/logo.png"
+                src="/mainlogo.jpeg"
                 alt="Ratnatray – The Cultural Reflection of Jinshasan"
                 width={300}
                 height={260}

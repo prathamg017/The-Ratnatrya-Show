@@ -138,7 +138,29 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 "price": "0",
                 "priceCurrency": "INR",
                 "availability": "https://schema.org/InStock",
-                "url": "https://theratnatrayashow.com/invite"
+                "url": "https://theratnatrayashow.com/invite",
+                "validFrom": "2025-01-01"
+              },
+              "location": {
+                "@type": "Place",
+                "name": "Ratnatraya Cultural Hub",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Nirgranth HQ",
+                  "addressLocality": "Indore",
+                  "addressRegion": "MP",
+                  "postalCode": "452001",
+                  "addressCountry": "IN"
+                }
+              },
+              "organizer": {
+                "@type": "Organization",
+                "name": "The Ratnatraya Show Team",
+                "url": "https://theratnatrayashow.com"
+              },
+              "performer": {
+                "@type": "Person",
+                "name": "Sky King Akash Jain"
               },
               "isAccessibleForFree": true
             })

@@ -1,6 +1,7 @@
 'use client';
 
-import { useRouter } from 'next/navigation'; // For Next.js 13+ App Router
+import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import VideoSection from './vdo';
 
@@ -95,77 +96,34 @@ useEffect(() => {
 
 
       {/* Hero Section */}
-     <div className="hero-collage">
-  <div className="hero-overlay">
-    <button
-    className="hero-back-button"
-    onClick={() => router.push('/')}
-  >
-    ← Back to Home
-  </button>
-    <div className="hero-title">
-      <h1 className="hero-main-title">Explore Our Luxury Gallery</h1>
-      <p className="hero-subtitle">Experience timeless elegance, captured in moments.</p>
-    </div>
+      {/* Hero Header Overlay */}
+      <div className="hero-gallery-header">
+        <button
+          className="hero-back-button"
+          onClick={() => router.push('/')}
+        >
+          ← Back to Home
+        </button>
+        <div className="hero-title">
+          <h1 className="hero-main-title">Explore Our Luxury Gallery</h1>
+          <p className="hero-subtitle">Experience timeless elegance, captured in moments.</p>
+        </div>
+      </div>
+
+      <div className="collage-grid">
+    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18].map((num) => (
+      <div className="collage-item" key={num}>
+        <Image 
+          src={`/gallery/${num}.JPG`} 
+          alt={`The Ratnatraya Show performance moment ${num} - Jain cultural experience`} 
+          width={400} 
+          height={300} 
+          loading="lazy"
+        />
+      </div>
+    ))}
   </div>
 
-  <div className="collage-grid">
-    <div className="collage-item">
-      <img src="/gallery/1.JPG" alt="Image 1" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/2.JPG" alt="Image 2" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/3.JPG" alt="Image 3" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/4.JPG" alt="Image 4" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/5.JPG" alt="Image 5" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/6.JPG" alt="Image 6" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/7.JPG" alt="Image 7" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/8.JPG" alt="Image 8" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/9.JPG" alt="Image 9" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/10.JPG" alt="Image 10" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/11.JPG" alt="Image 11" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/12.JPG" alt="Image 12" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/13.JPG" alt="Image 13" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/14.JPG" alt="Image 14" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/15.JPG" alt="Image 15" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/16.JPG" alt="Image 16" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/17.JPG" alt="Image 17" />
-    </div>
-    <div className="collage-item">
-      <img src="/gallery/18.JPG" alt="Image 18" />
-    </div>
-  </div>
-</div>
 
 
 
@@ -195,7 +153,14 @@ useEffect(() => {
         tabIndex={0}
         onKeyDown={(e) => { if (e.key === 'Enter') { openLightbox('image', image, index); setSelectedImage(image);} }}
       >
-        <img src={image} alt={`Photo ${index + 1}`} />
+        <Image 
+          src={image} 
+          alt={`Ratnatraya Show performance - ${index % 2 === 0 ? "Classical Dance" : "Spiritual Speech"} by ${index % 3 === 0 ? "Akash Jain" : "Artistic Team"}`} 
+          width={500} 
+          height={400} 
+          loading="lazy"
+          className="rounded-lg object-cover w-full h-full"
+        />
         <div className="photo-overlay">
           <span>View Full Size</span>
         </div>
@@ -210,7 +175,14 @@ useEffect(() => {
         <button className="lightbox-close" onClick={() => setSelectedImage(null)} aria-label="Close">×</button>
 
         <div className="lightbox-media-wrap">
-          <img src={selectedImage} alt="Full size" className="lightbox-image" draggable={false} />
+          <Image 
+            src={selectedImage} 
+            alt="Full size Ratnatraya Show performance" 
+            width={1200} 
+            height={800} 
+            className="lightbox-image" 
+            draggable={false} 
+          />
         </div>
       </div>
     </div>

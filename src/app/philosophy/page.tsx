@@ -1,14 +1,11 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: "Philosophy | The Ratnatraya Show - Jain Spiritual Concert",
-  description: "Explore the deep spiritual roots of The Ratnatraya Show. Learn about Jinshasan, the Three Jewels, and how we bring Jainism to the modern stage.",
-  alternates: {
-    canonical: 'https://theratnatrayashow.com/philosophy',
-  },
+  title: "Philosophy & Spiritual Roots – Jainism, Ratnatraya & Jinshasan",
+  description: "Explore the deep spiritual roots of The Ratnatraya Show. Learn about the Three Jewels (Samyak Darshan, Gyan, Charitra) and the eternal tradition of Jinshasan.",
   robots: {
     index: false,
-    follow: true,
+    follow: false,
   },
 };
 
@@ -23,10 +20,10 @@ export default function PhilosophyPage() {
           <span className="mr-2">←</span> Back to Home
         </Link>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#722F37] mb-6">
-          The Ratnatraya Show: A Grand Confluence
+          The Ratnatraya Show: India&apos;s Grand Free Jain Cultural Movement
         </h1>
         <p className="max-w-3xl mx-auto text-lg md:text-xl text-[#4A4A4A] leading-relaxed">
-          Where ancient wisdom meets modern spiritual expression.
+          Where ancient Jinshasan wisdom meets modern spiritual expression. A 100% Free Jain Program for your community.
         </p>
       </header>
 
@@ -44,9 +41,9 @@ export default function PhilosophyPage() {
 
           <div className="grid gap-8 my-12">
             <div className="bg-white p-8 rounded-lg shadow-sm border-l-4 border-[#D4AF37]">
-              <h3 className="text-2xl font-serif text-[#8B1538] mb-4">Samyak Darshan (Right Faith/Vision)</h3>
+              <h3 className="text-2xl font-serif text-[#8B1538] mb-4">Samyak Darshan (सही दृष्टि) – Right Faith</h3>
               <p>
-                Samyak Darshan is the initial awakening. It is the clarity of vision that allows a soul to distinguish between the self (Jiva) and the non-self (Ajiva). In the context of The Ratnatraya Show, we facilitate this &quot;Right Vision&quot; by presenting the life-stories of the Tirthankaras and the glory of Jinshasan in a way that resonates with the modern heart.
+                Samyak Darshan is the initial awakening. It is the clarity of vision that allows a soul to distinguish between the self (Jiva) and the non-self (Ajiva). In the context of The Ratnatraya Show, we facilitate this &quot;Right Vision&quot; by presenting the glorious life-stories of the Tirthankaras and the unmatched grandeur of Jinshasan.
               </p>
             </div>
 
@@ -98,10 +95,10 @@ export default function PhilosophyPage() {
 
       <footer className="bg-[#722F37] text-[#FFFFF0] py-20 mt-20">
         <div className="container text-center">
-          <h2 className="text-3xl font-serif mb-6">Join the Spiritual Movement</h2>
-          <p className="mb-8 opacity-80">Experience the confluence of culture and spirituality.</p>
+          <h2 className="text-3xl font-serif mb-6">Invite this Free Jain Program to Your City</h2>
+          <p className="mb-8 opacity-80">Experience the grand confluence of Jain culture and spirituality at zero cost.</p>
           <Link href="/" className="inline-block bg-[#D4AF37] text-[#1A1A1A] px-8 py-3 rounded-full font-bold hover:bg-[#F4D03F] transition-colors">
-            Return to Homepage
+            BOOK THE SHOW NOW
           </Link>
         </div>
       </footer>

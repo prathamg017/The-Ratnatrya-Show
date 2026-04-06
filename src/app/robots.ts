@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: ['/api/', '/gallery', '/philosophy'],
+            disallow: ['/api/'],
         },
         sitemap: 'https://theratnatrayashow.com/sitemap.xml',
     }

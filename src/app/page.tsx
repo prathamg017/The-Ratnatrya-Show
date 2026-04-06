@@ -2,7 +2,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import dynamic from 'next/dynamic';
+import { motion } from 'framer-motion';
 import './globals.css';
+
+// Dynamic Imports for Client-side heavy components
+const CitiesMap = dynamic(() => import('./components/MapContainer'), { ssr: false });
+const JoinTeamSection = dynamic(() => import('./components/InviteFormSection'), { ssr: false });
+import WhatsAppShare from "./components/WhatsAppShare";
 
 
 export default function Home() {
@@ -206,6 +213,7 @@ export default function Home() {
             muted
             loop
             playsInline
+            poster="/banner.jpeg"
           >
             <source src="/bgvideo.MP4" type="video/mp4" />
           </video>
@@ -238,31 +246,9 @@ export default function Home() {
         <div className="hero-content">
           {/* Video Mode - Golden Luxury Design */}
           <div className="hero-main video-hero">
-            <div className="luxury-badge">
-              <span className="badge-glow">✦ Premium Spiritual Experience</span>
-            </div>
-
-            {/* <h1 className="hero-title-luxury">
-              <span className="sr-only">Ratnatray – Premium Spiritual Experience & Cultural Performances</span>
-              <Image
-                src="/mainlogo.jpeg"
-                alt="Ratnatray – The Cultural Reflection of Jinshasan"
-                width={300}
-                height={260}
-                className="hero-luxury-logo"
-                priority
-              />
-            </h1> */}
-
-            {/* <div className="luxury-subtitle">
-              <div className="golden-line"></div>
-              <p className="subtitle-gold">The Cultural Reflection of Jinshasan</p>
-              <div className="golden-line"></div>
-            </div>
-
-            <p className="hero-description-gold">
-              Witness the magnificence of ancient wisdom through <span className="highlight-gold">spectacular performances</span> that illuminate the soul
-            </p> */}
+            <h1 className="hero-title-luxury">
+              <span className="sr-only">The Ratnatraya Show – Official Free Jain Program India | Jain Program Invite & Jinshasan cultural show</span>
+            </h1>
 
             {/* Event Countdown - Professional & Lavish */}
             {/* <div className="countdown-container hero-countdown-lavish">
@@ -295,25 +281,12 @@ export default function Home() {
             </div> */}
 
 
-            {/* Next Event - Coming Soon Teaser */}
-<div className="next-show-teaser hero-recap">
-  <div className="teaser-glow"></div>
-  <div className="teaser-content">
-    <span className="teaser-badge">🎭</span>
-    <div className="teaser-text">
-      <span className="teaser-title">Next Show Coming Soon</span>
-      <span className="teaser-subtitle">Something Spectacular Awaits</span>
-    </div>
-    <button className="teaser-notify-btn">
-      <span>🔔 Get Notified</span>
-    </button>
-  </div>
-</div>
 
-       <div className="luxury-cta-group">
-      <Link href="/gallery" className="luxury-cta primary">
+
+        <div className="luxury-cta-group">
+      <Link href="/invite" className="luxury-cta primary">
         <span className="luxury-icon">◆</span>
-        <span className="luxury-text">DIVE INTO HIGHLIGHTS</span>
+        <span className="luxury-text">BE A PART OF THE TEAM</span>
         <span className="luxury-arrow">◆</span>
       </Link>
     </div>
@@ -500,7 +473,7 @@ export default function Home() {
               <span className="title-icon diamond-cluster">
                 <span className="diamond diamond-red">∴</span>
               </span>
-              About Ratnatray
+              The Ratnatraya Movement: Jinshasan Prabhavna
             </h2>
             <div className="title-underline"></div>
           </div>
@@ -509,19 +482,19 @@ export default function Home() {
           <div className="about-intro">
             <div className="intro-content-wrapper">
               <div className="intro-content">
-                <h3 className="intro-headline">More Than Just a Stage Show</h3>
+                <h3 className="intro-headline">India&apos;s Most Impactful Free Jain Spiritual Event</h3>
                 <p className="intro-text">
-                  <strong>Ratnatray</strong> is a grand confluence where <span className="highlight">culture</span>,
-                  <span className="highlight"> spirituality</span>, and <span className="highlight">performing arts</span> unite
-                  to create an extraordinary experience.
+                  <strong>The Ratnatraya Show</strong> is a grand spiritual movement where <span className="highlight">Jain culture</span>,
+                  <span className="highlight">Dharmik speech</span>, and <span className="highlight">performing arts</span> unite
+                  to create a life-changing experience for the entire Sangh.
                 </p>
                 <p className="intro-subtext">
-                  A powerful blend of inspiring speeches, sacred music, and mesmerizing dance-drama that offers audiences
-                  an immersive journey into spiritual and cultural enlightenment.
+                  Our show is a powerful confluence of inspiring Jain speeches, sacred music (Bhakti), and mesmerizing dance-drama that leads audiences
+                  through a journey of Samyak Darshan, Samyak Gyan, and Samyak Charitra.
                 </p>
                 <div className="mt-8">
                   <Link href="/philosophy" className="text-[#D4AF37] border border-[#D4AF37] px-6 py-2 rounded-full hover:bg-[#D4AF37] hover:text-[#1A1A1A] transition-all inline-block font-medium">
-                    Read Our Full Philosophy →
+                    Learn True Jain Philosophy →
                   </Link>
                 </div>
               </div>
@@ -533,6 +506,8 @@ export default function Home() {
                   loop
                   playsInline
                   controls
+                  poster="/banner.jpeg"
+                  preload="none"
                 >
                   <source src="/introratnatray.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
@@ -544,15 +519,15 @@ export default function Home() {
           {/* Three Pillars */}
           <div className="three-pillars">
             <div className="pillars-header">
-              <h3>Built on Three Eternal Principles</h3>
-              <p>The foundation of Ratnatray rests on timeless wisdom</p>
+              <h3>Guided by the Eternal Three Jewels (Ratnatraya)</h3>
+              <p>The foundation of every show rests on the pillars of Jain liberation</p>
             </div>
             <div className="pillars-grid">
               <div className="pillar-card">
                 <div className="pillar-number">1</div>
                 <div className="pillar-content">
                   <h4>Samyak Darshan</h4>
-                  <span className="pillar-meaning">सम्यक दर्शन</span>
+                  <span className="pillar-meaning" lang="hi">सम्यक दर्शन</span>
                   <p>Right Faith & Vision</p>
                   <div className="pillar-line"></div>
                 </div>
@@ -561,7 +536,7 @@ export default function Home() {
                 <div className="pillar-number">2</div>
                 <div className="pillar-content">
                   <h4>Samyak Gyan</h4>
-                  <span className="pillar-meaning">सम्यक ज्ञान</span>
+                  <span className="pillar-meaning" lang="hi">सम्यक ज्ञान</span>
                   <p>Right Knowledge</p>
                   <div className="pillar-line"></div>
                 </div>
@@ -570,7 +545,7 @@ export default function Home() {
                 <div className="pillar-number">3</div>
                 <div className="pillar-content">
                   <h4>Samyak Charitra</h4>
-                  <span className="pillar-meaning">सम्यक चारित्र</span>
+                  <span className="pillar-meaning" lang="hi">सम्यक चारित्र</span>
                   <p>Right Conduct</p>
                   <div className="pillar-line"></div>
                 </div>
@@ -581,8 +556,8 @@ export default function Home() {
           {/* Visionaries Section */}
           <div className="visionaries-section">
             <div className="visionaries-header">
-              <h3>The Visionaries Behind Ratnatray</h3>
-              <p>Meet the extraordinary individuals bringing this spiritual spectacle to life</p>
+              <h3>The Spiritual Leaders Behind the Movement</h3>
+              <p>Extraordinary individuals dedicated to the propagation of Jain Dharma and Jinshasan</p>
             </div>
 
             <div className="visionaries-grid">
@@ -590,11 +565,13 @@ export default function Home() {
               <div className="visionary-card featured">
                 <div className="visionary-image">
                   <Image
-                    src="/ak_new.JPG"
+                    src="/akashpp.jpeg"
                     alt="Sky King Akash Jain"
                     width={300}
                     height={300}
                     className="visionary-photo"
+                    priority={false}
+                    loading="lazy"
                   />
                   <div className="visionary-badge">Founder</div>
                 </div>
@@ -603,8 +580,8 @@ export default function Home() {
                   <p className="visionary-title">Founder, Conceptualizer & Chief Speaker</p>
                   <div className="visionary-divider"></div>
                   <p className="visionary-bio">
-                    The visionary force behind Ratnatray. His profound understanding of spirituality
-                    combined with practical wisdom brings unparalleled depth and authenticity to the stage.
+                    The visionary force and chief speaker of The Ratnatraya Show. His profound mastery of Jain scriptures
+                    combined with practical wisdom brings the essence of Jinshasan to life on the global stage.
                   </p>
                   <div className="visionary-highlights">
                     <span className="highlight-tag">Spiritual Leader</span>
@@ -614,6 +591,28 @@ export default function Home() {
                   <p className="visionary-quote">
                     &ldquo;Dedicated to timeless values, embodying a rare and inspiring personality&rdquo;
                   </p>
+                  <Link href="/sky-king-akash-jain" style={{ 
+                    marginTop: '2rem', 
+                    display: 'inline-flex', 
+                    alignItems: 'center', 
+                    gap: '0.6rem', 
+                    color: '#D4AF37', 
+                    textDecoration: 'none', 
+                    fontWeight: 800, 
+                    fontSize: '0.85rem', 
+                    textTransform: 'uppercase', 
+                    letterSpacing: '0.15em',
+                    padding: '0.8rem 1.5rem',
+                    border: '1px solid rgba(212,175,55,0.3)',
+                    borderRadius: '99px',
+                    transition: 'all 0.3s ease',
+                    background: 'rgba(212,175,55,0.05)'
+                  }}
+                  onMouseOver={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.1)'; e.currentTarget.style.borderColor = '#D4AF37'; }}
+                  onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.05)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.3)'; }}
+                  >
+                    Know More About the Founder →
+                  </Link>
                 </div>
               </div>
 
@@ -640,6 +639,33 @@ export default function Home() {
                   <div className="visionary-highlights">
                     <span className="highlight-tag">AIR Broadcaster</span>
                     <span className="highlight-tag">Master of Ceremonies</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Anjesh Jain */}
+              <div className="visionary-card">
+                <div className="visionary-image">
+                  <Image
+                    src="/anjesh.jpeg"
+                    alt="Anjesh Jain"
+                    width={250}
+                    height={250}
+                    className="visionary-photo"
+                  />
+                  <div className="visionary-badge">Manager</div>
+                </div>
+                <div className="visionary-details">
+                  <h4>Anjesh Jain</h4>
+                  <p className="visionary-title">Show Manager</p>
+                  <div className="visionary-divider"></div>
+                  <p className="visionary-bio">
+                    Dedicated to the logistics and coordination of every spiritual event. 
+                    His commitment to perfection ensures a seamless and divine experience.
+                  </p>
+                  <div className="visionary-highlights">
+                    <span className="highlight-tag">Event Logistics</span>
+                    <span className="highlight-tag">Spiritual Coordination</span>
                   </div>
                 </div>
               </div>
@@ -673,15 +699,14 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Mission Statement */}
+          {/* Mission Statement: Jain Dharma & Jinshasan Promotion */}
           <div className="mission-statement">
             <div className="mission-content">
               
-              <h3>A Platform for Jinshasan Promotion</h3>
+              <h3>A Dedicated Platform for Jinshasan Prabhavna</h3>
               <p>
-                At its heart, <strong>Ratnatray</strong> is a unique platform where speech, music, and dance
-                converge to celebrate and reflect the golden purpose of <em>Jain dharma</em> in a modern,
-                captivating format that resonates with contemporary audiences while preserving ancient wisdom.
+                At its core, <strong>The Ratnatraya Show</strong> is a platform for Jinshasan Prabhavna — where Dharmik speech, sacred music, and classical dance
+                converge to celebrate the golden purpose of <em>Jain dharma</em>. This Free Jain Program travels across India to ignite the spark of spirituality in every heart.
               </p>
              <div className="mission-elements">
   <div className="element">
@@ -714,7 +739,7 @@ export default function Home() {
           <div className="section-header">
             <h2 className="section-title">
               <span className="title-icon">◈</span>
-              The Ratnatray Experience
+              The Jain Spiritual Event Experience
             </h2>
             <div className="title-underline"></div>
           </div>
@@ -740,7 +765,7 @@ export default function Home() {
                   <svg className="curved-text-svg" viewBox="0 0 200 200">
                     <path id="curve-music" d="M 30,100 A 70,70 0 0,1 170,100" fill="transparent" />
                     <text className="curved-text">
-                      <textPath href="#curve-music" startOffset="50%" textAnchor="middle">
+                      <textPath href="#curve-music" startOffset="50%" textAnchor="middle" lang="hi">
                         संगीत
                       </textPath>
                     </text>
@@ -755,7 +780,7 @@ export default function Home() {
                   <svg className="curved-text-svg" viewBox="0 0 200 200">
                     <path id="curve-wisdom" d="M 30,100 A 70,70 0 0,1 170,100" fill="transparent" />
                     <text className="curved-text">
-                      <textPath href="#curve-wisdom" startOffset="50%" textAnchor="middle">
+                      <textPath href="#curve-wisdom" startOffset="50%" textAnchor="middle" lang="hi">
                         ज्ञान
                       </textPath>
                     </text>
@@ -770,7 +795,7 @@ export default function Home() {
                   <svg className="curved-text-svg" viewBox="0 0 200 200">
                     <path id="curve-dance" d="M 30,100 A 70,70 0 0,1 170,100" fill="transparent" />
                     <text className="curved-text">
-                      <textPath href="#curve-dance" startOffset="50%" textAnchor="middle">
+                      <textPath href="#curve-dance" startOffset="50%" textAnchor="middle" lang="hi">
                         नृत्य
                       </textPath>
                     </text>
@@ -790,7 +815,7 @@ export default function Home() {
 
             {/* Bottom Label */}
             <div className="experience-bottom-label">
-              <p>Where Music, Wisdom & Dance Unite</p>
+              <p>Where Sacred Music, Ancient Wisdom & Classical Dance Unite for Dharma</p>
             </div>
           </div>
         </div>
@@ -884,21 +909,78 @@ export default function Home() {
       </section>
       */}
 
-      {/* Gallery Section - Compact */}
-      <section className="gallery-section compact">
-        <div className="container">
-          <div className="gallery-compact-content">
-            <div className="gallery-info">
-              <h3>📸 Capturing Moments of Magic</h3>
-              <p>Gallery launches after October 7, 2025</p>
+      {/* Cities Map Section */}
+      <CitiesMap />
+
+      {/* Wisdom Hub Feature */}
+      <section className="wisdom-section">
+        <div className="wisdom-orb-1"></div>
+        <div className="wisdom-orb-2"></div>
+        <div className="container" style={{ padding: '0 clamp(1.5rem, 5vw, 4rem)', position: 'relative', zIndex: 10 }}>
+          <div className="wisdom-inner">
+
+            {/* Left: Heading */}
+            <div>
+              <div className="wisdom-tag">
+                <span className="wisdom-tag-text">✦ Jain Philosophical Archive ✦</span>
+              </div>
+              <h2 className="wisdom-heading">
+                The Jain
+                <span className="wisdom-heading-gold">Wisdom Hub</span>
+              </h2>
+              <p className="wisdom-body">
+                Explore deep editorial articles on Samyak Darshan, the Three Jewels, Paryushan, and the eternal order of Jinshasan — wisdom for the modern Jain soul.
+              </p>
             </div>
-            <div className="gallery-features">
-              <div className="feature-item"><span className="feature-icon">📷</span><span>Behind Scenes</span></div>
-              <div className="feature-item"><span className="feature-icon">🎬</span><span>Performance</span></div>
-              <div className="feature-item"><span className="feature-icon">🌟</span><span>Artist Portraits</span></div>
-              <div className="feature-item"><span className="feature-icon">👥</span><span>Audience</span></div>
+
+            {/* Right: Article Cards */}
+            <div>
+              <div className="wisdom-articles">
+                {[
+                  { title: 'What is Samyak Darshan?', tag: '5 min read' },
+                  { title: 'The Three Jewels of Jainism', tag: '7 min read' },
+                  { title: 'Paryushan: Festival of the Soul', tag: '8 min read' },
+                ].map((article) => (
+                  <Link key={article.title} href="/wisdom" className="wisdom-article-card">
+                    <div>
+                      <div className="wisdom-article-tag">{article.tag}</div>
+                      <div className="wisdom-article-title">{article.title}</div>
+                    </div>
+                    <span className="wisdom-article-arrow">→</span>
+                  </Link>
+                ))}
+              </div>
+              <Link href="/wisdom" className="wisdom-cta-btn">
+                Explore All Articles →
+              </Link>
             </div>
-            <Link href="/gallery" className="btn-secondary compact">View Gallery →</Link>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section — Premium Banner */}
+      <section style={{ background: 'linear-gradient(135deg, #FFFFF0 0%, #FFF8DC 100%)', padding: '6rem 0', borderTop: '1px solid rgba(212,175,55,0.2)', borderBottom: '1px solid rgba(212,175,55,0.2)' }}>
+        <div className="container" style={{ padding: '0 clamp(1.5rem, 5vw, 4rem)' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '2rem' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(114,47,55,0.06)', border: '1px solid rgba(114,47,55,0.12)', borderRadius: '9999px', padding: '0.4rem 1.4rem' }}>
+              <span style={{ fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#8B1538', fontFamily: 'var(--font-sans)' }}>✦ Visual Archive ✦</span>
+            </div>
+            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#722F37', lineHeight: 1.1 }}>
+              Glimpses of Jinshasan<br />
+              <span style={{ background: 'linear-gradient(135deg, #D4AF37, #F4D03F)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Prabhavna</span>
+            </h2>
+            <p style={{ maxWidth: 600, color: 'rgba(74,74,74,0.75)', fontSize: '1.05rem', lineHeight: 1.8 }}>
+              Witness the divine energy, sacred performances, and the thousands of devotees moved by the Ratnatraya experience.
+            </p>
+            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', margin: '0.5rem 0' }}>
+              {['🎭 Live Performances', '📸 Behind the Scenes', '🌟 Artist Portraits', '👥 Audience Moments'].map(tag => (
+                <span key={tag} style={{ padding: '0.5rem 1.2rem', background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: '9999px', fontSize: '0.8rem', fontWeight: 700, color: '#8B1538', fontFamily: 'var(--font-sans)' }}>{tag}</span>
+              ))}
+            </div>
+            <Link href="/gallery" style={{ background: 'linear-gradient(135deg, #722F37, #8B1538)', color: '#fff', padding: '1rem 3rem', borderRadius: '9999px', fontWeight: 900, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.15em', textDecoration: 'none', boxShadow: '0 15px 40px rgba(114,47,55,0.3)', transition: 'all 0.3s ease', display: 'inline-block' }}>
+              View Photo Gallery →
+            </Link>
           </div>
         </div>
       </section>

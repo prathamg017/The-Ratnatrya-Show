@@ -1,16 +1,13 @@
-export const metadata = {
-  title: "Gallery | The Ratnatraya Show",
-  description: "Visual moments of spiritual confluence and cultural grandeur.",
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Gallery – The Ratnatraya Show',
   robots: {
     index: false,
-    follow: true,
+    follow: false,
   },
 };
 
-export default function GalleryLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function GalleryLayout({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }

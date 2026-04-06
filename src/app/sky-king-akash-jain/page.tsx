@@ -30,6 +30,7 @@ export const metadata: Metadata = {
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
+  '@id': 'https://theratnatrayashow.com/sky-king-akash-jain#breadcrumb',
   'itemListElement': [
     {
       '@type': 'ListItem',

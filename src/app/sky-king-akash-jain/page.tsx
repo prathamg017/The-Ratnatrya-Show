@@ -26,13 +26,34 @@ export const metadata: Metadata = {
   },
 };
 
+// === BREADCRUMB SCHEMA — Helps Google understand page hierarchy ===
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    {
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Home',
+      'item': 'https://theratnatrayashow.com'
+    },
+    {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Sky King Akash Jain',
+      'item': 'https://theratnatrayashow.com/sky-king-akash-jain'
+    }
+  ]
+};
+
 // === PERSON SCHEMA — Signals Google for Knowledge Panel ===
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': 'https://theratnatrayashow.com/sky-king-akash-jain#person',
   name: 'Sky King Akash Jain',
-  alternateName: ['Akash Jain', 'Sky King Akash', 'Akash Jain Nirgranth'],
-  description: 'Sky King Akash Jain is a Jain entrepreneur, digital innovator, founder of Nirgranth Creation and The Ratnatraya Show, and a recognized voice of modern Jainism in India.',
+  alternateName: ['Akash Jain', 'Sky King Akash', 'Akash Jain Nirgranth', 'Akash Jain Ratnatraya'],
+  description: 'Sky King Akash Jain is a prominent Jain entrepreneur, digital innovator, founder of Nirgranth Creation and The Ratnatraya Show, and a recognized voice of modern Jainism in India.',
   url: 'https://theratnatrayashow.com/sky-king-akash-jain',
   image: 'https://theratnatrayashow.com/akashpp.jpeg',
   jobTitle: 'Founder & CEO',
@@ -40,22 +61,36 @@ const personSchema = {
     { '@type': 'Organization', name: 'Nirgranth Creation', url: 'https://theratnatrayashow.com' },
     { '@type': 'Organization', name: 'The Ratnatraya Show', url: 'https://theratnatrayashow.com' },
   ],
-  knowsAbout: ['Jainism', 'Digital Branding', 'Cultural Entrepreneurship', 'Jinshasan Prabhavna', 'Youth Outreach'],
+  knowsAbout: [
+    'Jainism', 
+    'Digital Branding', 
+    'Cultural Entrepreneurship', 
+    'Jinshasan Prabhavna', 
+    'Youth Outreach',
+    'Spiritual Leadership'
+  ],
   nationality: { '@type': 'Country', name: 'India' },
   sameAs: [
     'https://www.instagram.com/the_ratnatrya_show/',
-    'https://theratnatrayashow.com/sky-king-akash-jain',
+    'https://www.instagram.com/sky_king_akash_jain/',
+    'https://linkedin.com/in/akashjain-skyking'
   ],
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': 'https://theratnatrayashow.com/sky-king-akash-jain'
+  }
 };
 
-// === BREADCRUMB SCHEMA — Helps Google understand page hierarchy ===
-const breadcrumbSchema = {
+// === WEBPAGE SCHEMA — Direct validation context ===
+const webPageSchema = {
   '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://theratnatrayashow.com' },
-    { '@type': 'ListItem', position: 2, name: 'Sky King Akash Jain', item: 'https://theratnatrayashow.com/sky-king-akash-jain' },
-  ],
+  '@type': 'WebPage',
+  '@id': 'https://theratnatrayashow.com/sky-king-akash-jain',
+  url: 'https://theratnatrayashow.com/sky-king-akash-jain',
+  name: 'Sky King Akash Jain – Official Biography',
+  description: 'Official biography of Sky King Akash Jain, founder of Nirgranth Creation and Ratnatraya Show, voice of modern Jainism.',
+  breadcrumb: { '@id': 'https://theratnatrayashow.com/sky-king-akash-jain#breadcrumb' },
+  mainEntity: { '@id': 'https://theratnatrayashow.com/sky-king-akash-jain#person' }
 };
 
 export default function SkyKingBiography() {
@@ -65,6 +100,7 @@ export default function SkyKingBiography() {
       {/* Structured Data Injection */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
 
       {/* Premium Minimal Navigation */}
       <nav style={{ padding: '2rem 5vw', display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'absolute', top: 0, width: '100%', zIndex: 100 }}>

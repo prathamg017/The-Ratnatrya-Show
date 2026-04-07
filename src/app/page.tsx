@@ -284,7 +284,7 @@ export default function Home() {
 
 
         <div className="luxury-cta-group">
-      <Link href="/invite" className="luxury-cta primary">
+      <Link href="/invite" className="luxury-cta primary" prefetch={true}>
         <span className="luxury-icon">◆</span>
         <span className="luxury-text">BE A PART OF THE TEAM</span>
         <span className="luxury-arrow">◆</span>

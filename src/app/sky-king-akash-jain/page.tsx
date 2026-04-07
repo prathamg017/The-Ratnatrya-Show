@@ -69,7 +69,7 @@ export default function SkyKingBiography() {
 
       {/* Premium Minimal Navigation */}
       <nav style={{ 
-        padding: isMobile ? '1.2rem 1rem' : '2rem 5vw', 
+        padding: isMobile ? '1.5rem 1.5rem' : '3rem 8vw', 
         display: 'flex', 
         flexDirection: isMobile ? 'column' : 'row',
         justifyContent: 'space-between', 
@@ -78,7 +78,7 @@ export default function SkyKingBiography() {
         top: 0, 
         width: '100%', 
         zIndex: 100,
-        gap: isMobile ? '1rem' : '0'
+        gap: isMobile ? '1.5rem' : '0'
       }}>
         <Link href="/" style={{ textDecoration: 'none' }}>
            <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
@@ -94,7 +94,7 @@ export default function SkyKingBiography() {
       </nav>
 
       {/* Hero Section — Majestic & High-Authority */}
-      <section style={{ position: 'relative', height: isMobile ? 'auto' : '100vh', minHeight: isMobile ? '85vh' : 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: isMobile ? '8rem 5vw 4rem' : '0 5vw', overflow: 'hidden' }}>
+      <section style={{ position: 'relative', height: isMobile ? 'auto' : '100vh', minHeight: isMobile ? '90vh' : 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: isMobile ? '10rem 1.5rem 6rem' : '0 8vw', overflow: 'hidden' }}>
          <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0.25 }}>
             <Image
               src="/akashpp.jpeg"
@@ -153,7 +153,7 @@ export default function SkyKingBiography() {
       </section>
 
       {/* Philosophy Block — High-End Editorial Style */}
-      <section style={{ padding: isMobile ? '5rem 5vw' : '10rem 5vw', backgroundColor: '#fff', color: '#1a0a10' }}>
+      <section style={{ padding: isMobile ? '7rem 1.5rem' : '15rem 8vw', backgroundColor: '#fff', color: '#1a0a10' }}>
          <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(280px, 40vw, 450px), 1fr))', gap: isMobile ? '3rem' : '6rem', alignItems: 'center' }}>
             <div style={{ position: 'relative', width: '100%', maxWidth: '500px', margin: '0 auto' }}>
                <div style={{ position: 'relative', zIndex: 2, borderRadius: '4px', overflow: 'hidden', boxShadow: '20px 20px 40px rgba(0,0,0,0.1)', maxWidth: '100%' }}>
@@ -186,7 +186,7 @@ export default function SkyKingBiography() {
       </section>
 
       {/* Milestones of Impact — New "Big Event" Grid */}
-      <section style={{ padding: isMobile ? '5rem 5vw' : '8rem 5vw', backgroundColor: '#fdfcf8', borderTop: '1px solid #eee', borderBottom: '1px solid #eee' }}>
+      <section style={{ padding: isMobile ? '7rem 1.5rem' : '12rem 8vw', backgroundColor: '#fdfcf8', borderTop: '1px solid #eee', borderBottom: '1px solid #eee' }}>
          <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: isMobile ? '4rem' : '6rem' }}>
                <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: isMobile ? '2.2rem' : '3rem', color: '#722F37' }}>Milestones of Leadership</h2>
@@ -210,7 +210,7 @@ export default function SkyKingBiography() {
       </section>
 
       {/* Expertise — Clean & Professional */}
-      <section style={{ padding: isMobile ? '5rem 5vw' : '8rem 5vw', backgroundColor: '#fff' }}>
+      <section style={{ padding: isMobile ? '7rem 1.5rem' : '12rem 8vw', backgroundColor: '#fff' }}>
          <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
             <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: isMobile ? '2.2rem' : '2.8rem', color: '#722F37', marginBottom: '3rem', textAlign: 'center' }}>Professional Expertise</h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(200px, 20vw, 240px), 1fr))', gap: '1rem' }}>
@@ -230,7 +230,7 @@ export default function SkyKingBiography() {
       </section>
 
       {/* Conclusion — Call to the Future */}
-      <section style={{ padding: isMobile ? '6rem 5vw' : '10rem 5vw', backgroundColor: '#1a0a10', color: '#fff', textAlign: 'center', position: 'relative' }}>
+      <section style={{ padding: isMobile ? '8rem 1.5rem' : '15rem 8vw', backgroundColor: '#1a0a10', color: '#fff', textAlign: 'center', position: 'relative' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '1px', background: 'linear-gradient(to right, transparent, rgba(212,175,55,0.3), transparent)' }}></div>
         <div style={{ maxWidth: '850px', margin: '0 auto' }}>
            <span style={{ fontSize: '3rem', color: '#D4AF37', display: 'block', marginBottom: '2.5rem' }}>🪷</span>

@@ -493,7 +493,7 @@ export default function Home() {
                   through a journey of Samyak Darshan, Samyak Gyan, and Samyak Charitra.
                 </p>
                 <div className="mt-8">
-                  <Link href="/philosophy" className="text-[#D4AF37] border border-[#D4AF37] px-6 py-2 rounded-full hover:bg-[#D4AF37] hover:text-[#1A1A1A] transition-all inline-block font-medium">
+                  <Link href="/philosophy" className="text-[#D4AF37] border border-[#D4AF37] px-6 py-2 rounded-full hover:bg-[#D4AF37] hover:text-[#1A1A1A] transition-all inline-block font-medium" prefetch={true}>
                     Learn True Jain Philosophy →
                   </Link>
                 </div>
@@ -591,25 +591,27 @@ export default function Home() {
                   <p className="visionary-quote">
                     &ldquo;Dedicated to timeless values, embodying a rare and inspiring personality&rdquo;
                   </p>
-                  <Link href="/sky-king-akash-jain" style={{ 
-                    marginTop: '2rem', 
-                    display: 'inline-flex', 
-                    alignItems: 'center', 
-                    gap: '0.6rem', 
-                    color: '#D4AF37', 
-                    textDecoration: 'none', 
-                    fontWeight: 800, 
-                    fontSize: '0.85rem', 
-                    textTransform: 'uppercase', 
-                    letterSpacing: '0.15em',
-                    padding: '0.8rem 1.5rem',
-                    border: '1px solid rgba(212,175,55,0.3)',
-                    borderRadius: '99px',
-                    transition: 'all 0.3s ease',
-                    background: 'rgba(212,175,55,0.05)'
-                  }}
-                  onMouseOver={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.1)'; e.currentTarget.style.borderColor = '#D4AF37'; }}
-                  onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.05)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.3)'; }}
+                  <Link href="/sky-king-akash-jain" 
+                    prefetch={true}
+                    style={{ 
+                      marginTop: '2rem', 
+                      display: 'inline-flex', 
+                      alignItems: 'center', 
+                      gap: '0.6rem', 
+                      color: '#D4AF37', 
+                      textDecoration: 'none', 
+                      fontWeight: 800, 
+                      fontSize: '0.85rem', 
+                      textTransform: 'uppercase', 
+                      letterSpacing: '0.15em',
+                      padding: '0.8rem 1.5rem',
+                      border: '1px solid rgba(212,175,55,0.3)',
+                      borderRadius: '99px',
+                      transition: 'all 0.3s ease',
+                      background: 'rgba(212,175,55,0.05)'
+                    }}
+                    onMouseOver={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.1)'; e.currentTarget.style.borderColor = '#D4AF37'; }}
+                    onMouseOut={(e) => { e.currentTarget.style.background = 'rgba(212,175,55,0.05)'; e.currentTarget.style.borderColor = 'rgba(212,175,55,0.3)'; }}
                   >
                     Know More About the Founder →
                   </Link>
@@ -950,7 +952,7 @@ export default function Home() {
                   </Link>
                 ))}
               </div>
-              <Link href="/wisdom" className="wisdom-cta-btn">
+              <Link href="/wisdom" className="wisdom-cta-btn" prefetch={true}>
                 Explore All Articles →
               </Link>
             </div>
@@ -978,7 +980,7 @@ export default function Home() {
                 <span key={tag} style={{ padding: '0.5rem 1.2rem', background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: '9999px', fontSize: '0.8rem', fontWeight: 700, color: '#8B1538', fontFamily: 'var(--font-sans)' }}>{tag}</span>
               ))}
             </div>
-            <Link href="/gallery" style={{ background: 'linear-gradient(135deg, #722F37, #8B1538)', color: '#fff', padding: '1rem 3rem', borderRadius: '9999px', fontWeight: 900, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.15em', textDecoration: 'none', boxShadow: '0 15px 40px rgba(114,47,55,0.3)', transition: 'all 0.3s ease', display: 'inline-block' }}>
+            <Link href="/gallery" style={{ background: 'linear-gradient(135deg, #722F37, #8B1538)', color: '#fff', padding: '1rem 3rem', borderRadius: '9999px', fontWeight: 900, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.15em', textDecoration: 'none', boxShadow: '0 15px 40px rgba(114,47,55,0.3)', transition: 'all 0.3s ease', display: 'inline-block' }} prefetch={true}>
               View Photo Gallery →
             </Link>
           </div>

@@ -12,21 +12,27 @@
   "dir": "ltr",
   "icons": [
     {
-      "src": "/mainlogo.jpeg",
+      "src": "/google-search-icon.png",
       "sizes": "192x192",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "/mainlogo.jpeg",
+      "src": "/google-search-icon.png",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "maskable any"
     },
     {
-      "src": "/mainlogo.jpeg",
+      "src": "/google-search-icon.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/google-search-icon.png",
       "sizes": "48x48",
-      "type": "image/jpeg"
+      "type": "image/png"
     }
   ],
   "screenshots": [
@@ -46,9 +52,9 @@
       "url": "/#book",
       "icons": [
         {
-          "src": "/mainlogo.jpeg",
+          "src": "/google-search-icon.png",
           "sizes": "96x96",
-          "type": "image/jpeg"
+          "type": "image/png"
         }
       ]
     },

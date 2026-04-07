@@ -50,8 +50,9 @@ export const metadata = {
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
       { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
       { url: "/favicon-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: "/google-search-icon.png", sizes: "1024x1024", type: "image/png" },
     ],
-    shortcut: "/favicon-32x32.png",
+    shortcut: "/google-search-icon.png",
     apple: [
       { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
     ],
@@ -91,7 +92,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               "@type": "Organization",
               "name": "Ratnatray",
               "url": "https://theratnatrayashow.com",
-              "logo": "https://theratnatrayashow.com/mainlogo.jpeg",
+              "logo": "https://theratnatrayashow.com/google-search-icon.png",
               "sameAs": [
                 "https://www.instagram.com/the_ratnatrya_show/"
               ],

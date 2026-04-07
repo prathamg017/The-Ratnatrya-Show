@@ -3,50 +3,58 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-// === DATA SCHEMAS — For Rich Results ===
-const personSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  '@id': 'https://theratnatrayashow.com/sky-king-akash-jain#person',
-  name: 'Sky King Akash Jain',
-  alternateName: ['Akash Jain', 'Sky King Akash', 'Akash Jain Nirgranth', 'Akash Jain Ratnatraya'],
-  description: 'Sky King Akash Jain is a prominent Jain entrepreneur, digital innovator, founder of Nirgranth Creation and The Ratnatraya Show.',
-  url: 'https://theratnatrayashow.com/sky-king-akash-jain',
-  image: 'https://theratnatrayashow.com/akashpp.jpeg',
-  jobTitle: 'Founder & CEO',
-  worksFor: [
-    { '@type': 'Organization', name: 'Nirgranth Creation', url: 'https://theratnatrayashow.com' },
-    { '@type': 'Organization', name: 'The Ratnatraya Show', url: 'https://theratnatrayashow.com' },
-  ],
-  knowsAbout: ['Jainism', 'Digital Branding', 'Jinshasan Prabhavna'],
-  nationality: { '@type': 'Country', name: 'India' },
-  sameAs: [
-    'https://www.instagram.com/the_ratnatrya_show/',
-    'https://www.instagram.com/sky_king_akash_jain/',
-    'https://linkedin.com/in/akashjain-skyking'
-  ],
-  mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://theratnatrayashow.com/sky-king-akash-jain' }
-};
-
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  '@id': 'https://theratnatrayashow.com/sky-king-akash-jain#breadcrumb',
-  'itemListElement': [
-    { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://theratnatrayashow.com' },
-    { '@type': 'ListItem', 'position': 2, 'name': 'Sky King Akash Jain', 'item': 'https://theratnatrayashow.com/sky-king-akash-jain' }
+// === UNIFIED STRUCTURED DATA — Optimized for Google Rich Results ===
+const unifiedSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://theratnatrayashow.com/sky-king-akash-jain#person",
+      "name": "Sky King Akash Jain",
+      "alternateName": ["Akash Jain", "Sky King Akash", "Akash Jain Nirgranth", "Akash Jain Ratnatraya"],
+      "description": "Sky King Akash Jain is a prominent Jain entrepreneur, digital innovator, founder of Nirgranth Creation and The Ratnatraya Show.",
+      "url": "https://theratnatrayashow.com/sky-king-akash-jain",
+      "image": "https://theratnatrayashow.com/akashpp.jpeg",
+      "jobTitle": "Founder & CEO",
+      "worksFor": [
+        { "@type": "Organization", "name": "Nirgranth Creation", "url": "https://theratnatrayashow.com" },
+        { "@type": "Organization", "name": "The Ratnatraya Show", "url": "https://theratnatrayashow.com" }
+      ],
+      "knowsAbout": ["Jainism", "Digital Branding", "Jinshasan Prabhavna", "Cultural Entrepreneurship"],
+      "nationality": { "@type": "Country", "name": "India" },
+      "sameAs": [
+        "https://www.instagram.com/the_ratnatrya_show/",
+        "https://www.instagram.com/sky_king_akash_jain/",
+        "https://linkedin.com/in/akashjain-skyking"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://theratnatrayashow.com/sky-king-akash-jain",
+      "url": "https://theratnatrayashow.com/sky-king-akash-jain",
+      "name": "Sky King Akash Jain – Official Biography",
+      "description": "Official biography of Sky King Akash Jain, founder of Nirgranth Creation and Ratnatraya Show, voice of modern Jainism.",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "@id": "https://theratnatrayashow.com/sky-king-akash-jain#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://theratnatrayashow.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Sky King Akash Jain",
+            "item": "https://theratnatrayashow.com/sky-king-akash-jain"
+          }
+        ]
+      },
+      "mainEntity": { "@id": "https://theratnatrayashow.com/sky-king-akash-jain#person" }
+    }
   ]
-};
-
-const webPageSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  '@id': 'https://theratnatrayashow.com/sky-king-akash-jain',
-  url: 'https://theratnatrayashow.com/sky-king-akash-jain',
-  name: 'Sky King Akash Jain – Official Biography',
-  description: 'Official biography of Sky King Akash Jain, founder of Nirgranth Creation and Ratnatraya Show.',
-  breadcrumb: { '@id': 'https://theratnatrayashow.com/sky-king-akash-jain#breadcrumb' },
-  mainEntity: { '@id': 'https://theratnatrayashow.com/sky-king-akash-jain#person' }
 };
 
 export default function SkyKingBiography() {
@@ -62,10 +70,8 @@ export default function SkyKingBiography() {
   return (
     <main style={{ backgroundColor: '#1a0a10', color: '#fff', minHeight: '100vh', fontFamily: 'var(--font-sans)', overflowX: 'hidden' }}>
 
-      {/* Structured Data Injection */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }} />
+      {/* Structured Data Injection — Unified Graph for Flawless Indexing */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(unifiedSchema) }} />
 
       {/* Premium Minimal Navigation */}
       <nav style={{ 

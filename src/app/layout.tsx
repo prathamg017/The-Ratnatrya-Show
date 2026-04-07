@@ -77,6 +77,80 @@ export const viewport = {
   ],
 };
 
+const unifiedGlobalSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://theratnatrayashow.com/#organization",
+      "name": "The Ratnatraya Show Team",
+      "url": "https://theratnatrayashow.com",
+      "logo": "https://theratnatrayashow.com/google-search-icon.png",
+      "alternateName": "Ratnatray",
+      "sameAs": [
+        "https://www.instagram.com/the_ratnatrya_show/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-8839481571",
+        "contactType": "customer service",
+        "email": "info.theratnatrayashow@gmail.com",
+        "areaServed": "IN",
+        "availableLanguage": ["Hindi", "English"]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://theratnatrayashow.com/#website",
+      "name": "Ratnatray",
+      "url": "https://theratnatrayashow.com",
+      "publisher": { "@id": "https://theratnatrayashow.com/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://theratnatrayashow.com/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "Event",
+      "@id": "https://theratnatrayashow.com/#primaryevent",
+      "name": "The Ratnatraya Show – National Spiritual Tour",
+      "description": "A grand confluence of Jain spirituality, sacred music, and classical dance-drama celebrating the Three Jewels — Samyak Darshan, Samyak Gyan, and Samyak Charitra. Free entry. Open to all.",
+      "image": "https://theratnatrayashow.com/banner.jpeg",
+      "startDate": "2025-11-15T18:00:00+05:30",
+      "endDate": "2025-11-15T21:00:00+05:30",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "isAccessibleForFree": true,
+      "location": {
+        "@type": "Place",
+        "name": "Jain Hub Indore",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Nirgranth HQ, Saket",
+          "addressLocality": "Indore",
+          "addressRegion": "MP",
+          "postalCode": "452001",
+          "addressCountry": "IN"
+        }
+      },
+      "organizer": { "@id": "https://theratnatrayashow.com/#organization" },
+      "performer": {
+        "@type": "Person",
+        "name": "Sky King Akash Jain",
+        "url": "https://theratnatrayashow.com/sky-king-akash-jain"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://theratnatrayashow.com/invite"
+      }
+    }
+  ]
+};
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" dir="ltr">
@@ -84,89 +158,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        
+        {/* Optimized Unified Search Schema */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "Ratnatray",
-              "url": "https://theratnatrayashow.com",
-              "logo": "https://theratnatrayashow.com/google-search-icon.png",
-              "sameAs": [
-                "https://www.instagram.com/the_ratnatrya_show/"
-              ],
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+91-8839481571",
-                "contactType": "customer service",
-                "email": "info.theratnatrayashow@gmail.com"
-              }
-            })
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(unifiedGlobalSchema) }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              "name": "Ratnatray",
-              "url": "https://theratnatrayashow.com",
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://theratnatrayashow.com/?s={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
-            })
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Event",
-              "name": "The Ratnatraya Show",
-              "description": "A grand confluence of Jain spirituality, sacred music, and classical dance-drama celebrating the Three Jewels — Samyak Darshan, Samyak Gyan, and Samyak Charitra. Free entry. Open to all.",
-              "image": "https://theratnatrayashow.com/banner.jpeg",
-              "startDate": "2025-11-15T18:00:00+05:30",
-              "endDate": "2025-11-15T21:00:00+05:30",
-              "eventStatus": "https://schema.org/EventScheduled",
-              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "INR",
-                "availability": "https://schema.org/InStock",
-                "url": "https://theratnatrayashow.com/invite",
-                "validFrom": "2025-01-01"
-              },
-              "location": {
-                "@type": "Place",
-                "name": "Ratnatraya Cultural Hub",
-                "address": {
-                  "@type": "PostalAddress",
-                  "streetAddress": "Nirgranth HQ",
-                  "addressLocality": "Indore",
-                  "addressRegion": "MP",
-                  "postalCode": "452001",
-                  "addressCountry": "IN"
-                }
-              },
-              "organizer": {
-                "@type": "Organization",
-                "name": "The Ratnatraya Show Team",
-                "url": "https://theratnatrayashow.com"
-              },
-              "performer": {
-                "@type": "Person",
-                "name": "Sky King Akash Jain"
-              },
-              "isAccessibleForFree": true
-            })
-          }}
-        />
+
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-touch-fullscreen" content="yes" />
         <meta name="format-detection" content="telephone=no" />

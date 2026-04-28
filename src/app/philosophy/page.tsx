@@ -16,8 +16,8 @@ export default function PhilosophyPage() {
       <div className="h-20" />
 
       <header className="container py-12 text-center">
-        <Link href="/" className="inline-flex items-center text-[#D4AF37] hover:text-[#B8860B] transition-colors mb-8">
-          <span className="mr-2">←</span> Back to Home
+        <Link href="/" className="page-back-link page-back-link-light mb-8">
+          ← Back to Home
         </Link>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif text-[#722F37] mb-6">
           The Ratnatraya Show: India&apos;s Grand Free Jain Cultural Movement

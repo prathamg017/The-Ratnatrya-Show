@@ -10,7 +10,7 @@ export default function JourneyPage() {
       <div className="h-20" /> {/* Spacer */}
 
       <header className="journey-header container text-center">
-        <Link href="/" className="inline-flex items-center text-[#D4AF37] hover:text-[#B8860B] transition-colors mb-8 font-bold tracking-widest text-xs">
+        <Link href="/" className="page-back-link page-back-link-light mb-8">
           ← BACK HOME
         </Link>
         <h1 className="premium-title">

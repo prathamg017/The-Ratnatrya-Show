@@ -7,21 +7,21 @@ export default function SamyakDarshanArticle() {
     <article className="wisdom-article min-h-screen bg-[#FFFFF0] text-[#1A1A1A]">
       <div className="h-20" /> {/* Navbar Spacer */}
 
-      <header className="container py-20 px-6 max-w-4xl text-center border-b border-[#D4AF37]/10 mb-12">
-        <div className="flex justify-center mb-8 gap-4 text-xs font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
-          <Link href="/wisdom" className="hover:text-[#8B1538] transition-colors">← Back to Hub</Link>
+      <header className="container py-14 md:py-20 px-4 sm:px-6 max-w-4xl text-center border-b border-[#D4AF37]/10 mb-10 md:mb-12">
+        <div className="flex flex-wrap justify-center mb-6 md:mb-8 gap-3 md:gap-4 text-[10px] md:text-xs font-bold uppercase tracking-[0.16em] md:tracking-[0.2em] text-[#D4AF37]">
+          <Link href="/wisdom" className="page-back-link page-back-link-light">← Back to Hub</Link>
           <span>•</span>
           <span className="text-[#8B1538]">Right Faith</span>
         </div>
-        <h1 className="text-4xl md:text-6xl font-serif text-[#722F37] mb-8 leading-tight">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-serif text-[#722F37] mb-6 md:mb-8 leading-tight">
           What is Samyak Darshan? The First Step to Eternal Freedom
         </h1>
-        <p className="text-xl md:text-2xl text-[#4A4A4A] leading-relaxed italic opacity-80">
+        <p className="text-lg sm:text-xl md:text-2xl text-[#4A4A4A] leading-relaxed italic opacity-80">
           "The initial awakening where the soul finally sees itself for what it truly is."
         </p>
       </header>
 
-      <main className="container max-w-3xl py-12 px-6">
+      <main className="container max-w-3xl py-10 md:py-12 px-4 sm:px-6">
         <section className="prose prose-lg prose-serif mx-auto text-[#1A1A1A] leading-[1.8] space-y-10">
           <p className="first-letter:text-7xl first-letter:font-serif first-letter:text-[#D4AF37] first-letter:mr-3 first-letter:float-left">
             In the ancient tradition of Jainism, the path to liberation (Moksha) is defined by three inseparable jewels: 

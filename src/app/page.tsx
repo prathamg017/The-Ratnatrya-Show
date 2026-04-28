@@ -961,31 +961,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gallery Section — Premium Banner */}
-      <section style={{ background: 'linear-gradient(135deg, #FFFFF0 0%, #FFF8DC 100%)', padding: '6rem 0', borderTop: '1px solid rgba(212,175,55,0.2)', borderBottom: '1px solid rgba(212,175,55,0.2)' }}>
-        <div className="container" style={{ padding: '0 clamp(1.5rem, 5vw, 4rem)' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '2rem' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(114,47,55,0.06)', border: '1px solid rgba(114,47,55,0.12)', borderRadius: '9999px', padding: '0.4rem 1.4rem' }}>
-              <span style={{ fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#8B1538', fontFamily: 'var(--font-sans)' }}>✦ Visual Archive ✦</span>
-            </div>
-            <h2 style={{ fontFamily: 'var(--font-serif)', fontSize: 'clamp(2.2rem, 5vw, 4rem)', color: '#722F37', lineHeight: 1.1 }}>
-              Glimpses of Jinshasan<br />
-              <span style={{ background: 'linear-gradient(135deg, #D4AF37, #F4D03F)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Prabhavna</span>
-            </h2>
-            <p style={{ maxWidth: 600, color: 'rgba(74,74,74,0.75)', fontSize: '1.05rem', lineHeight: 1.8 }}>
-              Witness the divine energy, sacred performances, and the thousands of devotees moved by the Ratnatraya experience.
-            </p>
-            <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', justifyContent: 'center', margin: '0.5rem 0' }}>
-              {['🎭 Live Performances', '📸 Behind the Scenes', '🌟 Artist Portraits', '👥 Audience Moments'].map(tag => (
-                <span key={tag} style={{ padding: '0.5rem 1.2rem', background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.3)', borderRadius: '9999px', fontSize: '0.8rem', fontWeight: 700, color: '#8B1538', fontFamily: 'var(--font-sans)' }}>{tag}</span>
-              ))}
-            </div>
-            <Link href="/gallery" style={{ background: 'linear-gradient(135deg, #722F37, #8B1538)', color: '#fff', padding: '1rem 3rem', borderRadius: '9999px', fontWeight: 900, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.15em', textDecoration: 'none', boxShadow: '0 15px 40px rgba(114,47,55,0.3)', transition: 'all 0.3s ease', display: 'inline-block' }} prefetch={true}>
-              View Photo Gallery →
-            </Link>
-          </div>
-        </div>
-      </section>
+
 
       {/* Contact & Footer Section */}
       <footer id="contact" className={`footer-section ${isVisible.contact ? 'animate-in' : ''}`}>

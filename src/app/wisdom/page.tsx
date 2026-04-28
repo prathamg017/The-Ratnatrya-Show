@@ -39,33 +39,56 @@ const articles = [
 
 export default function WisdomHub() {
   return (
-    <div style={{ minHeight: '100vh', background: '#FFFFF0', color: '#1A1A1A' }}>
-      <div style={{ height: 80 }} />
+    <div className="wisdom-hub-page">
+      <div className="wisdom-hub-top-spacer" />
 
       {/* Hero Header */}
-      <header style={{ background: 'linear-gradient(135deg, #722F37 0%, #8B1538 100%)', padding: '5rem 0 6rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'absolute', top: -80, right: -80, width: 300, height: 300, background: 'radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%)', borderRadius: '50%' }} />
-        <div style={{ position: 'absolute', bottom: -80, left: -80, width: 400, height: 400, background: 'radial-gradient(circle, rgba(212,175,55,0.1), transparent 70%)', borderRadius: '50%' }} />
+      <header className="wisdom-hub-hero">
+        <div className="wisdom-hub-orb wisdom-hub-orb-right" />
+        <div className="wisdom-hub-orb wisdom-hub-orb-left" />
 
-        <div className="container" style={{ padding: '0 clamp(1.5rem, 5vw, 4rem)', position: 'relative', zIndex: 10 }}>
-          <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: '#D4AF37', textDecoration: 'none', fontWeight: 800, fontSize: '0.7rem', letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: '2rem' }}>
-            ← Back Home
-          </Link>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(212, 175, 55, 0.1)', border: '1px solid rgba(212, 175, 55, 0.3)', borderRadius: '9999px', padding: '0.4rem 1.2rem', marginBottom: '1.5rem' }}>
-            <span style={{ fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#D4AF37' }}>✦ Jain Philosophical Archive ✦</span>
+        <div className="container wisdom-hub-hero-inner">
+          <div className="wisdom-hub-back-row">
+            <Link
+              href="/"
+              className="wisdom-hub-back-link"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.45rem',
+                color: '#d4af37',
+                textDecoration: 'none',
+                fontWeight: 800,
+                textTransform: 'uppercase',
+                lineHeight: 1,
+                padding: '0.56rem 0.92rem',
+                fontSize: '0.64rem',
+                letterSpacing: '0.12em',
+                background: 'rgba(0, 0, 0, 0.24)',
+                border: '1px solid rgba(212, 175, 55, 0.45)',
+                borderRadius: '999px',
+                boxShadow: '0 8px 22px rgba(0, 0, 0, 0.2)',
+              }}
+            >
+              ← Back Home
+            </Link>
           </div>
-          <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2.8rem, 7vw, 5.5rem)', color: '#fff', lineHeight: 1.1, marginBottom: '1.5rem' }}>
+          <div className="wisdom-hub-badge">
+            <span className="wisdom-hub-badge-text">✦ Jain Philosophical Archive ✦</span>
+          </div>
+          <h1 className="wisdom-hub-title">
             Jain Wisdom Hub
           </h1>
-          <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '1.1rem', lineHeight: 1.8, maxWidth: 600, margin: '0 auto' }}>
+          <p className="wisdom-hub-subtitle">
             Deep wisdom for a modern world. Explore the eternal teachings of Jinshasan to elevate your soul.
           </p>
         </div>
       </header>
 
       {/* Articles Grid */}
-      <main style={{ maxWidth: 1200, margin: '0 auto', padding: '5rem clamp(1.5rem, 5vw, 4rem)' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(480px, 1fr))', gap: '2.5rem' }}>
+      <main className="wisdom-hub-main">
+        <div className="wisdom-hub-grid">
           {articles.map((article, index) => (
             <motion.div
               key={article.id}
@@ -73,32 +96,22 @@ export default function WisdomHub() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              style={{
-                background: '#ffffff',
-                borderRadius: '3rem',
-                padding: '3rem',
-                boxShadow: '0 20px 60px rgba(114,47,55,0.08), 0 0 0 1px rgba(212,175,55,0.15)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.5rem',
-                transition: 'all 0.4s ease',
-                cursor: 'default'
-              }}
+              className="wisdom-hub-card"
             >
-              <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem' }}>
+              <div className="wisdom-hub-card-head">
                 <div>
-                  <span style={{ fontSize: '0.65rem', fontWeight: 800, letterSpacing: '0.2em', textTransform: 'uppercase', color: '#D4AF37', display: 'block', marginBottom: '0.5rem' }}>
+                  <span className="wisdom-hub-readtime">
                     {article.readTime} Read
                   </span>
-                  <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.8rem', color: '#722F37', lineHeight: 1.2, marginBottom: '0.25rem' }}>
+                  <h2 className="wisdom-hub-card-title">
                     {article.title}
                   </h2>
-                  <span style={{ fontSize: '0.85rem', color: 'rgba(74,74,74,0.6)', fontStyle: 'italic' }}>{article.subtitle}</span>
+                  <span className="wisdom-hub-card-subtitle">{article.subtitle}</span>
                 </div>
-                <div style={{ fontSize: '3rem', flexShrink: 0, lineHeight: 1 }}>{article.icon}</div>
+                <div className="wisdom-hub-card-icon">{article.icon}</div>
               </div>
-              <div style={{ width: 60, height: 2, background: 'linear-gradient(90deg, #D4AF37, transparent)' }} />
-              <p style={{ color: 'rgba(74,74,74,0.85)', fontSize: '1rem', lineHeight: 1.9 }}>
+              <div className="wisdom-hub-card-divider" />
+              <p className="wisdom-hub-card-snippet">
                 {article.snippet}
               </p>
             </motion.div>
@@ -106,37 +119,102 @@ export default function WisdomHub() {
         </div>
 
         {/* CTA Section */}
-        <section style={{
-          marginTop: '5rem',
-          background: 'linear-gradient(135deg, #722F37 0%, #8B1538 100%)',
-          color: '#fff',
-          padding: 'clamp(3rem, 6vw, 5rem)',
-          borderRadius: '4rem',
-          textAlign: 'center',
-          boxShadow: '0 40px 100px rgba(114,47,55,0.3)',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          <div style={{ position: 'absolute', top: -60, right: -60, width: 250, height: 250, background: 'radial-gradient(circle, rgba(212,175,55,0.1), transparent 70%)', borderRadius: '50%' }} />
-          <div style={{ position: 'relative', zIndex: 10 }}>
-            <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: 'clamp(2rem, 4vw, 3.5rem)', marginBottom: '1rem' }}>
+        <section className="wisdom-hub-cta">
+          <div className="wisdom-hub-cta-orb" />
+          <div className="wisdom-hub-cta-inner">
+            <h2 className="wisdom-hub-cta-title">
               Experience These Teachings Live
             </h2>
-            <p style={{ opacity: 0.7, fontSize: '1.05rem', lineHeight: 1.8, maxWidth: 600, margin: '0 auto 2.5rem' }}>
+            <p className="wisdom-hub-cta-text">
               Bring the wisdom of the Three Jewels to your city through an immersive Ratnatraya performance. Already touched 5+ cities across India.
             </p>
-            <Link href="/#invite-form" style={{
-              background: '#D4AF37', color: '#1A1A1A', padding: '1.1rem 3rem',
-              borderRadius: '9999px', fontWeight: 900, fontSize: '0.9rem',
-              textTransform: 'uppercase', letterSpacing: '0.15em', textDecoration: 'none',
-              boxShadow: '0 10px 30px rgba(212,175,55,0.4)', display: 'inline-block',
-              transition: 'all 0.3s ease'
-            }}>
+            <Link href="/#invite-form" className="wisdom-hub-cta-btn">
               Invite The Show to Your City
             </Link>
           </div>
         </section>
       </main>
+
+      <style jsx>{`
+        .wisdom-hub-page { min-height: 100vh; background: #fffff0; color: #1a1a1a; }
+        .wisdom-hub-top-spacer { height: 80px; }
+        .wisdom-hub-hero { background: linear-gradient(135deg, #722f37 0%, #8b1538 100%); padding: 5rem 0 6rem; text-align: center; position: relative; overflow: hidden; }
+        .wisdom-hub-orb { position: absolute; border-radius: 50%; pointer-events: none; }
+        .wisdom-hub-orb-right { top: -80px; right: -80px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(212,175,55,0.15), transparent 70%); }
+        .wisdom-hub-orb-left { bottom: -80px; left: -80px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(212,175,55,0.1), transparent 70%); }
+        .wisdom-hub-hero-inner { padding: 0 clamp(1rem, 5vw, 4rem); position: relative; z-index: 10; }
+        .wisdom-hub-back-row { width: 100%; text-align: left; margin-bottom: 1.4rem; }
+        .wisdom-hub-back-link {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.45rem;
+          color: #d4af37;
+          text-decoration: none;
+          font-weight: 800;
+          text-transform: uppercase;
+          line-height: 1;
+          padding: 0.56rem 0.92rem;
+          font-size: 0.64rem;
+          letter-spacing: 0.12em;
+          background: rgba(0, 0, 0, 0.24);
+          border: 1px solid rgba(212, 175, 55, 0.45);
+          border-radius: 999px;
+          box-shadow: 0 8px 22px rgba(0, 0, 0, 0.2);
+          transition: all 0.25s ease;
+        }
+        .wisdom-hub-back-link:hover {
+          color: #1a1a1a;
+          background: #d4af37;
+          border-color: #f4d03f;
+          transform: translateY(-1px);
+          box-shadow: 0 10px 26px rgba(212, 175, 55, 0.35);
+        }
+        .wisdom-hub-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 9999px; padding: 0.4rem 1.2rem; margin-bottom: 1.5rem; }
+        .wisdom-hub-badge-text { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.25em; text-transform: uppercase; color: #d4af37; }
+        .wisdom-hub-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 7vw, 5.5rem); color: #fff; line-height: 1.1; margin-bottom: 1.2rem; }
+        .wisdom-hub-subtitle { color: rgba(255,255,255,0.72); font-size: clamp(0.95rem, 2.5vw, 1.1rem); line-height: 1.75; max-width: 620px; margin: 0 auto; }
+        .wisdom-hub-main { max-width: 1200px; margin: 0 auto; padding: 5rem clamp(1rem, 5vw, 4rem); }
+        .wisdom-hub-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+        .wisdom-hub-card { background: #fff; border-radius: 2.25rem; padding: 2rem; box-shadow: 0 20px 60px rgba(114,47,55,0.08), 0 0 0 1px rgba(212,175,55,0.15); display: flex; flex-direction: column; gap: 1.2rem; transition: all 0.3s ease; }
+        .wisdom-hub-card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; }
+        .wisdom-hub-readtime { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase; color: #d4af37; display: block; margin-bottom: 0.5rem; }
+        .wisdom-hub-card-title { font-family: var(--font-serif); font-size: clamp(1.2rem, 3vw, 1.7rem); color: #722f37; line-height: 1.25; margin-bottom: 0.25rem; }
+        .wisdom-hub-card-subtitle { font-size: 0.85rem; color: rgba(74,74,74,0.6); font-style: italic; }
+        .wisdom-hub-card-icon { font-size: 2.4rem; flex-shrink: 0; line-height: 1; }
+        .wisdom-hub-card-divider { width: 60px; height: 2px; background: linear-gradient(90deg, #d4af37, transparent); }
+        .wisdom-hub-card-snippet { color: rgba(74,74,74,0.85); font-size: 0.98rem; line-height: 1.8; }
+        .wisdom-hub-cta { margin-top: 4rem; background: linear-gradient(135deg, #722f37 0%, #8b1538 100%); color: #fff; padding: clamp(2rem, 6vw, 5rem); border-radius: 2.5rem; text-align: center; box-shadow: 0 40px 100px rgba(114,47,55,0.3); position: relative; overflow: hidden; }
+        .wisdom-hub-cta-orb { position: absolute; top: -60px; right: -60px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(212,175,55,0.1), transparent 70%); border-radius: 50%; }
+        .wisdom-hub-cta-inner { position: relative; z-index: 10; }
+        .wisdom-hub-cta-title { font-family: var(--font-serif); font-size: clamp(1.7rem, 4vw, 3.5rem); margin-bottom: 1rem; }
+        .wisdom-hub-cta-text { opacity: 0.78; font-size: clamp(0.95rem, 2.3vw, 1.05rem); line-height: 1.75; max-width: 600px; margin: 0 auto 2rem; }
+        .wisdom-hub-cta-btn { background: #d4af37; color: #1a1a1a; padding: 1rem 2rem; border-radius: 9999px; font-weight: 900; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; text-decoration: none; box-shadow: 0 10px 30px rgba(212,175,55,0.4); display: inline-block; transition: all 0.3s ease; }
+        .wisdom-hub-cta-btn:hover { background: #f4d03f; transform: translateY(-2px); }
+        @media (max-width: 1024px) {
+          .wisdom-hub-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 640px) {
+          .wisdom-hub-top-spacer { height: 68px; }
+          .wisdom-hub-hero { padding: 3.2rem 0 3.8rem; }
+          .wisdom-hub-back-row { margin-bottom: 1rem; }
+          .wisdom-hub-back-link {
+            font-size: 0.6rem;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 0.78rem;
+          }
+          .wisdom-hub-badge { margin-bottom: 1rem; padding: 0.35rem 0.8rem; }
+          .wisdom-hub-badge-text { font-size: 0.56rem; letter-spacing: 0.15em; }
+          .wisdom-hub-title { font-size: clamp(1.9rem, 9vw, 2.6rem); margin-bottom: 0.9rem; }
+          .wisdom-hub-main { padding: 2.2rem 1rem 3rem; }
+          .wisdom-hub-grid { gap: 1rem; }
+          .wisdom-hub-card { border-radius: 1.25rem; padding: 1.1rem; gap: 0.9rem; }
+          .wisdom-hub-card-icon { font-size: 1.9rem; }
+          .wisdom-hub-card-snippet { font-size: 0.9rem; line-height: 1.65; }
+          .wisdom-hub-cta { margin-top: 2.4rem; border-radius: 1.4rem; padding: 1.6rem 1rem; }
+          .wisdom-hub-cta-btn { width: 100%; text-align: center; }
+        }
+      `}</style>
     </div>
   );
 }

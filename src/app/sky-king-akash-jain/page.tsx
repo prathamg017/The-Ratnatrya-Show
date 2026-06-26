@@ -23,7 +23,7 @@ const unifiedSchema = {
       "knowsAbout": ["Jainism", "Digital Branding", "Jinshasan Prabhavna", "Cultural Entrepreneurship"],
       "nationality": { "@type": "Country", "name": "India" },
       "sameAs": [
-        "https://www.instagram.com/the_ratnatrya_show/",
+        "https://www.instagram.com/the_ratnatray_show/",
         "https://www.instagram.com/sky_king_akash_jain/",
         "https://linkedin.com/in/akashjain-skyking"
       ]

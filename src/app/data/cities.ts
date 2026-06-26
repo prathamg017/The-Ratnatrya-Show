@@ -66,6 +66,17 @@ export const PERFORMED_CITIES: PerformedCity[] = [
     images: [],
     videos: []
   },
+  {
+    id: '6',
+    name: 'Aron',
+    state: 'Madhya Pradesh',
+    lat: 24.3580,
+    lng: 77.0700,
+    highlight: 'Jin Jamming',
+    folder: 'aron',
+    images: ['1.JPG', '2.JPG', '3.JPG', '4.JPG', '5.JPG', '6.JPG', '7.JPG', '8.JPG', '9.JPG', '10.JPG', '11.JPG', '12.JPG', '13.JPG', '14.JPG', '15.JPG', '16.JPG', '17.JPG', '18.JPG'],
+    videos: ['v1.mp4', 'v2.mp4']
+  },
 ];
 
 // Keep for backward compat
@@ -84,5 +95,5 @@ export const INITIAL_REQUESTED_CITIES: RequestedCity[] = PERFORMED_CITIES.map((c
   state: c.state,
   lat: c.lat,
   lng: c.lng,
-  requestCount: [60, 80, 40, 100, 80][i]
+  requestCount: [60, 80, 40, 100, 80, 90][i] || 70
 }));

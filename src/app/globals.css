@@ -83,6 +83,24 @@ html {
   scroll-behavior: smooth;
   font-size: clamp(12px, 2vw, 16px);
   overflow-x: hidden;
+  scrollbar-color: var(--gold-pure) var(--black-deep);
+  scrollbar-width: thin;
+}
+
+/* Luxury Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--gold-rich) 0%, var(--gold-pure) 50%, var(--gold-dark) 100%);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-light);
 }
 
 body {
@@ -3092,18 +3110,92 @@ p,
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(40px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.animate-in {
-  animation: fadeInUp 1s ease-out forwards;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
+
+.animate-in {
+  animation: fadeInUp 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+section.animate-in {
+  animation: fadeIn 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered Delay Utilities for Flowing Entrance */
+.delay-100 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 300ms; }
+.delay-300 { animation-delay: 450ms; }
+.delay-400 { animation-delay: 600ms; }
+.delay-500 { animation-delay: 750ms; }
+
+/* Slow Pulsing Stage Ambient Glow */
+@keyframes stageGlowPulse {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(1) translate(-10%, -10%);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.15) translate(-8%, -12%);
+  }
+}
+
+.ambient-stage-glow-left {
+  position: absolute;
+  top: 10%;
+  left: -15%;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(114, 47, 55, 0.05) 50%, transparent 80%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+  animation: stageGlowPulse 15s ease-in-out infinite;
+}
+
+.ambient-stage-glow-right {
+  position: absolute;
+  bottom: 10%;
+  right: -15%;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 21, 56, 0.1) 0%, rgba(212, 175, 55, 0.04) 50%, transparent 80%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+  animation: stageGlowPulse 20s ease-in-out infinite alternate;
+}
+
+/* Premium Reveal Motion System for Children */
+.reveal-child {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1), transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-in .reveal-child {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered transition delay utilities */
+.animate-in .delay-100 { transition-delay: 150ms; }
+.animate-in .delay-200 { transition-delay: 300ms; }
+.animate-in .delay-300 { transition-delay: 450ms; }
+.animate-in .delay-400 { transition-delay: 600ms; }
+.animate-in .delay-500 { transition-delay: 750ms; }
 
 /* ===== ENHANCED FOOTER STYLING ===== */
 .footer-section {

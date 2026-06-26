@@ -88,7 +88,7 @@ const unifiedGlobalSchema = {
       "logo": "https://theratnatrayashow.com/google-search-icon.png",
       "alternateName": "Ratnatray",
       "sameAs": [
-        "https://www.instagram.com/the_ratnatrya_show/"
+        "https://www.instagram.com/the_ratnatray_show/"
       ],
       "contactPoint": {
         "@type": "ContactPoint",

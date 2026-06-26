@@ -466,9 +466,11 @@ export default function Home() {
 
 
       {/* About Section - Redesigned */}
-      <section id="about" className={`about-section ${isVisible.about ? 'animate-in' : ''}`}>
-        <div className="container">
-          <div className="section-header">
+      <section id="about" className={`about-section ${isVisible.about ? 'animate-in' : ''}`} style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="ambient-stage-glow-left"></div>
+        <div className="ambient-stage-glow-right"></div>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div className="section-header reveal-child">
             <h2 className="section-title">
               <span className="title-icon diamond-cluster">
                 <span className="diamond diamond-red">∴</span>
@@ -479,7 +481,7 @@ export default function Home() {
           </div>
 
           {/* Main Introduction */}
-          <div className="about-intro">
+          <div className="about-intro reveal-child delay-100">
             <div className="intro-content-wrapper">
               <div className="intro-content">
                 <h3 className="intro-headline">India&apos;s Most Impactful Free Jain Spiritual Event</h3>
@@ -517,13 +519,13 @@ export default function Home() {
           </div>
 
           {/* Three Pillars */}
-          <div className="three-pillars">
+          <div className="three-pillars reveal-child delay-200">
             <div className="pillars-header">
               <h3>Guided by the Eternal Three Jewels (Ratnatraya)</h3>
               <p>The foundation of every show rests on the pillars of Jain liberation</p>
             </div>
             <div className="pillars-grid">
-              <div className="pillar-card">
+              <div className="pillar-card reveal-child delay-300">
                 <div className="pillar-number">1</div>
                 <div className="pillar-content">
                   <h4>Samyak Darshan</h4>
@@ -532,7 +534,7 @@ export default function Home() {
                   <div className="pillar-line"></div>
                 </div>
               </div>
-              <div className="pillar-card">
+              <div className="pillar-card reveal-child delay-400">
                 <div className="pillar-number">2</div>
                 <div className="pillar-content">
                   <h4>Samyak Gyan</h4>
@@ -541,7 +543,7 @@ export default function Home() {
                   <div className="pillar-line"></div>
                 </div>
               </div>
-              <div className="pillar-card">
+              <div className="pillar-card reveal-child delay-500">
                 <div className="pillar-number">3</div>
                 <div className="pillar-content">
                   <h4>Samyak Charitra</h4>
@@ -736,9 +738,11 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className={`experience-section ${isVisible.experience ? 'animate-in' : ''}`}>
-        <div className="container">
-          <div className="section-header">
+      <section id="experience" className={`experience-section ${isVisible.experience ? 'animate-in' : ''}`} style={{ position: 'relative', overflow: 'hidden' }}>
+        <div className="ambient-stage-glow-left"></div>
+        <div className="ambient-stage-glow-right"></div>
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div className="section-header reveal-child">
             <h2 className="section-title">
               <span className="title-icon">◈</span>
               The Jain Spiritual Event Experience
@@ -746,7 +750,7 @@ export default function Home() {
             <div className="title-underline"></div>
           </div>
 
-          <div className="experience-container">
+          <div className="experience-container reveal-child delay-200">
             <div className="experience-diagram">
               {/* Center Logo */}
               <div className="experience-center-hub">
@@ -968,17 +972,17 @@ export default function Home() {
         <div className="container">
           
           {/* CTA Section */}
-          <div className="footer-cta">
+          <div className="footer-cta reveal-child">
             <h2>Ready for a Spiritual Journey?</h2>
             <p>Experience the magic of Ratnatray – where culture meets spirituality</p>
-            <a href="https://www.instagram.com/the_ratnatrya_show/" target="_blank" rel="noopener noreferrer" className="btn-primary">
+            <a href="https://www.instagram.com/the_ratnatray_show/" target="_blank" rel="noopener noreferrer" className="btn-primary">
               <span>📸</span>
               <span>Join Us on Instagram</span>
             </a>
           </div>
 
           {/* Main Footer Grid */}
-          <div className="footer-grid">
+          <div className="footer-grid reveal-child delay-200">
             
             {/* Partners */}
             <div className="footer-column">

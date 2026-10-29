@@ -1,15 +1,13 @@
 'use client';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
-import dynamic from 'next/dynamic';
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import './globals.css';
 
 // Dynamic Imports for Client-side heavy components
 const CitiesMap = dynamic(() => import('./components/MapContainer'), { ssr: false });
 const JoinTeamSection = dynamic(() => import('./components/InviteFormSection'), { ssr: false });
-import WhatsAppShare from "./components/WhatsAppShare";
 
 
 export default function Home() {
@@ -20,21 +18,6 @@ export default function Home() {
     shows: false,
     contact: false
   });
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const rafRef = useRef<number | undefined>(undefined);
-
-  // Throttle function for performance
-  const throttle = (func: Function, delay: number) => {
-    let lastCall = 0;
-    return (...args: any[]) => {
-      const now = Date.now();
-      if (now - lastCall >= delay) {
-        lastCall = now;
-        func(...args);
-      }
-    };
-  };
-
   useEffect(() => {
     const countdown = () => {
       const nextShow = new Date('2026-03-31T19:00:00').getTime();
@@ -100,36 +83,6 @@ export default function Home() {
     });
 
     return () => observer.disconnect();
-  }, []);
-
-  // Optimized mouse move with RAF and throttling
-  useEffect(() => {
-    const handleMouseMove = throttle((e: MouseEvent) => {
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-      
-      rafRef.current = requestAnimationFrame(() => {
-        setMousePos({ x: e.clientX, y: e.clientY });
-        
-        // Magical parallax effect for background decorations
-        const bgDecorations = document.querySelector('.invites-bg-decoration') as HTMLElement;
-        if (bgDecorations) {
-          const moveX = (e.clientX / window.innerWidth - 0.5) * 20;
-          const moveY = (e.clientY / window.innerHeight - 0.5) * 20;
-          bgDecorations.style.transform = `translate(${moveX}px, ${moveY}px)`;
-        }
-      });
-    }, 16); // ~60fps
-
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-    };
   }, []);
 
   // Magical slideshow indicator interaction
@@ -217,30 +170,6 @@ export default function Home() {
           >
             <source src="/bgvideo.MP4" type="video/mp4" />
           </video>
-          <div className="hero-video-overlay"></div>
-
-          {/* Floating Particles */}
-          <div className="particles">
-            {[...Array(8)].map((_, i) => (
-              <div key={i} className={`particle particle-${i}`}></div>
-            ))}
-          </div>
-
-          {/* Animated Gradient Orbs */}
-          <div className="gradient-orbs">
-            <div className="orb orb-1" style={{
-              transform: `translate3d(${mousePos.x * 0.01}px, ${mousePos.y * 0.01}px, 0)`,
-              willChange: 'transform'
-            }}></div>
-            <div className="orb orb-2" style={{
-              transform: `translate3d(${mousePos.x * -0.01}px, ${mousePos.y * -0.005}px, 0)`,
-              willChange: 'transform'
-            }}></div>
-            <div className="orb orb-3" style={{
-              transform: `translate3d(${mousePos.x * 0.005}px, ${mousePos.y * -0.01}px, 0)`,
-              willChange: 'transform'
-            }}></div>
-          </div>
         </div>
 
         <div className="hero-content">
@@ -298,7 +227,24 @@ export default function Home() {
 
      
 
-{/* Official Invitations Section - Commented out
+{/* Kinetic Marquee Ticker */}
+      <div className="show-ticker" aria-hidden="true">
+        <div className="show-ticker-track">
+          {[0, 1].map((i) => (
+            <span className="show-ticker-group" key={i}>
+              <span>Samyak Darshan</span><b>◆</b>
+              <span>Samyak Gyan</span><b>◆</b>
+              <span>Samyak Charitra</span><b>◆</b>
+              <span>Shraman Culture</span><b>◆</b>
+              <span>Bhakti · Nritya · Vani</span><b>◆</b>
+              <span>Jinshasan Prabhavna</span><b>◆</b>
+              <span>The Ratnatraya Show</span><b>◆</b>
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Official Invitations Section - Commented out
 <section className="invites-section">
   <div className="invites-bg-decoration">
     <div className="bg-invite bg-invite-1">
@@ -518,41 +464,40 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Three Pillars */}
-          <div className="three-pillars reveal-child delay-200">
-            <div className="pillars-header">
-              <h3>Guided by the Eternal Three Jewels (Ratnatraya)</h3>
-              <p>The foundation of every show rests on the pillars of Jain liberation</p>
+          {/* Three Jewels Compact Strip */}
+          <div className="three-jewels-strip reveal-child delay-200">
+            <div className="jewels-divider-line">
+              <span className="jewels-kicker">THE ETERNAL FOUNDATION</span>
             </div>
-            <div className="pillars-grid">
-              <div className="pillar-card reveal-child delay-300">
-                <div className="pillar-number">1</div>
-                <div className="pillar-content">
-                  <h4>Samyak Darshan</h4>
-                  <span className="pillar-meaning" lang="hi">सम्यक दर्शन</span>
-                  <p>Right Faith & Vision</p>
-                  <div className="pillar-line"></div>
+            <div className="jewels-strip-grid">
+              <div className="jewel-strip-item">
+                <span className="jewel-symbol">∴ Ⅰ</span>
+                <div className="jewel-texts">
+                  <h4 className="jewel-hi" lang="hi">सम्यक दर्शन</h4>
+                  <span className="jewel-en">Samyak Darshan</span>
+                  <span className="jewel-sub">Right Faith</span>
                 </div>
               </div>
-              <div className="pillar-card reveal-child delay-400">
-                <div className="pillar-number">2</div>
-                <div className="pillar-content">
-                  <h4>Samyak Gyan</h4>
-                  <span className="pillar-meaning" lang="hi">सम्यक ज्ञान</span>
-                  <p>Right Knowledge</p>
-                  <div className="pillar-line"></div>
+              <div className="jewel-strip-separator"></div>
+              <div className="jewel-strip-item">
+                <span className="jewel-symbol">∴ Ⅱ</span>
+                <div className="jewel-texts">
+                  <h4 className="jewel-hi" lang="hi">सम्यक ज्ञान</h4>
+                  <span className="jewel-en">Samyak Gyan</span>
+                  <span className="jewel-sub">Right Knowledge</span>
                 </div>
               </div>
-              <div className="pillar-card reveal-child delay-500">
-                <div className="pillar-number">3</div>
-                <div className="pillar-content">
-                  <h4>Samyak Charitra</h4>
-                  <span className="pillar-meaning" lang="hi">सम्यक चारित्र</span>
-                  <p>Right Conduct</p>
-                  <div className="pillar-line"></div>
+              <div className="jewel-strip-separator"></div>
+              <div className="jewel-strip-item">
+                <span className="jewel-symbol">∴ Ⅲ</span>
+                <div className="jewel-texts">
+                  <h4 className="jewel-hi" lang="hi">सम्यक चारित्र</h4>
+                  <span className="jewel-en">Samyak Charitra</span>
+                  <span className="jewel-sub">Right Conduct</span>
                 </div>
               </div>
             </div>
+            <div className="jewels-divider-line bottom"></div>
           </div>
 
           {/* Visionaries Section */}
@@ -624,7 +569,7 @@ export default function Home() {
               <div className="visionary-card">
                 <div className="visionary-image">
                   <Image
-                    src="/anurag.png"
+                    src="/anurag.jpg"
                     alt="Anuraag Jain"
                     width={250}
                     height={250}
@@ -674,29 +619,29 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* CS Palash Jain */}
+              {/* Pratham Gangwal */}
               <div className="visionary-card">
                 <div className="visionary-image">
                   <Image
-                    src="/palash.png"
-                    alt="CS Palash Jain"
+                    src="/pratham.jpg"
+                    alt="Pratham Gangwal"
                     width={250}
                     height={250}
                     className="visionary-photo"
                   />
-                  <div className="visionary-badge">Manager</div>
+                  
+                  <div className="visionary-badge">Tech & Graphics</div>
                 </div>
                 <div className="visionary-details">
-                  <h4>CS Palash Jain</h4>
-                  <p className="visionary-title">Show Manager</p>
+                  <h4>Pratham Gangwal</h4>
+                  <p className="visionary-title">Tech Lead & Graphics</p>
                   <div className="visionary-divider"></div>
                   <p className="visionary-bio">
-                    The operational excellence behind the scenes. His dynamic personality and
-                    unwavering dedication to Jain dharma ensures perfection and grandeur.
+                    The creative and technical architect behind The Ratnatraya Show. Spearheading digital architecture, stage visuals, and brand experience to bring Jinshasan to global audiences.
                   </p>
                   <div className="visionary-highlights">
-                    <span className="highlight-tag">Company Secretary</span>
-                    <span className="highlight-tag">Jain Dharma</span>
+                    <span className="highlight-tag">Tech Lead</span>
+                    <span className="highlight-tag">Creative Direction</span>
                   </div>
                 </div>
               </div>
@@ -745,83 +690,50 @@ export default function Home() {
           <div className="section-header reveal-child">
             <h2 className="section-title">
               <span className="title-icon">◈</span>
-              The Jain Spiritual Event Experience
+              The Sacred Trinity Experience
             </h2>
+            <p className="section-subtitle">A fusion of timeless arts woven for spiritual elevation</p>
             <div className="title-underline"></div>
           </div>
 
           <div className="experience-container reveal-child delay-200">
-            <div className="experience-diagram">
-              {/* Center Logo */}
-              <div className="experience-center-hub">
-                <div className="hub-circle">
-                  {/* Solid color background instead of video */}
-                  <div className="hub-solid-bg"></div>
-                  <div className="hub-overlay">
-                    <div className="hub-label">RATNATRAY</div>
-                    <div className="hub-subtitle">Experience</div>
-                  </div>
-                </div>
-              </div>
+            <div className="trinity-grid">
 
-              {/* Three Experience Circles */}
-              <div className="experience-orbit top">
-                <div className="orbit-circle music">
-                  <Image src="/music.png" alt="Music" width={110} height={110} className="orbit-icon-img" />
-                  <svg className="curved-text-svg" viewBox="0 0 200 200">
-                    <path id="curve-music" d="M 30,100 A 70,70 0 0,1 170,100" fill="transparent" />
-                    <text className="curved-text">
-                      <textPath href="#curve-music" startOffset="50%" textAnchor="middle" lang="hi">
-                        संगीत
-                      </textPath>
-                    </text>
-                  </svg>
+              <article className="trinity-card">
+                <span className="trinity-num" aria-hidden="true">I</span>
+                <div className="trinity-icon">
+                  <Image src="/mic.png" alt="Dharmik Speech" width={72} height={72} className="trinity-icon-img" />
                 </div>
-                <div className="orbit-arrow">↓</div>
-              </div>
+                <h3 className="trinity-hi" lang="hi">ज्ञान</h3>
+                <span className="trinity-en">Dharmik Speech</span>
+                <p className="trinity-desc">Scripture, discourse and the living word of Jinshasan.</p>
+              </article>
 
-              <div className="experience-orbit bottom-left">
-                <div className="orbit-circle speeches">
-                  <Image src="/mic.png" alt="Wisdom" width={110} height={110} className="orbit-icon-img" />
-                  <svg className="curved-text-svg" viewBox="0 0 200 200">
-                    <path id="curve-wisdom" d="M 30,100 A 70,70 0 0,1 170,100" fill="transparent" />
-                    <text className="curved-text">
-                      <textPath href="#curve-wisdom" startOffset="50%" textAnchor="middle" lang="hi">
-                        ज्ञान
-                      </textPath>
-                    </text>
-                  </svg>
+              <article className="trinity-card">
+                <span className="trinity-num" aria-hidden="true">II</span>
+                <div className="trinity-icon">
+                  <Image src="/music.png" alt="Sacred Music" width={72} height={72} className="trinity-icon-img" />
                 </div>
-                <div className="orbit-arrow">↗</div>
-              </div>
+                <h3 className="trinity-hi" lang="hi">संगीत</h3>
+                <span className="trinity-en">Sacred Music</span>
+                <p className="trinity-desc">Bhakti and melody that lift the mind beyond the ordinary.</p>
+              </article>
 
-              <div className="experience-orbit bottom-right">
-                <div className="orbit-circle dance">
-                  <Image src="/Dance.png" alt="Dance" width={110} height={110} className="orbit-icon-img" />
-                  <svg className="curved-text-svg" viewBox="0 0 200 200">
-                    <path id="curve-dance" d="M 30,100 A 70,70 0 0,1 170,100" fill="transparent" />
-                    <text className="curved-text">
-                      <textPath href="#curve-dance" startOffset="50%" textAnchor="middle" lang="hi">
-                        नृत्य
-                      </textPath>
-                    </text>
-                  </svg>
+              <article className="trinity-card">
+                <span className="trinity-num" aria-hidden="true">III</span>
+                <div className="trinity-icon">
+                  <Image src="/Dance.png" alt="Classical Dance" width={72} height={72} className="trinity-icon-img" />
                 </div>
-                <div className="orbit-arrow">↖</div>
-              </div>
+                <h3 className="trinity-hi" lang="hi">नृत्य</h3>
+                <span className="trinity-en">Classical Dance</span>
+                <p className="trinity-desc">Classical expression that turns belief into living movement.</p>
+              </article>
 
-              {/* Connecting Lines */}
-              <svg className="connection-svg" viewBox="0 0 400 400">
-                <circle cx="200" cy="200" r="150" fill="none" stroke="rgba(212, 175, 55, 0.2)" strokeWidth="2" strokeDasharray="5,5"/>
-                <line x1="200" y1="50" x2="200" y2="140" stroke="rgba(212, 175, 55, 0.4)" strokeWidth="3"/>
-                <line x1="80" y1="320" x2="145" y2="245" stroke="rgba(212, 175, 55, 0.4)" strokeWidth="3"/>
-                <line x1="320" y1="320" x2="255" y2="245" stroke="rgba(212, 175, 55, 0.4)" strokeWidth="3"/>
-              </svg>
             </div>
 
-            {/* Bottom Label */}
+            {/* Bottom Quote Banner */}
             <div className="experience-bottom-label">
-              <p>Where Sacred Music, Ancient Wisdom & Classical Dance Unite for Dharma</p>
+              <p>Where Sacred Sound, Eternal Truth &amp; Sacred Movement Converge</p>
             </div>
           </div>
         </div>
@@ -1014,7 +926,7 @@ export default function Home() {
                 </div>
                 <div className="contact-item">
                   <span className="contact-icon">📱</span>
-                  <span>+91-8839481571</span>
+                  <span>+91-9575219696</span>
                 </div>
               </div>
             </div>

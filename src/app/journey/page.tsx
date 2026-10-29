@@ -95,7 +95,7 @@ export default function JourneyPage() {
             Join the journey of Jinshasan Prabhavna today.
           </p>
           <div className="flex justify-center gap-4">
-            <Link href="/invite" className="bg-[#D4AF37] text-[#1A1A1A] px-10 py-4 rounded-full font-bold hover:bg-[#F4D03F] transition-all transform hover:scale-110">
+            <Link href="/invite" className="bg-[#D4AF37] text-[#1A1A1A] px-10 py-4 rounded-full font-bold hover:bg-[#EFD58F] transition-all transform hover:scale-110">
               INVITE THE SHOW NOW
             </Link>
           </div>

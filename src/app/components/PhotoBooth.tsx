@@ -67,7 +67,7 @@ export default function PhotoBooth() {
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
     // Add decorative border
-    context.strokeStyle = '#FFD700';
+    context.strokeStyle = '#EFD58F';
     context.lineWidth = 20;
     context.strokeRect(10, 10, canvas.width - 20, canvas.height - 20);
 
@@ -86,7 +86,7 @@ export default function PhotoBooth() {
 
     // Add branding text at top
     context.font = 'bold 50px Arial';
-    context.fillStyle = '#FFD700';
+    context.fillStyle = '#EFD58F';
     context.strokeStyle = '#000000';
     context.lineWidth = 4;
     context.textAlign = 'center';

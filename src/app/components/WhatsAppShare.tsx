@@ -45,11 +45,11 @@ export default function WhatsAppShare() {
         animate={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="w-16 h-16 bg-[#25D366] rounded-full shadow-2xl flex items-center justify-center text-white text-3xl hover:bg-[#128C7E] transition-all relative group"
+        className="w-16 h-16 bg-[#D4AF37] rounded-full shadow-2xl flex items-center justify-center text-[#1A1A1A] text-3xl hover:bg-[#EFD58F] transition-all relative group"
         onClick={() => setShowTooltip(false)}
       >
         {/* Glowing aura */}
-        <div className="absolute inset-0 bg-[#25D366] rounded-full animate-ping opacity-25 group-hover:block transition-all"></div>
+        <div className="absolute inset-0 bg-[#D4AF37] rounded-full animate-ping opacity-25 group-hover:block transition-all"></div>
         
         {/* WhatsApp Icon (using simple emoji as fallback for light-weight) */}
         <span>📱</span>

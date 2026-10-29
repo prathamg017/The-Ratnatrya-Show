@@ -40,7 +40,7 @@ export default function JoinTeamSection() {
     );
 
     // Open WhatsApp
-    window.open(`https://wa.me/918839481571?text=${message}`, '_blank');
+    window.open(`https://wa.me/919575219696?text=${message}`, '_blank');
     setIsSubmitted(true);
   };
 

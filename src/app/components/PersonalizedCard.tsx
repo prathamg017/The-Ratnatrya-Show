@@ -152,7 +152,7 @@ export default function PersonalizedCard() {
 
         // Add user name on the golden ribbon
         context.font = 'bold 65px Georgia, serif';
-        context.fillStyle = '#8B4513'; // Dark brown for contrast on gold ribbon
+        context.fillStyle = '#996515'; // Dark brown for contrast on gold ribbon
         context.textAlign = 'center';
         context.textBaseline = 'middle';
         

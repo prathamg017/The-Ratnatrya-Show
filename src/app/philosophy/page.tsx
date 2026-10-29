@@ -97,7 +97,7 @@ export default function PhilosophyPage() {
         <div className="container text-center">
           <h2 className="text-3xl font-serif mb-6">Invite this Free Jain Program to Your City</h2>
           <p className="mb-8 opacity-80">Experience the grand confluence of Jain culture and spirituality at zero cost.</p>
-          <Link href="/" className="inline-block bg-[#D4AF37] text-[#1A1A1A] px-8 py-3 rounded-full font-bold hover:bg-[#F4D03F] transition-colors">
+          <Link href="/" className="inline-block bg-[#D4AF37] text-[#1A1A1A] px-8 py-3 rounded-full font-bold hover:bg-[#EFD58F] transition-colors">
             BOOK THE SHOW NOW
           </Link>
         </div>

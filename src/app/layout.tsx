@@ -92,7 +92,7 @@ const unifiedGlobalSchema = {
       ],
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+91-8839481571",
+        "telephone": "+91-9575219696",
         "contactType": "customer service",
         "email": "info.theratnatrayashow@gmail.com",
         "areaServed": "IN",

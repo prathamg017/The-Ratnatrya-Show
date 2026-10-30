@@ -503,8 +503,8 @@ export default function Home() {
           {/* Visionaries Section */}
           <div className="visionaries-section">
             <div className="visionaries-header">
-              <h3>The Spiritual Leaders Behind the Movement</h3>
-              <p>Extraordinary individuals dedicated to the propagation of Jain Dharma and Jinshasan</p>
+              <h3>The Pillars of Leadership</h3>
+              <p>Extraordinary visionaries and leaders dedicated to the propagation of Jain Dharma and Jinshasan</p>
             </div>
 
             <div className="visionaries-grid">
@@ -699,34 +699,106 @@ export default function Home() {
           <div className="experience-container reveal-child delay-200">
             <div className="trinity-grid">
 
-              <article className="trinity-card">
+              {/* 1. Nritya (Dance) */}
+              <article
+                className="trinity-card trinity-card-video"
+                onMouseEnter={(e) => {
+                  const vid = e.currentTarget.querySelector('video');
+                  if (vid) vid.play().catch(() => {});
+                }}
+                onMouseLeave={(e) => {
+                  const vid = e.currentTarget.querySelector('video');
+                  if (vid) {
+                    vid.pause();
+                    vid.currentTime = 0;
+                  }
+                }}
+              >
+                <div className="trinity-video-wrap" aria-hidden="true">
+                  <video
+                    src="/nritya.MP4"
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="trinity-bg-video"
+                  />
+                  <div className="trinity-video-overlay"></div>
+                </div>
                 <span className="trinity-num" aria-hidden="true">I</span>
-                <div className="trinity-icon">
-                  <Image src="/mic.png" alt="Dharmik Speech" width={72} height={72} className="trinity-icon-img" />
+                <div className="trinity-body">
+                  <h3 className="trinity-hi" lang="hi">नृत्य</h3>
+                  <span className="trinity-en">Nritya</span>
+                  <p className="trinity-desc">Devotional dance and theatrical expression depicting eternal spiritual tales.</p>
                 </div>
-                <h3 className="trinity-hi" lang="hi">ज्ञान</h3>
-                <span className="trinity-en">Dharmik Speech</span>
-                <p className="trinity-desc">Scripture, discourse and the living word of Jinshasan.</p>
               </article>
 
-              <article className="trinity-card">
+              {/* 2. Samwad (Discourse / Dialogue) */}
+              <article
+                className="trinity-card trinity-card-video"
+                onMouseEnter={(e) => {
+                  const vid = e.currentTarget.querySelector('video');
+                  if (vid) vid.play().catch(() => {});
+                }}
+                onMouseLeave={(e) => {
+                  const vid = e.currentTarget.querySelector('video');
+                  if (vid) {
+                    vid.pause();
+                    vid.currentTime = 0;
+                  }
+                }}
+              >
+                <div className="trinity-video-wrap" aria-hidden="true">
+                  <video
+                    src="/samwad.MP4"
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="trinity-bg-video"
+                  />
+                  <div className="trinity-video-overlay"></div>
+                </div>
                 <span className="trinity-num" aria-hidden="true">II</span>
-                <div className="trinity-icon">
-                  <Image src="/music.png" alt="Sacred Music" width={72} height={72} className="trinity-icon-img" />
+                <div className="trinity-body">
+                  <h3 className="trinity-hi" lang="hi">संवाद</h3>
+                  <span className="trinity-en">Samwad</span>
+                  <p className="trinity-desc">Profound Dharmik discourse and philosophical dialogue awakening the soul.</p>
                 </div>
-                <h3 className="trinity-hi" lang="hi">संगीत</h3>
-                <span className="trinity-en">Sacred Music</span>
-                <p className="trinity-desc">Bhakti and melody that lift the mind beyond the ordinary.</p>
               </article>
 
-              <article className="trinity-card">
-                <span className="trinity-num" aria-hidden="true">III</span>
-                <div className="trinity-icon">
-                  <Image src="/Dance.png" alt="Classical Dance" width={72} height={72} className="trinity-icon-img" />
+              {/* 3. Sangeet (Sacred Music) */}
+              <article
+                className="trinity-card trinity-card-video"
+                onMouseEnter={(e) => {
+                  const vid = e.currentTarget.querySelector('video');
+                  if (vid) vid.play().catch(() => {});
+                }}
+                onMouseLeave={(e) => {
+                  const vid = e.currentTarget.querySelector('video');
+                  if (vid) {
+                    vid.pause();
+                    vid.currentTime = 0;
+                  }
+                }}
+              >
+                <div className="trinity-video-wrap" aria-hidden="true">
+                  <video
+                    src="/sangeet.MP4"
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                    className="trinity-bg-video"
+                  />
+                  <div className="trinity-video-overlay"></div>
                 </div>
-                <h3 className="trinity-hi" lang="hi">नृत्य</h3>
-                <span className="trinity-en">Classical Dance</span>
-                <p className="trinity-desc">Classical expression that turns belief into living movement.</p>
+                <span className="trinity-num" aria-hidden="true">III</span>
+                <div className="trinity-body">
+                  <h3 className="trinity-hi" lang="hi">संगीत</h3>
+                  <span className="trinity-en">Sangeet</span>
+                  <p className="trinity-desc">Divine melodies and soul-stirring Bhakti lifting consciousness into pure devotion.</p>
+                </div>
               </article>
 
             </div>

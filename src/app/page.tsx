@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './globals.css';
 
 // Dynamic Imports for Client-side heavy components
@@ -11,6 +11,7 @@ const JoinTeamSection = dynamic(() => import('./components/InviteFormSection'), 
 
 
 export default function Home() {
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [isVisible, setIsVisible] = useState({
     about: false,
@@ -18,6 +19,39 @@ export default function Home() {
     shows: false,
     contact: false
   });
+
+  // Ensure hero video autoplays reliably across all mobile and desktop browsers
+  useEffect(() => {
+    const video = heroVideoRef.current;
+    if (!video) return;
+
+    video.defaultMuted = true;
+    video.muted = true;
+
+    const playVideo = () => {
+      const promise = video.play();
+      if (promise !== undefined) {
+        promise.catch(() => {
+          const onFirstInteraction = () => {
+            video.play().catch(() => {});
+            window.removeEventListener('click', onFirstInteraction);
+            window.removeEventListener('touchstart', onFirstInteraction);
+            window.removeEventListener('scroll', onFirstInteraction);
+          };
+          window.addEventListener('click', onFirstInteraction, { once: true });
+          window.addEventListener('touchstart', onFirstInteraction, { once: true, passive: true });
+          window.addEventListener('scroll', onFirstInteraction, { once: true, passive: true });
+        });
+      }
+    };
+
+    if (video.readyState >= 2) {
+      playVideo();
+    } else {
+      video.addEventListener('loadeddata', playVideo, { once: true });
+      video.addEventListener('canplay', playVideo, { once: true });
+    }
+  }, []);
   useEffect(() => {
     const countdown = () => {
       const nextShow = new Date('2026-03-31T19:00:00').getTime();
@@ -161,11 +195,13 @@ export default function Home() {
         {/* Background Elements */}
         <div className="hero-bg">
           <video
+            ref={heroVideoRef}
             className="hero-bg-video"
             autoPlay
             muted
             loop
             playsInline
+            preload="auto"
             poster="/banner.jpeg"
           >
             <source src="/bgvideo.MP4" type="video/mp4" />
